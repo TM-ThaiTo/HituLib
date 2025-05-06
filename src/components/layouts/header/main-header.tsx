@@ -18,7 +18,7 @@ export default function MainHeader() {
               className="h-[65px] w-auto object-contain"
             />
           </Link>
-          <div className='flex items-center gap-2'>
+          <div className="flex items-center gap-2">
             <MenuBar />
             <IconAction />
           </div>
