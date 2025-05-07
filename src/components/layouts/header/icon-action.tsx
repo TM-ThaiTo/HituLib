@@ -1,6 +1,7 @@
 import Icons from '@/components/shares/icons';
 import SearchButton from './components/icon-search';
 import { IconButton } from './components/icon-button';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function IconAction() {
   const iconSize = 18;
@@ -37,7 +38,9 @@ export default function IconAction() {
           />
         ))}
       </div>
-
+      <div className='flex justify-center'>
+        <ThemeToggle />
+      </div>
       <div className="flex justify-center">
         <SearchButton />
       </div>
