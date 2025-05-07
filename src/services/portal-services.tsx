@@ -1,21 +1,16 @@
 import { ENDPOINTS_PORTAL } from "@/contains/url-api";
-
-const url = process.env.BACKEND_URL
+import { fetchApi } from "@/lib/fetcher";
+import { MenuNavigation } from "@/types/header";
 
 const getMenuNavigation = async () => {
-    const response = await fetch(`${ENDPOINTS_PORTAL.MENU_NAVIGATION}`, {
+    const response = await fetchApi<MenuNavigation>(`${ENDPOINTS_PORTAL.MENU_NAVIGATION}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         },
     });
-
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-
-    return response.json();
+    return response.data;
 }
 
 export default getMenuNavigation;

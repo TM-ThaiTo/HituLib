@@ -9,6 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
+import { MenuNavigation } from '@/types/header';
 
 const navItemStyles = cn(
   'relative flex items-center text-sm font-bold uppercase text-foreground',
@@ -28,24 +29,7 @@ interface ActionItem {
 export default function Navbar({
   data
 }: {
-  data: {
-    id: number;
-    tieuDe: string;
-    duongDan: string;
-    icon: string;
-    parentId: number;
-    sapXep: number;
-    moCuaSoMoi: boolean;
-    children: {
-      id: number;
-      tieuDe: string;
-      duongDan: string;
-      icon: string;
-      parentId: number;
-      sapXep: number;
-      moCuaSoMoi: boolean;
-    }[];
-  }
+  data: MenuNavigation
 }) {
   const actions: ActionItem[] = [
     { label: 'trang chủ', type: 1, href: '/' },

@@ -4,7 +4,7 @@ import MenuBar from './menu-bar';
 import IconAction from './icon-action';
 import getMenuNavigation from '@/services/portal-services';
 export default async function MainHeader() {
-  const get = await getMenuNavigation();
+  const data = await getMenuNavigation();
   return (
     <header>
       <div className="flex h-[35px] items-center justify-between bg-[#0a58ca] px-4" />
@@ -20,7 +20,7 @@ export default async function MainHeader() {
             />
           </Link>
           <div className="flex items-center gap-2">
-            <MenuBar data={get.data} />
+            <MenuBar data={data} />
             <IconAction />
           </div>
         </div>
