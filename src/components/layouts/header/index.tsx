@@ -2,8 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import MenuBar from './menu-bar';
 import IconAction from './icon-action';
-
-export default function MainHeader() {
+import getMenuNavigation from '@/services/portal-services';
+export default async function MainHeader() {
+  const get = await getMenuNavigation();
   return (
     <header>
       <div className="flex h-[35px] items-center justify-between bg-[#0a58ca] px-4" />
@@ -19,7 +20,7 @@ export default function MainHeader() {
             />
           </Link>
           <div className="flex items-center gap-2">
-            <MenuBar />
+            <MenuBar data={get.data} />
             <IconAction />
           </div>
         </div>
