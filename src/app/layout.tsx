@@ -4,11 +4,12 @@ import MainHeader from '@/components/layouts/header';
 import { geistMono, geistSans } from '@/lib/fonts';
 import { ThemeProvider } from '@/providers/theme';
 import NextTopLoader from '@/components/next-toploader';
+import MainFooter from '@/components/layouts/footer';
 
 export const metadata: Metadata = {
   title: 'HIUT LIB - Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh',
   description: 'Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh',
-}
+};
 
 export default function RootLayout({
   children,
@@ -22,6 +23,7 @@ export default function RootLayout({
           <NextTopLoader />
           <MainHeader />
           {children}
+          <MainFooter />
         </ThemeProvider>
       </body>
     </html>

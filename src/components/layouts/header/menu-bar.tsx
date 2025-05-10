@@ -55,7 +55,11 @@ export default function Navbar({ data }: { data: MenuNavigations }) {
                               href={child.duongDan ?? '#'}
                               className="block px-2.5 py-3.5 text-sm font-bold text-gray-700 hover:bg-blue-50"
                               target={child.duongDan?.startsWith('http') ? '_blank' : undefined}
-                              rel={child.duongDan?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                              rel={
+                                child.duongDan?.startsWith('http')
+                                  ? 'noopener noreferrer'
+                                  : undefined
+                              }
                             >
                               {child.tieuDe}
                             </Link>
@@ -65,7 +69,7 @@ export default function Navbar({ data }: { data: MenuNavigations }) {
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-            )
+            ),
           )}
       </div>
     </nav>

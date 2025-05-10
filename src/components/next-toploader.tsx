@@ -5,15 +5,15 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import '../styles/nprogress.css'
+import '../styles/nprogress.css';
 
 export default function NextTopLoader() {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
-    useEffect(() => {
-        NProgress.configure({ showSpinner: false }); // Tắt loading hình tròn
-        NProgress.done();
-    }, [pathname]);
+  useEffect(() => {
+    NProgress.configure({ showSpinner: false }); // Tắt loading hình tròn
+    NProgress.done();
+  }, [pathname]);
 
-    return <Loader />
+  return <Loader />;
 }

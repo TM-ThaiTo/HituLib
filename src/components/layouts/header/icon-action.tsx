@@ -38,7 +38,7 @@ export default function IconAction() {
           />
         ))}
       </div>
-      <div className='flex justify-center'>
+      <div className="flex justify-center">
         <ThemeToggle />
       </div>
       <div className="flex justify-center">

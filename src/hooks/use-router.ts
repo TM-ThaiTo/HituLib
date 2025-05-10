@@ -4,28 +4,28 @@ import { useCallback } from 'react';
 import NProgress from 'nprogress';
 
 export const useRouter = () => {
-    const router = useNextRouter();
-    const pathname = usePathname();
+  const router = useNextRouter();
+  const pathname = usePathname();
 
-    const replace = useCallback(
-        (href: string, options?: NavigateOptions) => {
-            href !== pathname && NProgress.start();
-            router.replace(href, options);
-        },
-        [router, pathname],
-    );
+  const replace = useCallback(
+    (href: string, options?: NavigateOptions) => {
+      href !== pathname && NProgress.start();
+      router.replace(href, options);
+    },
+    [router, pathname],
+  );
 
-    const push = useCallback(
-        (href: string, options?: NavigateOptions) => {
-            href !== pathname && NProgress.start();
-            router.push(href, options);
-        },
-        [router, pathname],
-    );
+  const push = useCallback(
+    (href: string, options?: NavigateOptions) => {
+      href !== pathname && NProgress.start();
+      router.push(href, options);
+    },
+    [router, pathname],
+  );
 
-    return {
-        ...router,
-        replace,
-        push,
-    };
+  return {
+    ...router,
+    replace,
+    push,
+  };
 };

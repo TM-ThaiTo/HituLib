@@ -1,0 +1,83 @@
+/* footer.css */
+
+.row_logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+.icon-logo img.img-logo {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
+}
+
+.branch-text .branch-name {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+  color: #1a202c; /* gray-900 */
+  font-size: 1rem;
+}
+
+.branch-text p {
+  color: #4a5568; /* gray-700 */
+  font-size: 0.9rem;
+}
+
+.block-call_email .row-contact {
+  margin-bottom: 0.5rem;
+}
+
+.foot-phone,
+.foot-email {
+  color: #0a58ca;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.foot-phone:hover,
+.foot-email:hover {
+  color: #063e99;
+}
+
+.block-feedback {
+  margin-top: 1.5rem;
+}
+
+.f-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.link-feedback {
+  font-weight: 600;
+  color: #0a58ca;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.link-feedback span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: #0a58ca;
+  border-radius: 50%;
+}
+
+.link-feedback:hover {
+  color: #063e99;
+}
+
+.link-feedback-facebook {
+  text-transform: capitalize;
+}
+
+.link-feedback-youtube {
+  text-transform: capitalize;
+}

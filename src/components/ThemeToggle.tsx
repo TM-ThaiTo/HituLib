@@ -5,29 +5,25 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-    const { theme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-    if (!mounted) {
-        return <div className="h-10 w-10" />;
-    }
+  if (!mounted) {
+    return <div className="h-10 w-10" />;
+  }
 
-    return (
-        <button
-            type="button"
-            className="rounded-full p-2 text-[var(--foreground)] hover:bg-[var(--accent)]/[0.2] hover:text-[var(--accent)] transition-all duration-300 shadow-sm hover:shadow-md"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            aria-label="Toggle theme"
-        >
-            {theme === 'dark' ? (
-                <Sun className="h-5 w-5" />
-            ) : (
-                <Moon className="h-5 w-5" />
-            )}
-        </button>
-    );
+  return (
+    <button
+      type="button"
+      className="rounded-full p-2 text-[var(--foreground)] shadow-sm transition-all duration-300 hover:bg-[var(--accent)]/[0.2] hover:text-[var(--accent)] hover:shadow-md"
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label="Toggle theme"
+    >
+      {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+    </button>
+  );
 }

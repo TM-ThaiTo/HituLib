@@ -1,13 +1,14 @@
 type MenuNavigation = {
-    id: number;
-    tieuDe: string;
-    duongDan: string;
-    icon: string;
-    parentId: number;
-    sapXep: number;
-    moCuaSoMoi: boolean;
+  id: number;
+  tieuDe: string;
+  duongDan: string;
+  icon: string;
+  parentId: number;
+  sapXep: number;
+  moCuaSoMoi: boolean;
 
-    children: {
+  children:
+    | {
         id: number;
         tieuDe: string;
         duongDan: string;
@@ -15,10 +16,8 @@ type MenuNavigation = {
         parentId: number;
         sapXep: number;
         moCuaSoMoi: boolean;
-    }[] | null;
-}
+      }[]
+    | null;
+};
 type MenuNavigations = MenuNavigation[];
-export {
-    MenuNavigation,
-    MenuNavigations
-}
+export { MenuNavigation, MenuNavigations };
