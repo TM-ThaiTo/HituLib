@@ -12,7 +12,7 @@ const getMenuNavigation = async (lang: number = defaultLang) => {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-    }
+    },
   });
   return response.data;
 };

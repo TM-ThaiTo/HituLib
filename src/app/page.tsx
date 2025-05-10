@@ -1,4 +1,4 @@
-import Banner from '@/components/layouts/banner';
+import Banner from '@/components/layouts/home/banner';
 import { BannersType } from '@/types/banner';
 
 const banners: BannersType = [
