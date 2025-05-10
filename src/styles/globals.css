@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@import './swiper.css';
 @theme {
   --container-width: 1400px;
   --container-padding: 0.5rem;

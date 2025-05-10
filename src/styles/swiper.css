@@ -1,0 +1,23 @@
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: white !important;
+  padding: 12px !important;
+  border-radius: 50% !important;
+  width: 35px !important;
+  height: 35px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px !important;
+  color: #000 !important;
+  font-weight: bold;
+}
