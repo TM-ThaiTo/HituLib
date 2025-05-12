@@ -9,7 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
-import { MenuNavigations } from '@/types/header';
+import { MenuNavigations } from '@/types/protal';
 
 const navItemStyles = cn(
   'relative flex items-center text-sm font-bold uppercase text-foreground',
