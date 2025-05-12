@@ -1,7 +1,6 @@
 import { ENDPOINTS_PORTAL } from '@/contains/url-api';
 import { fetchApi } from '@/lib/fetcher';
-import { MenuNavigations } from '@/types/header';
-import FooterType from '@/types/footer';
+import { MenuNavigations, FooterType } from '@/types/protal';
 
 const defaultLang = 1;
 
