@@ -49,6 +49,14 @@ type NewEventType = {
 };
 type NewEventsType = NewEventType[];
 
+// ========== BOOK ==========
+type BookType = {
+  id: number;
+  tieuDe: string;
+  anhDaiDien: string;
+};
+type BooksType = BookType[];
+
 export type {
   MenuNavigation,
   MenuNavigations,
@@ -57,4 +65,6 @@ export type {
   FooterType,
   NewEventType,
   NewEventsType,
+  BookType,
+  BooksType,
 };

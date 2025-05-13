@@ -1,6 +1,7 @@
 import Banner from '@/components/layouts/home/banner';
+import ListBooks from '@/components/layouts/home/books';
 import NewsEventsLayout from '@/components/layouts/home/news-events';
-import { BannersType, NewEventsType } from '@/types/protal';
+import { BannersType, NewEventsType, BooksType } from '@/types/protal';
 
 const banners: BannersType = [
   { id: 4, tieuDe: 'Image 1', lienKet: '#', duongDan: '/banner/giai-phong-mien-nam-2025.png' },
@@ -71,11 +72,59 @@ const newEvents: NewEventsType = [
   },
 ];
 
+const books: BooksType = [
+  {
+    id: 1,
+    tieuDe: 'Giáo trình vẽ kỹ thuật 1',
+    anhDaiDien: '/books/giao-trinh-ve-ky-thuat-1-2024.png',
+  },
+  {
+    id: 2,
+    tieuDe: ' Giáo trình công nghệ chế biến rau, củ, quả và ngũ cốc',
+    anhDaiDien: '/books/gt-giao-cncb-rau-cu-qua-2023-1.jpg',
+  },
+  {
+    id: 3,
+    tieuDe: ' Giáo trình thiết kế rập công nghiệp',
+    anhDaiDien: '/books/gt-thiet-ke-rap-cong-nghiep-20241-1.jpg',
+  },
+  { id: 4, tieuDe: ' Giáo trình toán ứng dụng C', anhDaiDien: '/books/toan-ung-dung-c-2024.jpg' },
+  {
+    id: 5,
+    tieuDe: ' Giáo trình Nghệ thuật lãnh đạo',
+    anhDaiDien: '/books/giao-trinh-nghe-thuat-lanh-dao-2023.jpg',
+  },
+  {
+    id: 6,
+    tieuDe: ' Giáo trình quản trị bán hàng',
+    anhDaiDien: '/books/gt-quan-tri-ban-hang-vu-nhat-tan-2023.png',
+  },
+  {
+    id: 7,
+    tieuDe: ' Giáo trình kỹ thuật lập trình',
+    anhDaiDien: '/books/giao-trinh-ve-ky-thuat-1-2024.png',
+  },
+  {
+    id: 8,
+    tieuDe: ' English for Mechanical Engineering',
+    anhDaiDien: '/books/english-for-mechanical-engineering-2022.png',
+  },
+];
+
 export default async function Home() {
   return (
-    <div className="container mx-auto">
-      <Banner banners={banners} />
-      <NewsEventsLayout newEvents={newEvents} />
+    <div className="max-w-screen-container mx-auto mt-8 px-4 sm:px-6 lg:px-8 2xl:px-0">
+      <div className="mb-8">
+        <Banner banners={banners} />
+      </div>
+
+      <div className="mb-12">
+        <NewsEventsLayout newEvents={newEvents} />
+      </div>
+
+      <div className="mb-12">
+        <ListBooks books={books} />
+      </div>
     </div>
   );
 }

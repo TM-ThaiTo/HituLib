@@ -10,18 +10,20 @@ import { BannersType } from '@/types/protal';
 
 export default function Banner({ banners }: { banners: BannersType }) {
   return (
-    <section className="banner">
-      <div className="s h-[470px] w-[1074px] rounded-sm p-1.5">
-        <Swiper navigation={true} modules={[Navigation]} className="h-full w-full">
+    <section className="banner w-full max-w-[1074px]">
+      <div className="w-full overflow-hidden rounded-sm">
+        <Swiper navigation={true} modules={[Navigation]} className="w-full">
           {banners.map((banner) => (
-            <SwiperSlide key={banner.id} className="h-full w-full">
+            <SwiperSlide key={banner.id} className="relative aspect-[16/7] w-full">
               <Link href={banner.lienKet}>
                 <Image
                   src={banner.duongDan}
                   alt={banner.tieuDe}
-                  width={1064}
-                  height={460}
-                  className="h-full max-h-[460px] w-full max-w-[1064px] rounded-sm"
+                  fill
+                  className="rounded-sm object-cover"
+                  sizes="(max-width: 768px) 100vw,
+                         (max-width: 1280px) 90vw,
+                         1064px"
                 />
               </Link>
             </SwiperSlide>

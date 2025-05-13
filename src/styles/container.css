@@ -1,0 +1,15 @@
+@theme {
+  --container-width: 1400px;
+  --container-padding: 0.5rem;
+}
+.max-w-screen-container {
+  max-width: 1400px;
+}
+
+@utility container {
+  width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
