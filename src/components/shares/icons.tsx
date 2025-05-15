@@ -1,4 +1,4 @@
-import { Search, X, ChevronRight, ArrowRight, ChevronDown } from 'lucide-react';
+import { Search, X, ChevronRight, ArrowRight, ChevronDown, Newspaper } from 'lucide-react';
 
 import { FaFacebookF } from 'react-icons/fa';
 import { AiOutlineX } from 'react-icons/ai';
@@ -10,6 +10,7 @@ const Icons = {
   chevronRight: ChevronRight,
   arrowRight: ArrowRight,
   chevronDown: ChevronDown,
+  news: Newspaper,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,

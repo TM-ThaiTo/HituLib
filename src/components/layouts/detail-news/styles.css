@@ -1,0 +1,22 @@
+.custom-content p {
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.custom-content img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: 100% !important;
+  border-radius: 0.5rem;
+  margin: 0.5rem auto;
+  object-fit: contain;
+  max-height: 700px !important;
+  min-height: 300px !important;
+}
+
+.custom-content h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}

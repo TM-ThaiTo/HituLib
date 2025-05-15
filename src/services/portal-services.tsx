@@ -1,6 +1,6 @@
 import { ENDPOINTS_PORTAL } from '@/contains/url-api';
 import { fetchApi } from '@/lib/fetcher';
-import { MenuNavigations, FooterType } from '@/types/protal';
+import { MenuNavigations, FooterType, NewDetailType } from '@/types/protal';
 
 const defaultLang = 1;
 
@@ -28,4 +28,16 @@ const getFooter = async (lang: number = defaultLang) => {
   return response.data;
 };
 
-export { getMenuNavigation, getFooter };
+const getDetailNews = async (id: number, lang: number = defaultLang) => {
+  const endpoint = `${ENDPOINTS_PORTAL.DETAIL_NEWS}/${id}?lang=${lang}`;
+  const response = await fetchApi<NewDetailType>(endpoint, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  });
+  return response.data;
+};
+
+export { getMenuNavigation, getFooter, getDetailNews };

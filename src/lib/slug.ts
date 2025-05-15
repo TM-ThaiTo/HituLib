@@ -11,13 +11,13 @@ const mapSlug = (slug: string) =>
   });
 
 const mapSlugWithId = (slug: string, id: number) => {
-  const slugifyId = `${mapSlug(slug)}/${id}.html`;
+  const slugifyId = `${mapSlug(slug)}-${id}.html`;
   return slugifyId;
 };
 
 const getIdFromSlug = (slug: string) => {
   try {
-    const slugParts = slug.trim().split('/');
+    const slugParts = slug.trim().split('-');
     const lastPart = slugParts.pop();
 
     if (!lastPart || !lastPart.endsWith('.html')) return null;

@@ -57,6 +57,18 @@ type BookType = {
 };
 type BooksType = BookType[];
 
+// ========== NewDetail ==========
+type NewDetailType = {
+  id: number;
+  tieuDe: string;
+  tomTat: string;
+  noiDung: string;
+  anhDaiDien: string;
+  ngayTao: string;
+  loaiTinTuc: number;
+};
+type NewDetailsType = NewDetailType[];
+
 export type {
   MenuNavigation,
   MenuNavigations,
@@ -67,4 +79,6 @@ export type {
   NewEventsType,
   BookType,
   BooksType,
+  NewDetailType,
+  NewDetailsType,
 };

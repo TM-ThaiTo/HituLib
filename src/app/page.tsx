@@ -115,8 +115,7 @@ const books: BooksType = [
 export default function Home() {
   return (
     <div className="max-w-screen-container mx-auto mt-8 px-4 sm:px-6 lg:px-8 2xl:px-0">
-
-      <div className="flex flex-col gap-8 lg:flex-row mt-4">
+      <div className="mt-4 flex flex-col gap-8 lg:flex-row">
         <div className="flex flex-1 flex-col gap-8">
           <Banner banners={banners} />
           <NewsEventsLayout newEvents={newEvents} />
