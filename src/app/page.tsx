@@ -1,6 +1,7 @@
 import Banner from '@/components/layouts/home/banner';
 import ListBooks from '@/components/layouts/home/books';
 import NewsEventsLayout from '@/components/layouts/home/news-events';
+import LibraryList from '@/components/shares/library-list';
 import { BannersType, NewEventsType, BooksType } from '@/types/protal';
 
 const banners: BannersType = [
@@ -23,7 +24,7 @@ const banners: BannersType = [
 
 const newEvents: NewEventsType = [
   {
-    id: 1,
+    id: 123,
     tieuDe: 'Chuyên trang thông tin Chiến dịch Điện Biên Phủ',
     mota: 'Chuyên trang thông tin Chiến dịch Điện Biên Phủ',
     anhDaiDien: '/news/tu-lieu-dien-bien-phu-300x238.jpg',
@@ -31,7 +32,7 @@ const newEvents: NewEventsType = [
     loaiId: 1,
   },
   {
-    id: 2,
+    id: 122,
     tieuDe: 'Bài tham dự cuộc chia sẻ góc học tập 2025',
     mota: 'Bài tham dự cuộc chia sẻ góc học tập 2025',
     anhDaiDien: '/news/DoNguyenPhuongThao-300x170.jpg',
@@ -39,7 +40,7 @@ const newEvents: NewEventsType = [
     loaiId: 2,
   },
   {
-    id: 3,
+    id: 121,
     tieuDe: 'Thông báo nghỉ lễ ngày Chiến thắng 30/4 và ngày Quốc tế lao động 01/5 năm 2025',
     mota: 'Thông báo nghỉ lễ ngày Chiến thắng 30/4 và ngày Quốc tế lao động 01/5 năm 2025',
     anhDaiDien: '/news/thong-bao-300x168.png',
@@ -47,7 +48,7 @@ const newEvents: NewEventsType = [
     loaiId: 3,
   },
   {
-    id: 4,
+    id: 120,
     tieuDe: 'Đại tướng Võ Nguyên Giáp – chân dung một huyền thoại qua những trang sách',
     mota: 'Đại tướng Võ Nguyên Giáp – chân dung một huyền thoại qua những trang sách',
     anhDaiDien: '/news/dai-tuong-vo-nguyen-giap-300x210.jpg',
@@ -55,7 +56,7 @@ const newEvents: NewEventsType = [
     loaiId: 4,
   },
   {
-    id: 5,
+    id: 119,
     tieuDe: 'Sách Người Bạn Tốt Của Chúng Ta',
     mota: 'Sách Người Bạn Tốt Của Chúng Ta',
     anhDaiDien: '/news/van-hoa-doc-2025-300x128.png',
@@ -111,18 +112,22 @@ const books: BooksType = [
   },
 ];
 
-export default async function Home() {
+export default function Home() {
   return (
     <div className="max-w-screen-container mx-auto mt-8 px-4 sm:px-6 lg:px-8 2xl:px-0">
-      <div className="mb-8">
-        <Banner banners={banners} />
+
+      <div className="flex flex-col gap-8 lg:flex-row mt-4">
+        <div className="flex flex-1 flex-col gap-8">
+          <Banner banners={banners} />
+          <NewsEventsLayout newEvents={newEvents} />
+        </div>
+
+        <div className="w-full lg:w-[300px]">
+          <LibraryList />
+        </div>
       </div>
 
-      <div className="mb-12">
-        <NewsEventsLayout newEvents={newEvents} />
-      </div>
-
-      <div className="mb-12">
+      <div className="mt-12">
         <ListBooks books={books} />
       </div>
     </div>

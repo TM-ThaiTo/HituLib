@@ -15,7 +15,7 @@ export default function ListBooks({ books }: { books: BooksType }) {
               height={200}
               src={book.anhDaiDien}
               alt={book.tieuDe}
-              className="h-48 w-full"
+              className="h-48 w-full object-contain"
             />
             <p className="mt-2 line-clamp-2 text-sm font-medium text-gray-700">
               {book.tieuDe.trim()}
