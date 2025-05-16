@@ -1,4 +1,5 @@
 import Icons from '@/components/shares/icons';
+import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,42 +8,38 @@ const dataGioiThieu = [
     id: 1,
     tieuDe: 'Giới thiệu chung',
     duongDan: '/gioi-thieu-thu-vien/gioi-thieu-chung',
-    moCuaSoMoi: true,
+    moCuaSoMoi: false,
   },
   {
     id: 2,
     tieuDe: 'Sơ đồ tổ chức hoạt động',
-    duongDan: '/gioi-thieu-thu-vien/so-do-to-chuc',
-    moCuaSoMoi: true,
+    duongDan: '/gioi-thieu-thu-vien/so-do-to-chuc-hoat-dong',
+    moCuaSoMoi: false,
   },
   {
     id: 3,
     tieuDe: 'Nội quy thư viện',
     duongDan: '/gioi-thieu-thu-vien/noi-quy-thu-vien',
-    moCuaSoMoi: true,
+    moCuaSoMoi: false,
   },
   {
     id: 4,
     tieuDe: 'Quy định sử dụng thư viện',
     duongDan: '/gioi-thieu-thu-vien/quy-dinh-su-dung-thu-vien',
-    moCuaSoMoi: true,
+    moCuaSoMoi: false,
   },
   {
     id: 5,
     tieuDe: 'Lịch làm việc của thư viện',
     duongDan: '/gioi-thieu-thu-vien/lich-lam-viec-cua-thu-vien',
-    moCuaSoMoi: true,
+    moCuaSoMoi: false,
   },
 ];
 
 export default function MainGioiThieu() {
   return (
     <div className="rounded-lg bg-white p-6 shadow-sm">
-      <div className="mb-4 text-center">
-        <h2 className="inline-block rounded-md bg-blue-100 px-4 py-2 text-base font-semibold text-blue-600">
-          GIỚI THIỆU THƯ VIỆN
-        </h2>
-      </div>
+      <TieuDeGioiThieu tieuDe="giới thiệu thư viện" />
 
       <Image
         width={1012}
