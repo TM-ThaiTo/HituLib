@@ -1,5 +1,5 @@
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
-import { QuyDinhSuDung } from '@/contains/scrape';
+import { QuyDinhSuDung } from '@/constants/scrape';
 import '../style.css';
 export default function MainQuyDinhSuDungThuVien() {
   return (

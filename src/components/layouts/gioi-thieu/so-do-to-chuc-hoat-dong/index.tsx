@@ -1,5 +1,5 @@
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
-import { SoDoToChucHoatDong } from '@/contains/scrape';
+import { SoDoToChucHoatDong } from '@/constants/scrape';
 
 export default function MainSoDoToChucHoatDong() {
   return (

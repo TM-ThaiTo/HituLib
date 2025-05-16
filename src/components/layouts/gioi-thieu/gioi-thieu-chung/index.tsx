@@ -1,4 +1,4 @@
-import { GioiThieuChung } from '@/contains/scrape';
+import { GioiThieuChung } from '@/constants/scrape';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import '../style.css';
 

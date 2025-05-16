@@ -1,5 +1,5 @@
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
-import { NoiQuyThuVien } from '@/contains/scrape';
+import { NoiQuyThuVien } from '@/constants/scrape';
 
 export default function MainNoiQuyThuVien() {
   return (

@@ -4,7 +4,7 @@ import MenuBar from './menu-bar';
 import IconAction from './icon-action';
 // import { getMenuNavigation } from '@/services/portal-services';
 // import { MenuNavigations } from '@/types/protal';
-import { Navigations } from '@/contains/navigations';
+import { Navigations } from '@/constants/navigations';
 
 export default async function MainHeader() {
   // const data = await getMenuNavigation();

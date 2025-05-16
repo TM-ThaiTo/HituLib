@@ -1,5 +1,5 @@
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
-import { LichLamViec } from '@/contains/scrape';
+import { LichLamViec } from '@/constants/scrape';
 
 export default function MainLichLamViec() {
   return (

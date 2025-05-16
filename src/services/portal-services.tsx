@@ -1,6 +1,6 @@
 'use server';
 
-import { ENDPOINTS_PORTAL } from '@/contains/url-api';
+import { ENDPOINTS_PORTAL } from '@/constants/url-api';
 import { fetchApi } from '@/lib/fetcher';
 import { MenuNavigations, FooterType, NewDetailType } from '@/types/protal';
 
