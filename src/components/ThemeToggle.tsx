@@ -12,18 +12,23 @@ export default function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <div className="h-10 w-10" />;
-  }
-
   return (
     <button
       type="button"
-      className="rounded-full p-2 text-[var(--foreground)] shadow-sm transition-all duration-300 hover:bg-[var(--accent)]/[0.2] hover:text-[var(--accent)] hover:shadow-md"
+      className="rounded-full border border-gray-200 p-2 text-[var(--foreground)] shadow-sm transition-all duration-300 hover:bg-[var(--accent)]/[0.2] hover:text-[var(--accent)] hover:shadow-md"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle theme"
     >
-      {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+      {/* Chỉ hiển thị icon khi đã mounted */}
+      {mounted ? (
+        theme === 'dark' ? (
+          <Sun className="h-5 w-5" />
+        ) : (
+          <Moon className="h-5 w-5" />
+        )
+      ) : (
+        <div className="h-5 w-5" /> // giữ kích thước icon để tránh layout shift
+      )}
     </button>
   );
 }
