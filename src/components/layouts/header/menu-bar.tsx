@@ -28,7 +28,7 @@ export default function Navbar({ data }: { data: MenuNavigations }) {
           .sort((a: any, b: any) => a.sapXep - b.sapXep)
           .slice(0, 6) // Limit to 6 items and remove productions
           .map((item: any, index: any) =>
-            item.children.length === 0 ? (
+            item?.children === null || item.children.length === 0 ? (
               <Link
                 key={index}
                 href={item.duongDan ?? '#'}

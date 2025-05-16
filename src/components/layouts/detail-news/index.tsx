@@ -26,7 +26,6 @@ export default function DetailNews({ data }: Props) {
         return 'Tin tức';
     }
   };
-  console.log('data', data);
 
   return (
     <div className="flex w-full flex-col gap-6 rounded-lg bg-white p-4 shadow-md sm:p-6">
@@ -50,8 +49,6 @@ export default function DetailNews({ data }: Props) {
 
         {data.anhDaiDien && (
           <img
-            // width={500}
-            // height={700}
             src={data.anhDaiDien}
             alt="News Thumbnail"
             className="max-h-[400px] w-full rounded-lg object-cover"
