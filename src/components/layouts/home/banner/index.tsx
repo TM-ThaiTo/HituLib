@@ -17,9 +17,10 @@ export default function Banner({ banners }: { banners: BannersType }) {
             <SwiperSlide key={banner.id} className="relative aspect-[16/7] w-full">
               <Link href={banner.lienKet}>
                 <Image
+                  width={1064}
+                  height={460}
                   src={banner.duongDan}
                   alt={banner.tieuDe}
-                  fill
                   className="rounded-sm"
                   sizes="(max-width: 768px) 100vw,
                          (max-width: 1280px) 90vw,
