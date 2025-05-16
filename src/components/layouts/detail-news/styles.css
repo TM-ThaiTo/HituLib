@@ -1,22 +1,97 @@
-.custom-content p {
+.custom-content {
   line-height: 1.75;
+  color: #111;
+  word-break: break-word;
+}
+
+.custom-content p {
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.custom-content h1,
+.custom-content h2,
+.custom-content h3 {
+  font-weight: bold;
+  line-height: 1.4;
+  margin-top: 2rem;
   margin-bottom: 1rem;
+  color: #222;
+}
+
+.custom-content h1 {
+  font-size: 2rem;
+}
+
+.custom-content h2 {
+  font-size: 1.5rem;
+}
+
+.custom-content h3 {
+  font-size: 1.25rem;
+}
+
+.custom-content ul,
+.custom-content ol {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.custom-content li {
+  margin-bottom: 0.5rem;
+}
+
+.custom-content a {
+  color: #2563eb;
+  text-decoration: underline;
 }
 
 .custom-content img {
   display: block;
   max-width: 100%;
-  width: auto;
-  height: 100% !important;
+  height: auto !important;
+  margin: 1rem auto;
   border-radius: 0.5rem;
-  margin: 0.5rem auto;
   object-fit: contain;
   max-height: 700px !important;
   min-height: 300px !important;
 }
 
-.custom-content h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 2rem;
+.custom-content iframe {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.5rem;
+}
+
+.custom-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.custom-content th,
+.custom-content td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.custom-content blockquote {
+  padding-left: 1rem;
+  border-left: 4px solid #ccc;
+  font-style: italic;
+  color: #666;
+  margin: 1.5rem 0;
+}
+
+.custom-content table {
+  width: 100% !important;
+}
+
+.custom-content em {
+  font-weight: 600;
 }

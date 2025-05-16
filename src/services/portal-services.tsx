@@ -51,18 +51,21 @@ const getFooter = async (lang: number = defaultLang) => {
 /**
  * Lấy chi tiết tin tức từ API dựa trên ID và ngôn ngữ.
  *
- * Hàm này gửi một yêu cầu GET tới endpoint chi tiết tin tức và trả về dữ liệu tin tức tương ứng.
- * Mặc định, nếu không truyền ngôn ngữ, sẽ sử dụng `defaultLang`.
+ * Gửi yêu cầu GET đến endpoint chi tiết tin tức và trả về dữ liệu chi tiết.
+ * Nếu có lỗi trong quá trình gọi API, hàm sẽ trả về `null`.
  *
  * @param {number} id - ID của tin tức cần lấy.
- * @param {number} [lang=defaultLang] - Mã ngôn ngữ (ví dụ: 1 cho tiếng Việt, 2 cho tiếng Anh).
- * @returns {Promise<NewDetailType>} Promise trả về dữ liệu chi tiết của tin tức.
+ * @param {number} [lang=defaultLang] - Mã ngôn ngữ, ví dụ: 1 = tiếng Việt, 2 = tiếng Anh.
+ * @returns {Promise<NewDetailType | null>} Promise trả về đối tượng chi tiết tin tức hoặc `null` nếu có lỗi.
  *
  * @example
- * const detail = await getDetailNews(123); // Lấy tin tức ID 123 với ngôn ngữ mặc định
- * const detailEn = await getDetailNews(123, 2); // Lấy tin tức ID 123 bằng tiếng Anh
+ * // Lấy tin tức có ID 123 với ngôn ngữ mặc định
+ * const detail = await getDetailNews(123);
+ *
+ * // Lấy tin tức có ID 123 với ngôn ngữ tiếng Anh (giả sử mã ngôn ngữ là 2)
+ * const detailEn = await getDetailNews(123, 2);
  */
-const getDetailNews = (id: number, lang: number = defaultLang) => {
+const getDetailNews = (id: number, lang: number = defaultLang): Promise<NewDetailType | null> => {
   const endpoint = `${ENDPOINTS_PORTAL.DETAIL_NEWS}/${id}?lang=${lang}`;
   return fetchApi<NewDetailType>(endpoint, {
     method: 'GET',
@@ -70,7 +73,12 @@ const getDetailNews = (id: number, lang: number = defaultLang) => {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
-  }).then((res) => res.data);
+  })
+    .then((res) => res.data)
+    .catch((error) => {
+      console.error('Lỗi khi lấy chi tiết tin tức:', error);
+      return null;
+    });
 };
 
 export { getMenuNavigation, getFooter, getDetailNews };

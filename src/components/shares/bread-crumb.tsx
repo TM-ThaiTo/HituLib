@@ -1,8 +1,8 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,13 +11,14 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-
 import { DataBreadcrumb } from '@/constants/breadcrumb';
-import React from 'react';
 
-export function BreadcrumbWithCustomSeparator() {
+type BreadcrumbProps = {
+  customTitle?: string;
+};
+
+export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) {
   const pathname = usePathname();
-
   const segments = pathname.split('/').filter(Boolean);
 
   const breadcrumbs = segments.map((_, index) => {
@@ -26,7 +27,7 @@ export function BreadcrumbWithCustomSeparator() {
 
     return {
       href,
-      tieuDe: item?.tieuDe || segments[index], // fallback nếu không có tên
+      tieuDe: item?.tieuDe || segments[index],
     };
   });
 
@@ -44,12 +45,17 @@ export function BreadcrumbWithCustomSeparator() {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               {index === breadcrumbs.length - 1 ? (
-                <BreadcrumbPage className="text-primary font-semibold">
-                  {item.tieuDe}
+                <BreadcrumbPage className="text-primary max-w-[200px] truncate overflow-hidden font-semibold whitespace-nowrap sm:max-w-[300px] md:max-w-[400px] lg:max-w-[600px] xl:max-w-[800px]">
+                  {customTitle || item.tieuDe}
                 </BreadcrumbPage>
               ) : (
                 <BreadcrumbLink asChild>
-                  <Link href={item.href}>{item.tieuDe}</Link>
+                  <Link
+                    href={item.href}
+                    className="inline-block max-w-[150px] truncate overflow-hidden align-middle whitespace-nowrap sm:max-w-[200px] md:max-w-[300px]"
+                  >
+                    {item.tieuDe}
+                  </Link>
                 </BreadcrumbLink>
               )}
             </BreadcrumbItem>
