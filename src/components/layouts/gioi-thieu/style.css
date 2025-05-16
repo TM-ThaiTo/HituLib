@@ -80,9 +80,9 @@
   background-color: #f9fafb;
 }
 
-.prose tr:hover {
+/* .prose tr:hover {
   background-color: #edf2f7;
-}
+} */
 
 /* Responsive table adjustments */
 @media (max-width: 640px) {

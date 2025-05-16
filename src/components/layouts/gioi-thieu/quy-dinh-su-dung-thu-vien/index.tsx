@@ -1,6 +1,6 @@
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import { QuyDinhSuDung } from '@/contains/scrape';
-
+import '../style.css';
 export default function MainQuyDinhSuDungThuVien() {
   return (
     <div className="rounded-lg bg-white p-6 shadow-sm">

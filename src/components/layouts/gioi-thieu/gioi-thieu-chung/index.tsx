@@ -1,6 +1,6 @@
 import { GioiThieuChung } from '@/contains/scrape';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
-import './style.css';
+import '../style.css';
 
 export default function MainGioiThieuChung() {
   return (
