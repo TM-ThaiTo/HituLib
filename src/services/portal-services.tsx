@@ -24,9 +24,8 @@ const getMenuNavigation = async (lang: number = defaultLang) => {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
-  }).then(res => res.data);
+  }).then((res) => res.data);
 };
-
 
 /**
  * Lấy dữ liệu chân trang (footer) từ API dựa trên ngôn ngữ.
@@ -46,7 +45,7 @@ const getFooter = async (lang: number = defaultLang) => {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
-  }).then(res => res.data);
+  }).then((res) => res.data);
 };
 
 /**
@@ -71,7 +70,7 @@ const getDetailNews = (id: number, lang: number = defaultLang) => {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
-  }).then(res => res.data);
+  }).then((res) => res.data);
 };
 
 export { getMenuNavigation, getFooter, getDetailNews };

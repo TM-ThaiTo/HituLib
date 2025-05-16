@@ -39,11 +39,11 @@ export default function LibraryList() {
       {items.map((item, index) => (
         <div key={index} className="mb-3">
           <Image
-            width={300}
-            height={205}
+            width={274}
+            height={170}
             src={item.anhDaiDien}
             alt={item.title}
-            className="rounded-lg object-cover"
+            className="rounded-lg object-contain"
           />
         </div>
       ))}

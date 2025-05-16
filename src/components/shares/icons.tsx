@@ -1,6 +1,6 @@
 import { Search, X, ChevronRight, ArrowRight, ChevronDown, Newspaper } from 'lucide-react';
 
-import { FaFacebookF } from 'react-icons/fa';
+import { FaFacebookF, FaPlusSquare } from 'react-icons/fa';
 import { AiOutlineX } from 'react-icons/ai';
 import { FaYoutube } from 'react-icons/fa6';
 
@@ -14,6 +14,7 @@ const Icons = {
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,
+  plusSquare: FaPlusSquare,
 };
 
 export default Icons;
