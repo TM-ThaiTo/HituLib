@@ -7,6 +7,6 @@ export function cn(...inputs: ClassValue[]) {
 
 export function mapImagePath(path: string): string {
   const relativePath = path.replace(/^(\.\.\/)+Upload\//, '');
-  const image_url = process.env.IMAGE_URL;
+  const image_url = process.env.IMAGE_URL || 'https://cdn.hoangkhanhcds.com';
   return `${image_url}/${relativePath}`;
 }

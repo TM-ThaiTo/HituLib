@@ -4,7 +4,7 @@ export async function fetchApi<T>(
   endpoint: string,
   options?: RequestInit,
 ): Promise<ApiResponse<T>> {
-  const baseUrl = process.env.BACKEND_URL || '';
+  const baseUrl = process.env.BACKEND_URL || 'https://api.hoangkhanhcds.com';
 
   const res = await fetch(`${baseUrl}${endpoint}`, {
     method: 'GET',
