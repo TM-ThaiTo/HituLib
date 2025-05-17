@@ -87,6 +87,21 @@ const getDetailNews = (id: number, lang: number = defaultLang): Promise<NewDetai
     });
 };
 
+/**
+ * Lấy danh sách tin tức mới nhất theo ngôn ngữ.
+ *
+ * @param {number} [lang=defaultLang] - Mã ngôn ngữ (mặc định là `defaultLang`).
+ * @returns {Promise<NewEventsType | null>} Promise trả về dữ liệu tin tức hoặc null nếu có lỗi.
+ *
+ * @example
+ * getNews(1).then(data => {
+ *   if (data) {
+ *     console.log('Tin tức mới:', data);
+ *   } else {
+ *     console.log('Không lấy được tin tức');
+ *   }
+ * });
+ */
 const getNews = (lang: number = defaultLang): Promise<NewEventsType | null> => {
   const endpoint = `${ENDPOINTS_PORTAL.NEW_LATEST}/?lang=${lang}`;
   return fetchApi<NewEventsType>(endpoint, {
@@ -103,6 +118,21 @@ const getNews = (lang: number = defaultLang): Promise<NewEventsType | null> => {
     });
 };
 
+/**
+ * Lấy danh sách banner theo ngôn ngữ.
+ *
+ * @param {number} [lang=defaultLang] - Mã ngôn ngữ (mặc định là `defaultLang`).
+ * @returns {Promise<BannersType | null>} Promise trả về dữ liệu banner hoặc null nếu có lỗi.
+ *
+ * @example
+ * getBanners(1).then(data => {
+ *   if (data) {
+ *     console.log('Danh sách banner:', data);
+ *   } else {
+ *     console.log('Không lấy được banner');
+ *   }
+ * });
+ */
 const getBanners = (lang: number = defaultLang): Promise<BannersType | null> => {
   const endpoint = `${ENDPOINTS_PORTAL.BANNER}/?lang=${lang}`;
   return fetchApi<BannersType>(endpoint, {
