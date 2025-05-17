@@ -2,7 +2,13 @@
 
 import { ENDPOINTS_PORTAL } from '@/constants/url-api';
 import { fetchApi } from '@/lib/fetcher';
-import { MenuNavigations, FooterType, NewDetailType, NewEventsType } from '@/types/protal';
+import {
+  MenuNavigations,
+  FooterType,
+  NewDetailType,
+  NewEventsType,
+  BannersType,
+} from '@/types/protal';
 
 const defaultLang = 1;
 
@@ -97,4 +103,20 @@ const getNews = (lang: number = defaultLang): Promise<NewEventsType | null> => {
     });
 };
 
-export { getMenuNavigation, getFooter, getDetailNews, getNews };
+const getBanners = (lang: number = defaultLang): Promise<BannersType | null> => {
+  const endpoint = `${ENDPOINTS_PORTAL.BANNER}/?lang=${lang}`;
+  return fetchApi<BannersType>(endpoint, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((res) => res.data)
+    .catch((error) => {
+      console.error('Lỗi khi lấy chi tiết tin tức:', error);
+      return null;
+    });
+};
+
+export { getMenuNavigation, getFooter, getDetailNews, getNews, getBanners };

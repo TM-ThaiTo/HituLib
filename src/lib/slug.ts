@@ -12,7 +12,7 @@ const mapSlug = (slug: string) =>
 
 const mapSlugWithId = (slug: string, id: number, prefix = '') => {
   const slugifyId = `${mapSlug(slug)}-${id}.html`;
-  return `${prefix ? '/' + prefix : ''}/${slugifyId}-${id}.html`;
+  return `${prefix ? '/' + prefix : ''}/${slugifyId}`;
 };
 
 const getIdFromSlug = (slug: string) => {

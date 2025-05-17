@@ -2,6 +2,7 @@ import Icons from '@/components/shares/icons';
 import Image from 'next/image';
 import './styles.css';
 import { NewDetailType } from '@/types/protal';
+import { mapImagePath } from '@/lib/utils';
 
 type Props = {
   data: NewDetailType;
@@ -49,9 +50,10 @@ export default function DetailNews({ data }: Props) {
 
         {data.anhDaiDien && (
           <img
-            src={data.anhDaiDien}
+            // src={data.anhDaiDien}
+            src={mapImagePath(data.anhDaiDien)}
             alt="News Thumbnail"
-            className="max-h-[400px] w-full rounded-lg object-cover"
+            className="custom-content rounded-lg"
           />
         )}
 
