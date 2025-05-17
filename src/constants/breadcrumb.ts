@@ -1,4 +1,9 @@
-export const DataBreadcrumb = [
+type DataBreadcrumbType = {
+  duongDan: string;
+  tieuDe: string;
+}[];
+
+export const DataBreadcrumb: DataBreadcrumbType = [
   // Trang chủ
   {
     duongDan: '/',
@@ -29,5 +34,15 @@ export const DataBreadcrumb = [
   {
     duongDan: '/gioi-thieu-thu-vien/lich-lam-viec-cua-thu-vien',
     tieuDe: 'Lịch làm việc của thư viện',
+  },
+
+  // Category
+  {
+    duongDan: '/category',
+    tieuDe: 'Dịch vụ',
+  },
+  {
+    duongDan: '/category/tin-tuc',
+    tieuDe: 'Tin tức',
   },
 ];

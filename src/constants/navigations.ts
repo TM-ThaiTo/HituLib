@@ -59,7 +59,7 @@ const Navigations: MenuNavigations = [
       {
         id: 25,
         tieuDe: 'Tin tức sự kiện',
-        duongDan: '#',
+        duongDan: '/category/tin-tuc',
         icon: '',
         parentId: 2,
         sapXep: 5,
