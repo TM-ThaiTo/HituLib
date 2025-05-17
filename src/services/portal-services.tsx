@@ -81,8 +81,8 @@ const getDetailNews = (id: number, lang: number = defaultLang): Promise<NewDetai
     });
 };
 
-const getNews = (id: number, lang: number = defaultLang): Promise<NewEventsType | null> => {
-  const endpoint = `${ENDPOINTS_PORTAL.DETAIL_NEWS}/${id}?lang=${lang}`;
+const getNews = (lang: number = defaultLang): Promise<NewEventsType | null> => {
+  const endpoint = `${ENDPOINTS_PORTAL.NEW_LATEST}/?lang=${lang}`;
   return fetchApi<NewEventsType>(endpoint, {
     method: 'GET',
     headers: {
@@ -97,4 +97,4 @@ const getNews = (id: number, lang: number = defaultLang): Promise<NewEventsType 
     });
 };
 
-export { getMenuNavigation, getFooter, getDetailNews };
+export { getMenuNavigation, getFooter, getDetailNews, getNews };

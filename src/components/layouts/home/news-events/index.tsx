@@ -1,16 +1,21 @@
 import Image from 'next/image';
 import TitleLayout from '@/components/shares/title-layout';
-import { NewEventsType } from '@/types/protal';
 import Link from 'next/link';
 import { mapSlugWithId } from '@/lib/slug';
+import { mapImagePath } from '@/lib/utils';
+import { getNews } from '@/services/portal-services';
+import { newEvents } from '@/constants/home';
 
-export default function NewsEventsLayout({ newEvents }: { newEvents: NewEventsType }) {
+export default async function NewsEventsLayout() {
+  const dataNewsEvents = await getNews();
+  const data = dataNewsEvents ? dataNewsEvents : newEvents;
+
   return (
     <div className="max-w-[1074px] rounded-lg bg-white p-4 shadow-sm sm:p-6 md:p-9">
       <TitleLayout title="Tin tức & Sự kiện" />
 
       <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {newEvents.map((item) => (
+        {data.map((item) => (
           <div
             key={item.id}
             className="group flex gap-4 rounded-lg border border-gray-100 bg-white p-3 transition-all duration-300"
@@ -20,7 +25,8 @@ export default function NewsEventsLayout({ newEvents }: { newEvents: NewEventsTy
                 <Image
                   width={112}
                   height={80}
-                  src={item.anhDaiDien}
+                  // src={item.anhDaiDien}
+                  src={mapImagePath(item.anhDaiDien)}
                   alt={item.tieuDe}
                   className="h-[80px] w-[112px] transform rounded-md object-cover transition-transform duration-300 group-hover:scale-105 sm:h-24 sm:w-32"
                 />
