@@ -41,7 +41,7 @@ const Navigations: MenuNavigations = [
       {
         id: 23,
         tieuDe: 'Thông báo',
-        duongDan: '#',
+        duongDan: '/category/thong-bao',
         icon: '',
         parentId: 2,
         sapXep: 3,

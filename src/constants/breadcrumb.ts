@@ -45,4 +45,8 @@ export const DataBreadcrumb: DataBreadcrumbType = [
     duongDan: '/category/tin-tuc',
     tieuDe: 'Tin tức',
   },
+  {
+    duongDan: '/category/thong-bao',
+    tieuDe: 'Thông báo',
+  },
 ];
