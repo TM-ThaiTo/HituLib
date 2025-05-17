@@ -6,7 +6,6 @@ import { mapSlugWithId } from '@/lib/slug';
 
 export default function NewsEventsLayout({ newEvents }: { newEvents: NewEventsType }) {
   return (
-    // <div className="max-w-[1074px] rounded-lg bg-white p-9 shadow-sm">
     <div className="max-w-[1074px] rounded-lg bg-white p-4 shadow-sm sm:p-6 md:p-9">
       <TitleLayout title="Tin tức & Sự kiện" />
 
@@ -23,7 +22,7 @@ export default function NewsEventsLayout({ newEvents }: { newEvents: NewEventsTy
                   height={80}
                   src={item.anhDaiDien}
                   alt={item.tieuDe}
-                  className="h-20 w-28 transform rounded-md object-cover transition-transform duration-300 group-hover:scale-105 sm:h-24 sm:w-32"
+                  className="h-[80px] w-[112px] transform rounded-md object-cover transition-transform duration-300 group-hover:scale-105 sm:h-24 sm:w-32"
                 />
               </Link>
             </div>
