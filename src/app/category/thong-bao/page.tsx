@@ -5,6 +5,7 @@ import { getFirstParamInt } from '@/lib/get-param';
 import { mapSlugWithId } from '@/lib/slug';
 import { SearchParams } from '@/types/search-params';
 import PaginationComponent from '@/components/shares/pagination';
+import { BreadcrumbWithCustomSeparator } from '@/components/shares/bread-crumb';
 
 const duongDan = '/category/thong-bao';
 
@@ -16,6 +17,8 @@ export default async function ThongBaoPage({ searchParams }: SearchParams) {
   const totalPages = data.totalPages;
   return (
     <>
+      <BreadcrumbWithCustomSeparator />
+
       <div className="grid grid-cols-1 gap-4">
         {data.items.map((item, index) => (
           <div

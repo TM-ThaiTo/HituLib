@@ -1,0 +1,210 @@
+General styling for the MainGioiThieuChung component
+.mt-8 {
+    margin-top: 2rem;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .gap-8 {
+    gap: 2rem;
+  }
+  
+  .lg\:flex-row {
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+  
+  .flex-1 {
+    flex: 1;
+  }
+  
+  /* Prose styling for content */
+  .prose {
+    color: #333;
+    line-height: 1.75;
+  }
+  
+  .prose p {
+    margin-bottom: 1.25rem;
+  }
+  
+  .prose b {
+    font-weight: 700;
+    color: #1a202c;
+  }
+  
+  .prose img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Table styling */
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .prose th,
+  .prose td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .prose th {
+    background-color: #f7fafc;
+    font-weight: 600;
+    color: #2d3748;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+  
+  .prose td {
+    font-size: 0.875rem;
+    color: #4a5568;
+  }
+  
+  .prose tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  
+  /* .prose tr:hover {
+    background-color: #edf2f7;
+  } */
+  
+  /* Responsive table adjustments */
+  @media (max-width: 640px) {
+    .prose table {
+      font-size: 0.75rem;
+    }
+  
+    .prose th,
+    .prose td {
+      padding: 0.5rem;
+    }
+  }
+  
+  /* Specific table width adjustments */
+  .prose table[width='658'],
+  .prose table[width='660'],
+  .prose table[width='663'],
+  .prose table[width='666'],
+  .prose table[width='97%'] {
+    max-width: 100%;
+  }
+  
+  /* Ensure images are responsive */
+  .alignnone {
+    margin: 0 auto;
+  }
+  
+  .custom-content {
+    line-height: 1.75;
+    color: #111;
+    word-break: break-word;
+  }
+  
+  .custom-content p {
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  .custom-content h1,
+  .custom-content h2,
+  .custom-content h3 {
+    font-weight: bold;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  
+  .custom-content h1 {
+    font-size: 2rem;
+  }
+  
+  .custom-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .custom-content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .custom-content ul,
+  .custom-content ol {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .custom-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .custom-content a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+  
+  .custom-content img {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+    margin: 1rem auto;
+    border-radius: 0.5rem;
+    object-fit: contain;
+    max-height: 700px !important;
+    min-height: 300px !important;
+  }
+  
+  .custom-content iframe {
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.5rem;
+  }
+  
+  .custom-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  
+  .custom-content th,
+  .custom-content td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .custom-content blockquote {
+    padding-left: 1rem;
+    border-left: 4px solid #ccc;
+    font-style: italic;
+    color: #666;
+    margin: 1.5rem 0;
+  }
+  
+  .custom-content table {
+    width: 100% !important;
+  }
+  
+  .custom-content em {
+    font-weight: 600;
+  }
+  

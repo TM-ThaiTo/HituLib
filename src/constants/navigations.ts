@@ -1,6 +1,7 @@
 import { MenuNavigations } from '@/types/protal';
 
 const Navigations: MenuNavigations = [
+  // trang chủ
   {
     id: 1,
     tieuDe: 'trang chủ',
@@ -11,6 +12,7 @@ const Navigations: MenuNavigations = [
     moCuaSoMoi: false,
     children: null,
   },
+  // giơi thiệu
   {
     id: 2,
     tieuDe: 'giới thiệu',
@@ -28,6 +30,7 @@ const Navigations: MenuNavigations = [
         parentId: 2,
         sapXep: 1,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 22,
@@ -37,6 +40,7 @@ const Navigations: MenuNavigations = [
         parentId: 2,
         sapXep: 2,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 23,
@@ -46,6 +50,7 @@ const Navigations: MenuNavigations = [
         parentId: 2,
         sapXep: 3,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 24,
@@ -55,6 +60,7 @@ const Navigations: MenuNavigations = [
         parentId: 2,
         sapXep: 4,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 25,
@@ -64,6 +70,7 @@ const Navigations: MenuNavigations = [
         parentId: 2,
         sapXep: 5,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 26,
@@ -73,6 +80,7 @@ const Navigations: MenuNavigations = [
         parentId: 2,
         sapXep: 6,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 27,
@@ -82,9 +90,11 @@ const Navigations: MenuNavigations = [
         parentId: 2,
         sapXep: 7,
         moCuaSoMoi: false,
+        children: null,
       },
     ],
   },
+  // hướng dẫn
   {
     id: 3,
     tieuDe: 'hướng dẫn',
@@ -95,6 +105,7 @@ const Navigations: MenuNavigations = [
     moCuaSoMoi: false,
     children: null,
   },
+  // dịch vụ
   {
     id: 4,
     tieuDe: 'dịch vụ',
@@ -103,54 +114,108 @@ const Navigations: MenuNavigations = [
     parentId: 0,
     sapXep: 4,
     moCuaSoMoi: false,
+    // children: [
+    //   {
+    //     id: 41,
+    //     tieuDe: 'Đọc mượn giáo trình, tài liệu',
+    //     duongDan: '#',
+    //     icon: '',
+    //     parentId: 4,
+    //     sapXep: 1,
+    //     moCuaSoMoi: false,
+    //   },
+    //   {
+    //     id: 42,
+    //     tieuDe: 'Phát hành giáo trình, tài liệu nội bộ',
+    //     duongDan: '#',
+    //     icon: '',
+    //     parentId: 4,
+    //     sapXep: 2,
+    //     moCuaSoMoi: false,
+    //   },
+    //   {
+    //     id: 43,
+    //     tieuDe: 'Cung cấp không gian và tiện ích học tập',
+    //     duongDan: '#',
+    //     icon: '',
+    //     parentId: 4,
+    //     sapXep: 3,
+    //     moCuaSoMoi: false,
+    //   },
+    //   {
+    //     id: 44,
+    //     tieuDe: 'Mượn tài liệu thư viện',
+    //     duongDan: '#',
+    //     icon: '',
+    //     parentId: 4,
+    //     sapXep: 4,
+    //     moCuaSoMoi: false,
+    //   },
+    //   {
+    //     id: 45,
+    //     tieuDe: 'Tư vấn và hướng dẫn tìm tín chỉ theo yêu cầu',
+    //     duongDan: '#',
+    //     icon: '',
+    //     parentId: 4,
+    //     sapXep: 5,
+    //     moCuaSoMoi: false,
+    //   },
+    // ],
+
     children: [
       {
-        id: 41,
-        tieuDe: 'Đọc mượn giáo trình, tài liệu',
-        duongDan: '#',
-        icon: '',
-        parentId: 4,
+        id: 6163,
+        tieuDe: 'Sinh viên/Học viên',
+        duongDan: '/category/detail-service?Id=1',
+        icon: null,
+        parentId: 6155,
         sapXep: 1,
         moCuaSoMoi: false,
+        children: [],
       },
       {
-        id: 42,
-        tieuDe: 'Phát hành giáo trình, tài liệu nội bộ',
-        duongDan: '#',
-        icon: '',
-        parentId: 4,
+        id: 6164,
+        tieuDe: 'Giảng viên/Nghiên cứu viên',
+        duongDan: '/category/detail-service?Id=2',
+        icon: null,
+        parentId: 6155,
         sapXep: 2,
         moCuaSoMoi: false,
+        children: [],
       },
       {
-        id: 43,
-        tieuDe: 'Cung cấp không gian và tiện ích học tập',
-        duongDan: '#',
-        icon: '',
-        parentId: 4,
+        id: 6165,
+        tieuDe: 'Nhân viên hành chính',
+        duongDan: '/category/detail-service?Id=3',
+        icon: null,
+        parentId: 6155,
         sapXep: 3,
         moCuaSoMoi: false,
+        children: [],
       },
       {
-        id: 44,
-        tieuDe: 'Mượn tài liệu thư viện',
-        duongDan: '#',
-        icon: '',
-        parentId: 4,
+        id: 6166,
+        tieuDe: 'Cựu sinh viên',
+        duongDan: '/category/detail-service?Id=4',
+        icon: null,
+        parentId: 6155,
         sapXep: 4,
         moCuaSoMoi: false,
+        children: [],
       },
       {
-        id: 45,
-        tieuDe: 'Tư vấn và hướng dẫn tìm tín chỉ theo yêu cầu',
-        duongDan: '#',
-        icon: '',
-        parentId: 4,
+        id: 6167,
+        tieuDe: 'Đối tượng cần hỗ trợ đặc biệt',
+        duongDan: '/category/detail-service?Id=5',
+        icon: null,
+        parentId: 6155,
         sapXep: 5,
         moCuaSoMoi: false,
+        children: [],
       },
     ],
   },
+  // sản phẩm
   {
     id: 5,
     tieuDe: 'sản phẩm',
@@ -168,6 +233,7 @@ const Navigations: MenuNavigations = [
         parentId: 5,
         sapXep: 1,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 52,
@@ -177,9 +243,11 @@ const Navigations: MenuNavigations = [
         parentId: 5,
         sapXep: 2,
         moCuaSoMoi: false,
+        children: null,
       },
     ],
   },
+  // tài nguyên
   {
     id: 6,
     tieuDe: 'tài nguyên',
@@ -197,6 +265,7 @@ const Navigations: MenuNavigations = [
         parentId: 6,
         sapXep: 1,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 62,
@@ -206,6 +275,7 @@ const Navigations: MenuNavigations = [
         parentId: 6,
         sapXep: 2,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 63,
@@ -215,6 +285,7 @@ const Navigations: MenuNavigations = [
         parentId: 6,
         sapXep: 3,
         moCuaSoMoi: false,
+        children: null,
       },
       {
         id: 64,
@@ -224,6 +295,7 @@ const Navigations: MenuNavigations = [
         parentId: 6,
         sapXep: 4,
         moCuaSoMoi: false,
+        children: null,
       },
     ],
   },

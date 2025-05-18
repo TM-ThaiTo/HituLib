@@ -8,6 +8,7 @@ import {
   NewDetailType,
   NewEventsType,
   BannersType,
+  DetailServiceType,
 } from '@/types/protal';
 
 const defaultLang = 1;
@@ -149,4 +150,20 @@ const getBanners = (lang: number = defaultLang): Promise<BannersType | null> => 
     });
 };
 
-export { getMenuNavigation, getFooter, getDetailNews, getNews, getBanners };
+
+const getServiceById = (id: number | string, lang: number = defaultLang): Promise<DetailServiceType | null> => {
+  const endpoint = `${ENDPOINTS_PORTAL.DETAIL_SERVICE_BY_ID}/${id}/?lang=${lang}`;
+  return fetchApi<DetailServiceType>(endpoint, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((res) => res.data)
+    .catch((error) => {
+      console.error('Lỗi khi lấy chi tiết tin tức:', error);
+      return null;
+    });
+}
+export { getMenuNavigation, getFooter, getDetailNews, getNews, getBanners, getServiceById };

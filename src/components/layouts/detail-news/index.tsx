@@ -3,31 +3,13 @@ import Image from 'next/image';
 import './styles.css';
 import { NewDetailType } from '@/types/protal';
 import { mapImagePath } from '@/lib/utils';
+import renderTypeNews from '@/constants/type-page';
 
 type Props = {
   data: NewDetailType;
 };
 
 export default function DetailNews({ data }: Props) {
-  const renderTypeNews = (type: number) => {
-    switch (type) {
-      case 1:
-        return 'Tin tức';
-      case 2:
-        return 'Sự kiện';
-      case 3:
-        return 'Thông báo';
-      case 4:
-        return 'Tài liệu';
-      case 5:
-        return 'Hội thảo';
-      case 6:
-        return 'Cuộc thi';
-      default:
-        return 'Tin tức';
-    }
-  };
-
   return (
     <div className="flex w-full flex-col gap-6 rounded-lg bg-white p-4 shadow-md sm:p-6">
       <div className="flex flex-col gap-4">

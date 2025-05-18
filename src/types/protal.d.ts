@@ -3,22 +3,11 @@ type MenuNavigation = {
   id: number;
   tieuDe: string;
   duongDan: string;
-  icon: string;
+  icon: string | null;
   parentId: number;
   sapXep: number;
   moCuaSoMoi: boolean;
-
-  children:
-    | {
-        id: number;
-        tieuDe: string;
-        duongDan: string;
-        icon: string;
-        parentId: number;
-        sapXep: number;
-        moCuaSoMoi: boolean;
-      }[]
-    | null;
+  children: MenuNavigation[] | null;
 };
 type MenuNavigations = MenuNavigation[];
 
@@ -69,6 +58,18 @@ type NewDetailType = {
 };
 type NewDetailsType = NewDetailType[];
 
+// ========== Dịch Vụ ==========
+type DetailServiceType = {
+  id: number;
+  tieuDe: string;
+  mota: string;
+  noiDung: string;
+  anhDaiDien: "",
+  sapXep: 1,
+  ngayTao: "2023-10-21T09:14:42.763"
+}
+
+type DetailServicesType = DetailServiceType[];
 export type {
   MenuNavigation,
   MenuNavigations,
@@ -81,4 +82,6 @@ export type {
   BooksType,
   NewDetailType,
   NewDetailsType,
+  DetailServiceType,
+  DetailServicesType
 };
