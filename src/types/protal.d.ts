@@ -64,10 +64,10 @@ type DetailServiceType = {
   tieuDe: string;
   mota: string;
   noiDung: string;
-  anhDaiDien: "",
-  sapXep: 1,
-  ngayTao: "2023-10-21T09:14:42.763"
-}
+  anhDaiDien: '';
+  sapXep: 1;
+  ngayTao: '2023-10-21T09:14:42.763';
+};
 
 type DetailServicesType = DetailServiceType[];
 export type {
@@ -83,5 +83,5 @@ export type {
   NewDetailType,
   NewDetailsType,
   DetailServiceType,
-  DetailServicesType
+  DetailServicesType,
 };

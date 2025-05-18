@@ -9,6 +9,7 @@ import {
   NewEventsType,
   BannersType,
   DetailServiceType,
+  DetailServicesType,
 } from '@/types/protal';
 
 const defaultLang = 1;
@@ -150,8 +151,10 @@ const getBanners = (lang: number = defaultLang): Promise<BannersType | null> => 
     });
 };
 
-
-const getServiceById = (id: number | string, lang: number = defaultLang): Promise<DetailServiceType | null> => {
+const getServiceById = (
+  id: number | string,
+  lang: number = defaultLang,
+): Promise<DetailServiceType | null> => {
   const endpoint = `${ENDPOINTS_PORTAL.DETAIL_SERVICE_BY_ID}/${id}/?lang=${lang}`;
   return fetchApi<DetailServiceType>(endpoint, {
     method: 'GET',
@@ -165,5 +168,30 @@ const getServiceById = (id: number | string, lang: number = defaultLang): Promis
       console.error('Lỗi khi lấy chi tiết tin tức:', error);
       return null;
     });
-}
-export { getMenuNavigation, getFooter, getDetailNews, getNews, getBanners, getServiceById };
+};
+
+//const endpoint = `${ENDPOINTS_PORTAL.SERVICE_FEATURED}/?lang=${lang}`;
+const getServiceFeatured = (lang: number = defaultLang): Promise<DetailServicesType | null> => {
+  const endpoint = `${ENDPOINTS_PORTAL.SERVICE_FEATURED}/?lang=${lang}`;
+  return fetchApi<DetailServicesType>(endpoint, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((res) => res.data)
+    .catch((error) => {
+      console.error('Lỗi khi lấy chi tiết tin tức:', error);
+      return null;
+    });
+};
+export {
+  getMenuNavigation,
+  getFooter,
+  getDetailNews,
+  getNews,
+  getBanners,
+  getServiceById,
+  getServiceFeatured,
+};

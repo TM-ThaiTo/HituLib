@@ -50,14 +50,13 @@ export const DataBreadcrumb: DataBreadcrumbType = [
     tieuDe: 'Thông báo',
   },
 
-
   // Service (dịch vụ)
   {
     duongDan: '/service',
-    tieuDe: 'Dịch vụ',
+    tieuDe: 'Dịch vụ nổi bật',
   },
   {
     duongDan: '/service/detail-service',
     tieuDe: 'Chi tiết dịch vụ',
-  }
+  },
 ];
