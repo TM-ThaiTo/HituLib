@@ -166,7 +166,7 @@ const Navigations: MenuNavigations = [
       {
         id: 6163,
         tieuDe: 'Sinh viên/Học viên',
-        duongDan: '/category/detail-service?Id=1',
+        duongDan: '/service/detail-service?Id=1',
         icon: null,
         parentId: 6155,
         sapXep: 1,
@@ -176,7 +176,7 @@ const Navigations: MenuNavigations = [
       {
         id: 6164,
         tieuDe: 'Giảng viên/Nghiên cứu viên',
-        duongDan: '/category/detail-service?Id=2',
+        duongDan: '/service/detail-service?Id=2',
         icon: null,
         parentId: 6155,
         sapXep: 2,
@@ -186,7 +186,7 @@ const Navigations: MenuNavigations = [
       {
         id: 6165,
         tieuDe: 'Nhân viên hành chính',
-        duongDan: '/category/detail-service?Id=3',
+        duongDan: '/service/detail-service?Id=3',
         icon: null,
         parentId: 6155,
         sapXep: 3,
@@ -196,7 +196,7 @@ const Navigations: MenuNavigations = [
       {
         id: 6166,
         tieuDe: 'Cựu sinh viên',
-        duongDan: '/category/detail-service?Id=4',
+        duongDan: '/service/detail-service?Id=4',
         icon: null,
         parentId: 6155,
         sapXep: 4,
@@ -206,7 +206,7 @@ const Navigations: MenuNavigations = [
       {
         id: 6167,
         tieuDe: 'Đối tượng cần hỗ trợ đặc biệt',
-        duongDan: '/category/detail-service?Id=5',
+        duongDan: '/service/detail-service?Id=5',
         icon: null,
         parentId: 6155,
         sapXep: 5,

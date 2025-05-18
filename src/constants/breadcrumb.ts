@@ -39,7 +39,7 @@ export const DataBreadcrumb: DataBreadcrumbType = [
   // Category
   {
     duongDan: '/category',
-    tieuDe: 'Dịch vụ',
+    tieuDe: 'Phân loại',
   },
   {
     duongDan: '/category/tin-tuc',
@@ -50,8 +50,14 @@ export const DataBreadcrumb: DataBreadcrumbType = [
     tieuDe: 'Thông báo',
   },
 
+
+  // Service (dịch vụ)
   {
-    duongDan: '/category/detail-service',
+    duongDan: '/service',
+    tieuDe: 'Dịch vụ',
+  },
+  {
+    duongDan: '/service/detail-service',
     tieuDe: 'Chi tiết dịch vụ',
   }
 ];
