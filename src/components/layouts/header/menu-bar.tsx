@@ -10,6 +10,8 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import { MenuNavigations } from '@/types/protal';
+import IconAction from '@/components/layouts/header/icon-action';
+import MenuBarMobile from './components/menu-bar-mobile';
 
 const navItemStyles = cn(
   'relative flex items-center text-sm font-bold uppercase text-foreground',
@@ -20,58 +22,56 @@ const navItemStyles = cn(
 );
 
 export default function Navbar({ data }: { data: MenuNavigations }) {
+  const topLevelMenus = data
+    .filter((item) => item.parentId === 0)
+    .sort((a, b) => a.sapXep - b.sapXep);
+
   return (
     <nav className="flex items-center justify-between px-4 py-2">
       <div className="hidden items-center space-x-6 md:flex">
-        {data
-          .filter((item: any) => item.parentId === 0)
-          .sort((a: any, b: any) => a.sapXep - b.sapXep)
-          .slice(0, 6) // Limit to 6 items and remove productions
-          .map((item: any, index: any) =>
-            item?.children === null || item.children.length === 0 ? (
-              <Link
-                key={index}
-                href={item.duongDan ?? '#'}
-                className={navItemStyles}
-                target={item.duongDan?.startsWith('http') ? '_blank' : undefined}
-                rel={item.duongDan?.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >
-                {item.tieuDe}
-              </Link>
-            ) : (
-              <NavigationMenu key={index} className="relative">
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className={navItemStyles}>
-                      <span className="inline-flex items-center gap-1">{item.tieuDe}</span>
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent className="min-w-[230px] rounded-none shadow-lg">
-                      <div className="flex flex-col">
-                        {item.children
-                          .sort((a: any, b: any) => a.sapXep - b.sapXep)
-                          .map((child: any, idx: any) => (
-                            <Link
-                              key={idx}
-                              href={child.duongDan ?? '#'}
-                              className="block px-2.5 py-3.5 text-sm font-bold text-gray-700 hover:bg-blue-50"
-                              target={child.duongDan?.startsWith('http') ? '_blank' : undefined}
-                              rel={
-                                child.duongDan?.startsWith('http')
-                                  ? 'noopener noreferrer'
-                                  : undefined
-                              }
-                            >
-                              {child.tieuDe}
-                            </Link>
-                          ))}
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-            ),
-          )}
+        {topLevelMenus.map((item) =>
+          !item.children || item.children.length === 0 ? (
+            <Link
+              key={item.id}
+              href={item.duongDan ?? '#'}
+              className={navItemStyles}
+              target={item.moCuaSoMoi ? '_blank' : undefined}
+              rel={item.moCuaSoMoi ? 'noopener noreferrer' : undefined}
+            >
+              {item.tieuDe}
+            </Link>
+          ) : (
+            <NavigationMenu key={item.id} className="relative">
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={navItemStyles}>
+                    {item.tieuDe}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="z-50 min-w-[230px] rounded-none bg-white shadow-lg">
+                    <div className="flex flex-col">
+                      {item.children
+                        .sort((a, b) => a.sapXep - b.sapXep)
+                        .map((child) => (
+                          <Link
+                            key={child.id}
+                            href={child.duongDan ?? '#'}
+                            className="block px-3 py-3 text-sm font-medium text-gray-700 hover:bg-blue-50"
+                            target={child.moCuaSoMoi ? '_blank' : undefined}
+                            rel={child.moCuaSoMoi ? 'noopener noreferrer' : undefined}
+                          >
+                            {child.tieuDe}
+                          </Link>
+                        ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          ),
+        )}
+        <IconAction />
       </div>
+      <MenuBarMobile data={data} />
     </nav>
   );
 }

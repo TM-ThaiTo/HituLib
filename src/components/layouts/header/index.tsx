@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import MenuBar from './menu-bar';
-import IconAction from './icon-action';
-import { getMenuNavigation } from '@/services/portal-services';
-import { MenuNavigations } from '@/types/protal';
+// import { getMenuNavigation } from '@/services/portal-services';
 import { Navigations } from '@/constants/navigations';
 
 export default async function MainHeader() {
@@ -26,9 +24,8 @@ export default async function MainHeader() {
               className="h-[65px] w-auto object-contain"
             />
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center">
             <MenuBar data={Navigations} />
-            <IconAction />
           </div>
         </div>
       </div>
