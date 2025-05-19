@@ -17,7 +17,7 @@ export default async function TinTucPage({ searchParams }: SearchParams) {
   const data = getDataNews(page, perPage);
   const totalPages = data.totalPages;
 
-  const customTitle = `Tin tức - Trang ${page}`
+  const customTitle = `Tin tức - Trang ${page}`;
 
   return (
     <>

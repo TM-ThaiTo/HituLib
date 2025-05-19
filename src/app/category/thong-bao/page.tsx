@@ -16,7 +16,7 @@ export default async function ThongBaoPage({ searchParams }: SearchParams) {
   const data = getDataNews(page, perPage);
   const totalPages = data.totalPages;
 
-  const customTitle = `Thông báo - Trang ${page}`
+  const customTitle = `Thông báo - Trang ${page}`;
   return (
     <>
       <BreadcrumbWithCustomSeparator customTitle={customTitle} />
