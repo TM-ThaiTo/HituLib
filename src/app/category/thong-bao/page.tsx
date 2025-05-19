@@ -15,9 +15,11 @@ export default async function ThongBaoPage({ searchParams }: SearchParams) {
   const perPage = getFirstParamInt(params.perPage, 10);
   const data = getDataNews(page, perPage);
   const totalPages = data.totalPages;
+
+  const customTitle = `Thông báo - Trang ${page}`
   return (
     <>
-      <BreadcrumbWithCustomSeparator />
+      <BreadcrumbWithCustomSeparator customTitle={customTitle} />
 
       <div className="grid grid-cols-1 gap-4">
         {data.items.map((item, index) => (

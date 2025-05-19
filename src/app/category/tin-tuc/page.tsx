@@ -13,11 +13,15 @@ export default async function TinTucPage({ searchParams }: SearchParams) {
   const params = await searchParams;
   const page = getFirstParamInt(params.page, 1);
   const perPage = getFirstParamInt(params.perPage, 10);
+
   const data = getDataNews(page, perPage);
   const totalPages = data.totalPages;
+
+  const customTitle = `Tin tức - Trang ${page}`
+
   return (
     <>
-      <BreadcrumbWithCustomSeparator />
+      <BreadcrumbWithCustomSeparator customTitle={customTitle} />
 
       <div className="grid grid-cols-1 gap-4">
         {data.items.map((item, index) => (
