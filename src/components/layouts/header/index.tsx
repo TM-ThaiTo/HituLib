@@ -3,6 +3,7 @@ import Link from 'next/link';
 import MenuBar from './menu-bar';
 // import { getMenuNavigation } from '@/services/portal-services';
 import { Navigations } from '@/constants/navigations';
+import ImagePublic from '@/config/image';
 
 export default async function MainHeader() {
   // const data = await getMenuNavigation();
@@ -17,7 +18,7 @@ export default async function MainHeader() {
         <div className="container flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
-              src={'/logo-lib-hitu.png'}
+              src={ImagePublic.logo}
               alt="HITU LIB"
               width={341}
               height={70}
