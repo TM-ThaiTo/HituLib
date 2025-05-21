@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 import React from 'react';
 
 const items = [
@@ -39,9 +39,9 @@ export default function LibraryList() {
     <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-1">
       {items.map((item, index) => (
         <div key={index} className="mb-3">
-          <Link href={item.duongDan}>
+          <CustomLink href={item.duongDan}>
             <img src={item.anhDaiDien} alt={item.title} className="rounded-lg object-contain" />
-          </Link>
+          </CustomLink>
         </div>
       ))}
     </div>

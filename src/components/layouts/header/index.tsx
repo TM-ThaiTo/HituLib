@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 import MenuBar from './menu-bar';
 // import { getMenuNavigation } from '@/services/portal-services';
 import { Navigations } from '@/constants/navigations';
@@ -16,7 +16,7 @@ export default async function MainHeader() {
       </div>
       <div className="flex h-[81px] items-center justify-between bg-white px-4 shadow-sm">
         <div className="container flex items-center justify-between">
-          <Link href="/" className="flex items-center">
+          <CustomLink href="/" className="flex items-center">
             <Image
               src={ImagePublic.logo}
               alt="HITU LIB"
@@ -24,7 +24,7 @@ export default async function MainHeader() {
               height={70}
               className="h-[65px] w-auto object-contain"
             />
-          </Link>
+          </CustomLink>
           <div className="flex items-center">
             <MenuBar data={Navigations} />
           </div>

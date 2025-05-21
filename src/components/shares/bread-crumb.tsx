@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 import { usePathname } from 'next/navigation';
 import {
   Breadcrumb,
@@ -36,7 +36,7 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/">Trang chủ</Link>
+            <CustomLink href="/">Trang chủ</CustomLink>
           </BreadcrumbLink>
         </BreadcrumbItem>
 
@@ -50,12 +50,12 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
                 </BreadcrumbPage>
               ) : (
                 <BreadcrumbLink asChild>
-                  <Link
+                  <CustomLink
                     href={item.href}
                     className="inline-block max-w-[150px] truncate overflow-hidden align-middle whitespace-nowrap sm:max-w-[200px] md:max-w-[300px]"
                   >
                     {item.tieuDe}
-                  </Link>
+                  </CustomLink>
                 </BreadcrumbLink>
               )}
             </BreadcrumbItem>

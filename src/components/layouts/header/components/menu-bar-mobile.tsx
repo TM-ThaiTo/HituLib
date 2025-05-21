@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 import { MenuNavigations } from '@/types/protal';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -41,7 +41,7 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
 
           <SheetContent side="right" className="mt-9 w-full">
             <div className="mt-4 px-4">
-              <Link href="/" className="mb-6 flex items-center justify-start">
+              <CustomLink href="/" className="mb-6 flex items-center justify-start">
                 <Image
                   src="/logo-lib-hitu.png"
                   alt="HITU LIB"
@@ -49,7 +49,7 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
                   height={70}
                   className="h-[65px] w-auto object-contain"
                 />
-              </Link>
+              </CustomLink>
 
               <Accordion type="multiple" className="w-full space-y-1">
                 {topLevelMenus.map((item) => {
@@ -67,14 +67,14 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
                         </AccordionTrigger>
                       ) : (
                         <SheetClose asChild>
-                          <Link
+                          <CustomLink
                             href={item.duongDan ?? '#'}
                             className="block bg-white px-4 py-3 text-sm font-semibold text-black uppercase transition-colors hover:bg-gray-50 hover:text-blue-600"
                             target={item.moCuaSoMoi ? '_blank' : undefined}
                             rel={item.moCuaSoMoi ? 'noopener noreferrer' : undefined}
                           >
                             {item.tieuDe}
-                          </Link>
+                          </CustomLink>
                         </SheetClose>
                       )}
 
@@ -86,14 +86,14 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
                                 .sort((a, b) => a.sapXep - b.sapXep)
                                 .map((child) => (
                                   <SheetClose asChild key={child.id}>
-                                    <Link
+                                    <CustomLink
                                       href={child.duongDan ?? '#'}
                                       className="block px-6 py-2 text-sm font-medium text-gray-700 uppercase transition-colors hover:bg-gray-100 hover:text-blue-600"
                                       target={child.moCuaSoMoi ? '_blank' : undefined}
                                       rel={child.moCuaSoMoi ? 'noopener noreferrer' : undefined}
                                     >
                                       {child.tieuDe}
-                                    </Link>
+                                    </CustomLink>
                                   </SheetClose>
                                 ))}
                           </div>

@@ -1,5 +1,5 @@
 import Icons from '@/components/shares/icons';
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 
 const IconButton = ({
   blackIcon,
@@ -11,7 +11,7 @@ const IconButton = ({
   href: string;
 }) => {
   return (
-    <Link
+    <CustomLink
       href={href}
       className="group relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-gray-300 bg-white"
     >
@@ -21,7 +21,7 @@ const IconButton = ({
       <div className="absolute translate-y-[200%] transform opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
         {blueIcon}
       </div>
-    </Link>
+    </CustomLink>
   );
 };
 

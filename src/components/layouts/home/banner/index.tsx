@@ -5,7 +5,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 import { BannersType } from '@/types/protal';
 
 export default function Banner({ banners }: { banners: BannersType }) {
@@ -15,7 +15,7 @@ export default function Banner({ banners }: { banners: BannersType }) {
         <Swiper navigation={true} modules={[Navigation]} className="w-full">
           {banners.map((banner) => (
             <SwiperSlide key={banner.id} className="relative aspect-[16/7] w-full">
-              <Link href={banner.lienKet}>
+              <CustomLink href={banner.lienKet}>
                 <Image
                   width={1064}
                   height={460}
@@ -26,7 +26,7 @@ export default function Banner({ banners }: { banners: BannersType }) {
                          (max-width: 1280px) 90vw,
                          1064px"
                 />
-              </Link>
+              </CustomLink>
             </SwiperSlide>
           ))}
         </Swiper>

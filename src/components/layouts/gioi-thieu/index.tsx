@@ -1,7 +1,7 @@
 import Icons from '@/components/shares/icons';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import Image from 'next/image';
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 import routes from '@/config/route';
 
 const dataGioiThieu = [
@@ -79,13 +79,13 @@ export default function MainGioiThieu() {
               <div className="text-red-400">
                 <Icons.plusSquare size={25} />
               </div>
-              <Link
+              <CustomLink
                 href={item.duongDan}
                 target={item.moCuaSoMoi ? '_blank' : '_self'}
                 className="w-full text-sm font-semibold text-blue-600 no-underline hover:text-black"
               >
                 {item.tieuDe}
-              </Link>
+              </CustomLink>
             </li>
           ))}
         </ul>

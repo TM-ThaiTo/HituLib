@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import TitleLayout from '@/components/shares/title-layout';
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 import { mapSlugWithId } from '@/lib/slug';
 import { mapImagePath } from '@/lib/utils';
 import { getNews } from '@/services/portal-services';
@@ -21,7 +21,7 @@ export default async function NewsEventsLayout() {
             className="group flex gap-4 rounded-lg border border-gray-100 bg-white p-3 transition-all duration-300"
           >
             <div className="flex-shrink-0">
-              <Link href={`${mapSlugWithId(item.tieuDe, item.id)}`}>
+              <CustomLink href={`${mapSlugWithId(item.tieuDe, item.id)}`}>
                 <Image
                   width={112}
                   height={80}
@@ -30,15 +30,15 @@ export default async function NewsEventsLayout() {
                   alt={item.tieuDe}
                   className="h-[80px] w-[112px] transform rounded-md object-cover transition-transform duration-300 group-hover:scale-105 sm:h-24 sm:w-32"
                 />
-              </Link>
+              </CustomLink>
             </div>
 
             <div className="flex-1">
-              <Link href={`${mapSlugWithId(item.tieuDe, item.id)}`}>
+              <CustomLink href={`${mapSlugWithId(item.tieuDe, item.id)}`}>
                 <div className="cursor-pointer text-base font-medium transition-colors duration-300 group-hover:text-blue-600">
                   {item.tieuDe}
                 </div>
-              </Link>
+              </CustomLink>
             </div>
           </div>
         ))}

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 import { cn } from '@/lib/utils';
 import {
   NavigationMenu,
@@ -31,7 +31,7 @@ export default function Navbar({ data }: { data: MenuNavigations }) {
       <div className="hidden items-center space-x-6 md:flex">
         {topLevelMenus.map((item) =>
           !item.children || item.children.length === 0 ? (
-            <Link
+            <CustomLink
               key={item.id}
               href={item.duongDan ?? '#'}
               className={navItemStyles}
@@ -39,7 +39,7 @@ export default function Navbar({ data }: { data: MenuNavigations }) {
               rel={item.moCuaSoMoi ? 'noopener noreferrer' : undefined}
             >
               {item.tieuDe}
-            </Link>
+            </CustomLink>
           ) : (
             <NavigationMenu key={item.id} className="relative">
               <NavigationMenuList>
@@ -52,7 +52,7 @@ export default function Navbar({ data }: { data: MenuNavigations }) {
                       {item.children
                         .sort((a, b) => a.sapXep - b.sapXep)
                         .map((child) => (
-                          <Link
+                          <CustomLink
                             key={child.id}
                             href={child.duongDan ?? '#'}
                             className="block px-3 py-3 text-sm font-medium text-gray-700 hover:bg-blue-50"
@@ -60,7 +60,7 @@ export default function Navbar({ data }: { data: MenuNavigations }) {
                             rel={child.moCuaSoMoi ? 'noopener noreferrer' : undefined}
                           >
                             {child.tieuDe}
-                          </Link>
+                          </CustomLink>
                         ))}
                     </div>
                   </NavigationMenuContent>

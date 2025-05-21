@@ -2,7 +2,7 @@ import { BreadcrumbWithCustomSeparator } from '@/components/shares/bread-crumb';
 import Icons from '@/components/shares/icons';
 import renderTypeNews from '@/constants/type-page';
 import { getServiceFeatured } from '@/services/portal-services';
-import Link from 'next/link';
+import CustomLink from '@/hooks/next-link';
 
 export default async function ServicePage() {
   const data = await getServiceFeatured();
@@ -25,7 +25,7 @@ export default async function ServicePage() {
 
       <section>
         {data.map((item) => (
-          <Link key={item.id} href={mapId(item.id)} className="mt-3">
+          <CustomLink key={item.id} href={mapId(item.id)} className="mt-3">
             <div className="group mb-3 flex transform cursor-pointer flex-col justify-between rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-xl">
               <div>
                 <h2 className="line-clamp-2 text-xl font-bold text-gray-900 transition-colors duration-200 group-hover:text-blue-700">
@@ -49,7 +49,7 @@ export default async function ServicePage() {
                 <Icons.arrowRight className="h-4 w-4" />
               </div>
             </div>
-          </Link>
+          </CustomLink>
         ))}
       </section>
     </>
