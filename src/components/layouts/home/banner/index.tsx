@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BannersType } from '@/types/protal';
 
-export default async function Banner({ banners }: { banners: BannersType }) {
+export default function Banner({ banners }: { banners: BannersType }) {
   return (
     <section className="banner w-full max-w-[1074px]">
       <div className="bg w-full overflow-hidden rounded-sm p-1 shadow-sm">
