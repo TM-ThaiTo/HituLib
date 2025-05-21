@@ -34,6 +34,18 @@ const dataGioiThieu = [
     duongDan: '/gioi-thieu-thu-vien/lich-lam-viec-cua-thu-vien',
     moCuaSoMoi: false,
   },
+  {
+    id: 6,
+    tieuDe: 'Hình ảnh hoạt động',
+    duongDan: '/gioi-thieu-thu-vien/hinh-anh-hoat-dong',
+    moCuaSoMoi: false,
+  },
+  {
+    id: 7,
+    tieuDe: 'Tổng hợp các văn bản pháp quy về hoạt động thư viện',
+    duongDan: '/gioi-thieu-thu-vien/tong-hop-cac-van-ban-phap-quy-ve-hoat-dong-thu-vien',
+    moCuaSoMoi: false,
+  },
 ];
 
 export default function MainGioiThieu() {

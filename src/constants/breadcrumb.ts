@@ -39,6 +39,10 @@ export const DataBreadcrumb: DataBreadcrumbType = [
     duongDan: '/gioi-thieu-thu-vien/hinh-anh-hoat-dong',
     tieuDe: 'Hình ảnh hoạt động',
   },
+  {
+    duongDan: '/gioi-thieu-thu-vien/tong-hop-cac-van-ban-phap-quy-ve-hoat-dong-thu-vien',
+    tieuDe: 'Tổng hợp các văn bản pháp quy về hoạt động thư viện',
+  },
 
   // Category
   {
