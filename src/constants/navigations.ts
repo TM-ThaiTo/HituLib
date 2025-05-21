@@ -75,7 +75,7 @@ const Navigations: MenuNavigations = [
       {
         id: 26,
         tieuDe: 'Hình ảnh hoạt động',
-        duongDan: '#',
+        duongDan: '/gioi-thieu-thu-vien/hinh-anh-hoat-dong',
         icon: '',
         parentId: 2,
         sapXep: 6,

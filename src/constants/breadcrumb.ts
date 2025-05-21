@@ -35,6 +35,10 @@ export const DataBreadcrumb: DataBreadcrumbType = [
     duongDan: '/gioi-thieu-thu-vien/lich-lam-viec-cua-thu-vien',
     tieuDe: 'Lịch làm việc của thư viện',
   },
+  {
+    duongDan: '/gioi-thieu-thu-vien/hinh-anh-hoat-dong',
+    tieuDe: 'Hình ảnh hoạt động',
+  },
 
   // Category
   {
