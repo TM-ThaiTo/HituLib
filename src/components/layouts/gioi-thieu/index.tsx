@@ -2,54 +2,55 @@ import Icons from '@/components/shares/icons';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import Image from 'next/image';
 import Link from 'next/link';
+import routes from '@/config/route';
 
 const dataGioiThieu = [
   {
     id: 1,
     tieuDe: 'Giới thiệu chung',
-    duongDan: '/gioi-thieu-thu-vien/gioi-thieu-chung',
+    duongDan: routes.gioiThieuThuVien.gioiThieuChung,
     moCuaSoMoi: false,
   },
   {
     id: 2,
     tieuDe: 'Sơ đồ tổ chức hoạt động',
-    duongDan: '/gioi-thieu-thu-vien/so-do-to-chuc-hoat-dong',
+    duongDan: routes.gioiThieuThuVien.soDoToChuc,
     moCuaSoMoi: false,
   },
   {
     id: 3,
     tieuDe: 'Nội quy thư viện',
-    duongDan: '/gioi-thieu-thu-vien/noi-quy-thu-vien',
+    duongDan: routes.gioiThieuThuVien.noiQuy,
     moCuaSoMoi: false,
   },
   {
     id: 4,
     tieuDe: 'Quy định sử dụng thư viện',
-    duongDan: '/gioi-thieu-thu-vien/quy-dinh-su-dung-thu-vien',
+    duongDan: routes.gioiThieuThuVien.quyDinhSuDung,
     moCuaSoMoi: false,
   },
   {
     id: 5,
     tieuDe: 'Lịch làm việc của thư viện',
-    duongDan: '/gioi-thieu-thu-vien/lich-lam-viec-cua-thu-vien',
+    duongDan: routes.gioiThieuThuVien.lichLamViec,
     moCuaSoMoi: false,
   },
   {
     id: 6,
     tieuDe: 'Hình ảnh hoạt động',
-    duongDan: '/gioi-thieu-thu-vien/hinh-anh-hoat-dong',
+    duongDan: routes.gioiThieuThuVien.hinhAnhHoatDong,
     moCuaSoMoi: false,
   },
   {
     id: 7,
     tieuDe: 'Tổng hợp các văn bản pháp quy về hoạt động thư viện',
-    duongDan: '/gioi-thieu-thu-vien/tong-hop-cac-van-ban-phap-quy-ve-hoat-dong-thu-vien',
+    duongDan: routes.gioiThieuThuVien.vanBanPhapQuy,
     moCuaSoMoi: false,
   },
   {
     id: 8,
     tieuDe: 'Quy trình làm việc',
-    duongDan: '/gioi-thieu-thu-vien/quy-trinh-lam-viec',
+    duongDan: routes.gioiThieuThuVien.quyTrinhLamViec,
     moCuaSoMoi: false,
   },
 ];
