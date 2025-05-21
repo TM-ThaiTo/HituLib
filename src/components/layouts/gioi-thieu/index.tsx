@@ -46,6 +46,12 @@ const dataGioiThieu = [
     duongDan: '/gioi-thieu-thu-vien/tong-hop-cac-van-ban-phap-quy-ve-hoat-dong-thu-vien',
     moCuaSoMoi: false,
   },
+  {
+    id: 8,
+    tieuDe: 'Quy trình làm việc',
+    duongDan: '/gioi-thieu-thu-vien/quy-trinh-lam-viec',
+    moCuaSoMoi: false,
+  },
 ];
 
 export default function MainGioiThieu() {

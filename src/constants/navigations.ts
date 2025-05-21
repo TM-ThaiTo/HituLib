@@ -35,7 +35,7 @@ const Navigations: MenuNavigations = [
       {
         id: 22,
         tieuDe: 'Quy trình làm việc',
-        duongDan: '#',
+        duongDan: '/gioi-thieu-thu-vien/quy-trinh-lam-viec',
         icon: '',
         parentId: 2,
         sapXep: 2,
