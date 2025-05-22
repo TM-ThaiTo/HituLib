@@ -1,4 +1,4 @@
-import routes from '@/config/routes';
+import routes from '@/constants/routes';
 
 export const DataBreadcrumb = [
   routes.trangChu,

@@ -3,7 +3,7 @@ import CustomLink from '@/hooks/next-link';
 import MenuBar from './menu-bar';
 // import { getMenuNavigation } from '@/services/portal-services';
 import { Navigations } from '@/constants/navigations';
-import ImagePublic from '@/config/image';
+import ImagePublic from '@/constants/image';
 
 export default async function MainHeader() {
   // const data = await getMenuNavigation();

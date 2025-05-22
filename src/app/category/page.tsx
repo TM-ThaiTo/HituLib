@@ -1,7 +1,7 @@
 import Icons from '@/components/shares/icons';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import CustomLink from '@/hooks/next-link';
-import routes from '@/config/routes';
+import routes from '@/constants/routes';
 import { BreadcrumbWithCustomSeparator } from '@/components/shares/bread-crumb';
 
 const dataGioiThieu = [

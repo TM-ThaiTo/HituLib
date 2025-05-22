@@ -6,6 +6,10 @@
   max-width: 1400px;
 }
 
+.tablet{
+  max-width: 768px;
+}
+
 @utility container {
   width: var(--container-width);
   margin-left: auto;

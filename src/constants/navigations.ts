@@ -1,5 +1,5 @@
 import { MenuNavigations } from '@/types/protal';
-import routes from '@/config/routes';
+import routes from '@/constants/routes';
 
 const Navigations: MenuNavigations = [
   {

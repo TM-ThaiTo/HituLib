@@ -1,4 +1,4 @@
-import ImagePublic from '@/config/image';
+import ImagePublic from '@/constants/image';
 import { BreadcrumbWithCustomSeparator } from '@/components/shares/bread-crumb';
 import ItemCategory from '@/components/shares/item-category';
 
