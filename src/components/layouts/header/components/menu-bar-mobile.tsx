@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
-import CustomLink from '@/hooks/next-link';
+
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { MenuNavigations } from '@/types/protal';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -11,7 +14,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import IconAction from '@/components/layouts/header/icon-action';
-import Image from 'next/image';
+
 export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const topLevelMenus = data
@@ -41,7 +44,11 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
 
           <SheetContent side="right" className="mt-9 w-full">
             <div className="mt-4 px-4">
-              <CustomLink href="/" className="mb-6 flex items-center justify-start">
+              <Link
+                href="/"
+                className="mb-6 flex items-center justify-start"
+                onClick={() => setIsSheetOpen(false)}
+              >
                 <Image
                   src="/logo-lib-hitu.png"
                   alt="HITU LIB"
@@ -49,7 +56,7 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
                   height={70}
                   className="h-[65px] w-auto object-contain"
                 />
-              </CustomLink>
+              </Link>
 
               <Accordion type="multiple" className="w-full space-y-1">
                 {topLevelMenus.map((item) => {
@@ -62,19 +69,19 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
                       className="overflow-hidden rounded-md border border-gray-200"
                     >
                       {hasChildren ? (
-                        <AccordionTrigger className="bg-white px-4 py-3 text-left text-sm font-semibold text-black uppercase transition-colors hover:bg-gray-100">
+                        <AccordionTrigger className="cursor-pointer bg-white px-4 py-3 text-left text-sm font-semibold text-black uppercase transition-colors hover:bg-gray-100">
                           {item.tieuDe}
                         </AccordionTrigger>
                       ) : (
                         <SheetClose asChild>
-                          <CustomLink
+                          <Link
                             href={item.duongDan ?? '#'}
                             className="block bg-white px-4 py-3 text-sm font-semibold text-black uppercase transition-colors hover:bg-gray-50 hover:text-blue-600"
                             target={item.moCuaSoMoi ? '_blank' : undefined}
                             rel={item.moCuaSoMoi ? 'noopener noreferrer' : undefined}
                           >
                             {item.tieuDe}
-                          </CustomLink>
+                          </Link>
                         </SheetClose>
                       )}
 
@@ -86,14 +93,14 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
                                 .sort((a, b) => a.sapXep - b.sapXep)
                                 .map((child) => (
                                   <SheetClose asChild key={child.id}>
-                                    <CustomLink
+                                    <Link
                                       href={child.duongDan ?? '#'}
                                       className="block px-6 py-2 text-sm font-medium text-gray-700 uppercase transition-colors hover:bg-gray-100 hover:text-blue-600"
                                       target={child.moCuaSoMoi ? '_blank' : undefined}
                                       rel={child.moCuaSoMoi ? 'noopener noreferrer' : undefined}
                                     >
                                       {child.tieuDe}
-                                    </CustomLink>
+                                    </Link>
                                   </SheetClose>
                                 ))}
                           </div>
