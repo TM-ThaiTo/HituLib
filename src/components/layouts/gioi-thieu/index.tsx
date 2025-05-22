@@ -2,7 +2,7 @@ import Icons from '@/components/shares/icons';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import Image from 'next/image';
 import CustomLink from '@/hooks/next-link';
-import routes from '@/config/route';
+import routes from '@/config/routes';
 
 const dataGioiThieu = [
   {

@@ -23,11 +23,11 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
 
   const breadcrumbs = segments.map((_, index) => {
     const href = '/' + segments.slice(0, index + 1).join('/');
-    const item = DataBreadcrumb.find((item) => item.duongDan === href);
+    const item = DataBreadcrumb.find((item) => item.path === href);
 
     return {
       href,
-      tieuDe: item?.tieuDe || segments[index],
+      tieuDe: item?.title || segments[index],
     };
   });
 
