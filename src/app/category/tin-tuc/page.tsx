@@ -23,13 +23,14 @@ export default async function TinTucPage({ searchParams }: SearchParams) {
 
       <div className="grid grid-cols-1 gap-4">
         {data.items.map((item, index) => (
-          <ItemCategory
-            index={index}
-            tieuDe={item.tieuDe}
-            id={item.id}
-            anhDaiDien={item.anhDaiDien}
-            moTa={item.mota}
-          />
+          <div key={index}>
+            <ItemCategory
+              tieuDe={item.tieuDe}
+              id={item.id}
+              anhDaiDien={item.anhDaiDien}
+              moTa={item.mota}
+            />
+          </div>
         ))}
       </div>
       <PaginationComponent
