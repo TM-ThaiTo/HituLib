@@ -70,6 +70,18 @@ type DetailServiceType = {
 };
 
 type DetailServicesType = DetailServiceType[];
+
+// ========== Giới thiệu chung ==========
+type IntroductionType = {
+  id: number;
+  tieuDe: string;
+  noiDung: string;
+  ngayTao: string;
+  trangThai: number;
+}
+
+type IntroductionsType = IntroductionType[];
+
 export type {
   MenuNavigation,
   MenuNavigations,
@@ -84,4 +96,6 @@ export type {
   NewDetailsType,
   DetailServiceType,
   DetailServicesType,
+  IntroductionType,
+  IntroductionsType
 };

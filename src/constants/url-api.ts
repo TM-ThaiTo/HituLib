@@ -8,6 +8,7 @@ const ENDPOINTS_PORTAL = {
   NEW_LATEST: `${APIPORTAL}/news/latest`, // `/api/portal/news/latest`
   DETAIL_SERVICE_BY_ID: `${APIPORTAL}/service`, // `/api/portal/service/{id}`
   SERVICE_FEATURED: `${APIPORTAL}/service/featured`, //  `/api/portal/service/featured
+  INTRODUCTION: `${APIPORTAL}/gioithieu`, // api/portal/gioithieu
 };
 
 export { ENDPOINTS_PORTAL };
