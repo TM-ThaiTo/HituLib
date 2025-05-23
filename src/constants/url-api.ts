@@ -9,6 +9,8 @@ const ENDPOINTS_PORTAL = {
   DETAIL_SERVICE_BY_ID: `${APIPORTAL}/service`, // `/api/portal/service/{id}`
   SERVICE_FEATURED: `${APIPORTAL}/service/featured`, //  `/api/portal/service/featured
   INTRODUCTION: `${APIPORTAL}/gioithieu`, // api/portal/gioithieu
+  LIBRARY_SERVICES: `${APIPORTAL}/libraryservices`, // `/api/portal/libraryservices`
+  LIBRARY_SERVICE_ID: `${APIPORTAL}/libraryservice`, //`/api/portal/libraryservice/{id}`
 };
 
 export { ENDPOINTS_PORTAL };

@@ -1,7 +1,7 @@
+import { getServiceFeatured } from '@/api/portal/api-service';
 import { BreadcrumbWithCustomSeparator } from '@/components/shares/bread-crumb';
 import Icons from '@/components/shares/icons';
 import renderTypeNews from '@/constants/type-page';
-import { getServiceFeatured } from '@/services/portal-services';
 import CustomLink from '@/hooks/next-link';
 
 export default async function ServicePage() {

@@ -1,9 +1,9 @@
+import { getBanners } from '@/api/portal/api-banner';
 import Banner from '@/components/layouts/home/banner';
 import ListBooks from '@/components/layouts/home/books';
 import NewsEventsLayout from '@/components/layouts/home/news-events';
 import LibraryList from '@/components/shares/library-list';
 import { banners, books } from '@/constants/home';
-import { getBanners } from '@/services/portal-services';
 
 export default async function Home() {
   const dataBanner = await getBanners();

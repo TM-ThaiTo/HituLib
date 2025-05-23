@@ -1,5 +1,5 @@
 // ========== MENU NAVIGATION ==========
-type MenuNavigation = {
+type MenuNavigationType = {
   id: number;
   tieuDe: string;
   duongDan: string;
@@ -9,7 +9,7 @@ type MenuNavigation = {
   moCuaSoMoi: boolean;
   children: MenuNavigation[] | null;
 };
-type MenuNavigations = MenuNavigation[];
+type MenuNavigationsType = MenuNavigation[];
 
 // ========== BANNER ==========
 type BannerType = {
@@ -82,9 +82,20 @@ type IntroductionType = {
 
 type IntroductionsType = IntroductionType[];
 
+// ========== Dịch vụ nghiệp vụ ==========
+type LibraryserviceType = {
+  id: number;
+  tieuDe: string;
+  moTa: string;
+  noiDung: string;
+  duongDan1: string;
+  ngayTao: string;
+};
+type LibraryservicesType = LibraryserviceType[];
+
 export type {
-  MenuNavigation,
-  MenuNavigations,
+  MenuNavigationType,
+  MenuNavigationsType,
   BannerType,
   BannersType,
   FooterType,
@@ -98,4 +109,6 @@ export type {
   DetailServicesType,
   IntroductionType,
   IntroductionsType,
+  LibraryserviceType,
+  LibraryservicesType,
 };

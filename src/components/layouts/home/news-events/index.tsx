@@ -3,11 +3,11 @@ import TitleLayout from '@/components/shares/title-layout';
 import CustomLink from '@/hooks/next-link';
 import { mapSlugWithId } from '@/lib/slug';
 import { mapImagePath } from '@/lib/utils';
-import { getNews } from '@/services/portal-services';
 import { newEvents } from '@/constants/home';
+import { getNewLastest } from '@/api/portal/api-new';
 
 export default async function NewsEventsLayout() {
-  const dataNewsEvents = await getNews();
+  const dataNewsEvents = await getNewLastest();
   const data = dataNewsEvents ? dataNewsEvents : newEvents;
 
   return (

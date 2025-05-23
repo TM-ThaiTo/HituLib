@@ -1,10 +1,10 @@
 import { BreadcrumbWithCustomSeparator } from '@/components/shares/bread-crumb';
 import { getFirstParamInt } from '@/lib/get-param';
-import { getServiceById } from '@/services/portal-services';
 import { SearchParams } from '@/types/search-params';
 import '../../../styles/html.css';
 import Icons from '@/components/shares/icons';
 import renderTypeNews from '@/constants/type-page';
+import { getServiceById } from '@/api/portal/api-service';
 
 export default async function DetailServicePage({ searchParams }: SearchParams) {
   const params = await searchParams;

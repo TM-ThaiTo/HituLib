@@ -1,7 +1,7 @@
 import { GioiThieuChung } from '@/constants/scrape';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import '@/styles/html.css';
-import { getGioiThieuChung } from '@/services/portal-services';
+import { getGioiThieuChung } from '@/api/portal/api-introduction';
 
 export default async function GioiThieuChungPage() {
   const data = await getGioiThieuChung();

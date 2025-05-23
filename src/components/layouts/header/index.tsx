@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import CustomLink from '@/hooks/next-link';
 import MenuBar from './menu-bar';
-// import { getMenuNavigation } from '@/services/portal-services';
 import { Navigations } from '@/constants/navigations';
 import ImagePublic from '@/constants/image';
+// import { getMenuNavigation } from '@/api/portal/api-navigation';
 
 export default async function MainHeader() {
   // const data = await getMenuNavigation();
