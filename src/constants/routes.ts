@@ -37,8 +37,13 @@ const routes = {
   },
 
   dichVu: {
-    goc: { path: '/service', title: 'Dịch vụ nổi bật' },
-    chiTiet: { path: '/service/detail-service', title: 'Chi tiết dịch vụ' },
+    goc: { path: '/service', title: 'Dịch vụ ' },
+    dichVuNoiBat: { path: '/service/featured-service', title: 'Dịch vụ nổi bật' },
+    dichVuNoiBatChiTiet: {
+      path: '/service/featured-service/detail-service',
+      title: 'Chi tiết dịch vụ',
+    },
+    dichVuThuVien: { path: '/service/library-service', title: 'Dịch vụ thư viện' },
   },
 
   chuyenMuc: {

@@ -1,25 +1,35 @@
+import { getLibraryServiceById } from '@/api/portal/api-library';
 import { BreadcrumbWithCustomSeparator } from '@/components/shares/bread-crumb';
-import { getFirstParamInt } from '@/lib/get-param';
-import { SearchParams } from '@/types/search-params';
-import '../../../styles/html.css';
 import Icons from '@/components/shares/icons';
 import renderTypeNews from '@/constants/type-page';
-import { getServiceById } from '@/api/portal/api-service';
+import { notFound } from 'next/navigation';
+import '@/styles/html.css';
+import { getIdFromSlug } from '@/lib/slug';
 
-export default async function DetailServicePage({ searchParams }: SearchParams) {
-  const params = await searchParams;
-  const Id = getFirstParamInt(params.Id, 1);
-  const data = await getServiceById(Id);
+export default async function LibraryServiceByIdPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const getID = getIdFromSlug(id);
+  if (!id || !getID) return notFound();
+  const data = await getLibraryServiceById(getID);
 
-  if (!data) {
-    return <p className="text-center text-red-500">Không tìm thấy dịch vụ.</p>;
-  }
+  if (!data)
+    return (
+      <>
+        <BreadcrumbWithCustomSeparator customTitle={'Không tìm thấy dịch vụ'} />
+        <div className="rounded-lg bg-white p-6 shadow-sm">
+          <span className="text-red-500">Không tìm thấy dịch vụ</span>
+        </div>
+      </>
+    );
 
   return (
     <>
       <BreadcrumbWithCustomSeparator customTitle={data?.tieuDe} />
       <div className="rounded-lg bg-white p-6 shadow-sm">
-        {/* <h1 className="text-3xl font-semibold mb-4 text-center">{data.tieuDe}</h1> */}
         <div className="mb-4 space-y-2">
           <h1 className="text-xl leading-snug font-bold text-gray-900 sm:text-2xl">
             {data.tieuDe}
@@ -36,12 +46,6 @@ export default async function DetailServicePage({ searchParams }: SearchParams) 
 
           <hr className="border-gray-200" />
         </div>
-
-        {data.anhDaiDien && (
-          <div className="mb-4 flex justify-center">
-            <img src={data.anhDaiDien} alt={data.tieuDe} className="max-h-96 rounded shadow" />
-          </div>
-        )}
 
         <div
           className="prose prose-lg max-w-none"

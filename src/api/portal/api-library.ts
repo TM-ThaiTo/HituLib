@@ -43,7 +43,7 @@ const getLibraryServiceById = (
   id: number,
   lang: number = defaultLang,
 ): Promise<LibraryserviceType | null> => {
-  const endpoint = `${ENDPOINTS_PORTAL.LIBRARY_SERVICES}/${id}?lang=${lang}`;
+  const endpoint = `${ENDPOINTS_PORTAL.LIBRARY_SERVICE_ID}/${id}?lang=${lang}`;
 
   return fetchApi<LibraryserviceType>(endpoint, {
     method: 'GET',

@@ -115,7 +115,7 @@ const Navigations: MenuNavigationsType = [
       {
         id: 6163,
         tieuDe: 'Sinh viên/Học viên',
-        duongDan: `${routes.dichVu.chiTiet.path}?Id=1`,
+        duongDan: `${routes.dichVu.dichVuNoiBatChiTiet.path}?Id=1`,
         icon: null,
         parentId: 6155,
         sapXep: 1,
@@ -125,7 +125,7 @@ const Navigations: MenuNavigationsType = [
       {
         id: 6164,
         tieuDe: 'Giảng viên/Nghiên cứu viên',
-        duongDan: `${routes.dichVu.chiTiet.path}?Id=2`,
+        duongDan: `${routes.dichVu.dichVuNoiBatChiTiet.path}?Id=2`,
         icon: null,
         parentId: 6155,
         sapXep: 2,
@@ -135,7 +135,7 @@ const Navigations: MenuNavigationsType = [
       {
         id: 6165,
         tieuDe: 'Nhân viên hành chính',
-        duongDan: `${routes.dichVu.chiTiet.path}?Id=3`,
+        duongDan: `${routes.dichVu.dichVuNoiBatChiTiet.path}?Id=3`,
         icon: null,
         parentId: 6155,
         sapXep: 3,
@@ -145,7 +145,7 @@ const Navigations: MenuNavigationsType = [
       {
         id: 6166,
         tieuDe: 'Cựu sinh viên',
-        duongDan: `${routes.dichVu.chiTiet.path}?Id=4`,
+        duongDan: `${routes.dichVu.dichVuNoiBatChiTiet.path}?Id=4`,
         icon: null,
         parentId: 6155,
         sapXep: 4,
@@ -155,7 +155,7 @@ const Navigations: MenuNavigationsType = [
       {
         id: 6167,
         tieuDe: 'Đối tượng cần hỗ trợ đặc biệt',
-        duongDan: `${routes.dichVu.chiTiet.path}?Id=5`,
+        duongDan: `${routes.dichVu.dichVuNoiBatChiTiet.path}?Id=5`,
         icon: null,
         parentId: 6155,
         sapXep: 5,
