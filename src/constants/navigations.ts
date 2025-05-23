@@ -1,7 +1,7 @@
-import { MenuNavigations } from '@/types/protal';
+import { MenuNavigationsType } from '@/types/protal';
 import routes from '@/constants/routes';
 
-const Navigations: MenuNavigations = [
+const Navigations: MenuNavigationsType = [
   {
     id: 1,
     tieuDe: 'trang chủ',

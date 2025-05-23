@@ -9,7 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
-import { MenuNavigations } from '@/types/protal';
+import { MenuNavigationsType, MenuNavigationType } from '@/types/protal';
 import IconAction from '@/components/layouts/header/icon-action';
 import MenuBarMobile from './components/menu-bar-mobile';
 
@@ -21,7 +21,7 @@ const navItemStyles = cn(
   'hover:after:scale-x-100 focus:outline-none',
 );
 
-export default function Navbar({ data }: { data: MenuNavigations }) {
+export default function Navbar({ data }: { data: MenuNavigationsType }) {
   const topLevelMenus = data
     .filter((item) => item.parentId === 0)
     .sort((a, b) => a.sapXep - b.sapXep);
@@ -50,8 +50,8 @@ export default function Navbar({ data }: { data: MenuNavigations }) {
                   <NavigationMenuContent className="z-50 min-w-[230px] rounded-none bg-white shadow-lg">
                     <div className="flex flex-col">
                       {item.children
-                        .sort((a, b) => a.sapXep - b.sapXep)
-                        .map((child) => (
+                        .sort((a: any, b: any) => a.sapXep - b.sapXep)
+                        .map((child: MenuNavigationType) => (
                           <CustomLink
                             key={child.id}
                             href={child.duongDan ?? '#'}

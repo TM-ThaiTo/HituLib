@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { MenuNavigations } from '@/types/protal';
+import { MenuNavigationsType, MenuNavigationType } from '@/types/protal';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/accordion';
 import IconAction from '@/components/layouts/header/icon-action';
 
-export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
+export default function MenuBarMobile({ data }: { data: MenuNavigationsType }) {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const topLevelMenus = data
     .filter((item) => item.parentId === 0)
@@ -90,8 +90,8 @@ export default function MenuBarMobile({ data }: { data: MenuNavigations }) {
                           <div className="space-y-0">
                             {item.children &&
                               item?.children
-                                .sort((a, b) => a.sapXep - b.sapXep)
-                                .map((child) => (
+                                .sort((a: any, b: any) => a.sapXep - b.sapXep)
+                                .map((child: MenuNavigationType) => (
                                   <SheetClose asChild key={child.id}>
                                     <Link
                                       href={child.duongDan ?? '#'}
