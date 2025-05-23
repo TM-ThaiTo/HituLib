@@ -12,13 +12,16 @@ export default async function GioiThieuChungPage() {
 
       <div className="mt-8 flex flex-col gap-8 lg:flex-row">
         <div className="flex flex-1 flex-col gap-8">
-          {data
-            ? <div
+          {data ? (
+            <div
               className="prose prose-sm max-w-none"
               dangerouslySetInnerHTML={{ __html: data?.noiDung }}
             />
-            : <span className='text-red-500 flex justify-center'>Không có nội thông tin giới thiệu chung</span>
-          }
+          ) : (
+            <span className="flex justify-center text-red-500">
+              Không có nội thông tin giới thiệu chung
+            </span>
+          )}
         </div>
       </div>
     </div>

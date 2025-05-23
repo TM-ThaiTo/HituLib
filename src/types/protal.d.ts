@@ -78,7 +78,7 @@ type IntroductionType = {
   noiDung: string;
   ngayTao: string;
   trangThai: number;
-}
+};
 
 type IntroductionsType = IntroductionType[];
 
@@ -97,5 +97,5 @@ export type {
   DetailServiceType,
   DetailServicesType,
   IntroductionType,
-  IntroductionsType
+  IntroductionsType,
 };

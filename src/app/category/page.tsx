@@ -28,7 +28,7 @@ const dataGioiThieu = [
     tieuDe: 'Hướng dẫn',
     duongDan: routes.chuyenMuc.huongDan.path,
     moCuaSoMoi: false,
-  }
+  },
 ];
 
 export default function CategoryPage() {
@@ -38,9 +38,7 @@ export default function CategoryPage() {
       <div className="rounded-lg bg-white p-6 shadow-sm">
         <TieuDeGioiThieu tieuDe="Phân loại thư viện" />
 
-        <p className="mb-4 text-lg font-semibold text-gray-800">
-          Chuyên mục thư viện
-        </p>
+        <p className="mb-4 text-lg font-semibold text-gray-800">Chuyên mục thư viện</p>
 
         <div className="border border-gray-200 bg-blue-50 px-4">
           <ul className="divide-y divide-gray-200">

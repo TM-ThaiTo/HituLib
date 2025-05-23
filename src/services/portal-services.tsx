@@ -252,8 +252,7 @@ const getGioiThieuChung = (lang: number = defaultLang): Promise<IntroductionType
       console.error('Lỗi khi lấy chi tiết tin tức:', error);
       return null;
     });
-}
-
+};
 
 export {
   getMenuNavigation,
