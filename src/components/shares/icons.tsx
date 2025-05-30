@@ -7,6 +7,7 @@ import {
   Newspaper,
   Calendar,
   Camera, QrCode, Scan,
+  SlidersHorizontal
 } from 'lucide-react';
 
 import { FaFacebookF, FaPlusSquare } from 'react-icons/fa';
@@ -24,6 +25,7 @@ const Icons = {
   camera: Camera,
   qrCode: QrCode,
   scan: Scan,
+  slidersHorizontal: SlidersHorizontal,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,

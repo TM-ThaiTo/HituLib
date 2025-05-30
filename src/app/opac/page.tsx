@@ -1,3 +1,4 @@
+import OpacSearchBar from '@/components/opac/opac-search/opac-search-bar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Camera, Info } from 'lucide-react';
@@ -29,6 +30,8 @@ export default function OpacMainPage() {
               </CardHeader>
               <CardContent>
                 {/* <OpacSearchBar homePage={true} onExtendedSearch={() => setShowExtendedSearch(!showExtendedSearch)} /> */}
+
+                <OpacSearchBar />
 
                 {/* <OpacExtendedSearch query="" visible={showExtendedSearch} onClose={() => setShowExtendedSearch(false)} /> */}
               </CardContent>

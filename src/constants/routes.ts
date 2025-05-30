@@ -46,6 +46,11 @@ const routes = {
     dichVuThuVien: { path: '/service/library-service', title: 'Dịch vụ thư viện' },
   },
 
+  opac: {
+    goc: { path: '/opac', title: 'Tìm kiếm tài liệu' },
+    barcode: { path: '/opac/barcode', title: 'Quét mã vạch/QR tài liệu' },
+  },
+
   chuyenMuc: {
     goc: { path: '/category', title: 'Phân loại' },
     thongBao: { path: '/category/thong-bao', title: 'Thông báo' },
