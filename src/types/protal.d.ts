@@ -93,6 +93,15 @@ type LibraryserviceType = {
 };
 type LibraryservicesType = LibraryserviceType[];
 
+// ========== Hướng dẫn ==========
+type GuideType = {
+  id: number;
+  tieuDe: string;
+  noiDung: string;
+  sapXep: number;
+};
+type GuidesType = GuideType[];
+
 export type {
   MenuNavigationType,
   MenuNavigationsType,
@@ -111,4 +120,6 @@ export type {
   IntroductionsType,
   LibraryserviceType,
   LibraryservicesType,
+  GuideType,
+  GuidesType,
 };

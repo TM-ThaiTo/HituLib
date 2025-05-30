@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function OpacMainPage() {
   return (
     <>
-      <div className="max-w-screen-container flex min-h-screen mt-4">
+      <div className="max-w-screen-container mt-4 flex min-h-screen">
         <main className="flex-1 bg-gray-50">
           <div className="">
             <div className="mb-8 text-center">

@@ -6,8 +6,10 @@ import {
   ChevronDown,
   Newspaper,
   Calendar,
-  Camera, QrCode, Scan,
-  SlidersHorizontal
+  Camera,
+  QrCode,
+  Scan,
+  SlidersHorizontal,
 } from 'lucide-react';
 
 import { FaFacebookF, FaPlusSquare } from 'react-icons/fa';

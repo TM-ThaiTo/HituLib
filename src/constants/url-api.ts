@@ -12,6 +12,8 @@ const ENDPOINTS_PORTAL = {
   INTRODUCTION: `${APIPORTAL}/gioithieu`, // api/portal/gioithieu
   LIBRARY_SERVICES: `${APIPORTAL}/libraryservices`, // `/api/portal/libraryservices`
   LIBRARY_SERVICE_ID: `${APIPORTAL}/libraryservice`, //`/api/portal/libraryservice/{id}`
+  GUIDES: `${APIPORTAL}/guides`, // `/api/portal/guides`
+  GUIDES_ID: `${APIPORTAL}/guide`, // `/api/portal/guide/{id}`
 };
 
 const ENDPOINTS_SEARCH = {
