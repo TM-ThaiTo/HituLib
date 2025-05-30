@@ -17,36 +17,35 @@
 //   );
 // }
 
-
-import Link from "next/link";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import Link from 'next/link';
+import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 
 export default function MainFooter() {
   return (
-    <footer className="bg-gray-100 border-t text-gray-700">
+    <footer className="border-t bg-gray-100 text-gray-700">
       <div className="container mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4">
           {/* Thông tin thư viện */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-gray-800">Thư viện Cds</h3>
-            <p className="text-sm leading-relaxed mb-4">
-              Thư viện Đại học Cds cung cấp nguồn tài nguyên học thuật phong phú và không gian học tập hiện đại
-              cho sinh viên, giảng viên và nhà nghiên cứu.
+            <h3 className="mb-4 text-xl font-bold text-gray-800">Thư viện Cds</h3>
+            <p className="mb-4 text-sm leading-relaxed">
+              Thư viện Đại học Cds cung cấp nguồn tài nguyên học thuật phong phú và không gian học
+              tập hiện đại cho sinh viên, giảng viên và nhà nghiên cứu.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="hover:text-blue-600 transition-colors">
+              <Link href="#" className="transition-colors hover:text-blue-600">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="hover:text-blue-600 transition-colors">
+              <Link href="#" className="transition-colors hover:text-blue-600">
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link href="#" className="hover:text-blue-600 transition-colors">
+              <Link href="#" className="transition-colors hover:text-blue-600">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="#" className="hover:text-blue-600 transition-colors">
+              <Link href="#" className="transition-colors hover:text-blue-600">
                 <Youtube className="h-5 w-5" />
                 <span className="sr-only">YouTube</span>
               </Link>
@@ -55,43 +54,88 @@ export default function MainFooter() {
 
           {/* Liên kết nhanh */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-gray-800">Liên kết nhanh</h3>
+            <h3 className="mb-4 text-xl font-bold text-gray-800">Liên kết nhanh</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/opac" className="hover:text-blue-600">Tra cứu tài liệu (OPAC)</Link></li>
-              <li><Link href="/account/research" className="hover:text-blue-600">Nghiên cứu khoa học</Link></li>
-              <li><Link href="/purchase" className="hover:text-blue-600">Đề xuất mua tài liệu</Link></li>
-              <li><Link href="/opac/courses" className="hover:text-blue-600">Quản lý khóa học</Link></li>
-              <li><Link href="/account" className="hover:text-blue-600">Tài khoản</Link></li>
+              <li>
+                <Link href="/opac" className="hover:text-blue-600">
+                  Tra cứu tài liệu (OPAC)
+                </Link>
+              </li>
+              <li>
+                <Link href="/account/research" className="hover:text-blue-600">
+                  Nghiên cứu khoa học
+                </Link>
+              </li>
+              <li>
+                <Link href="/purchase" className="hover:text-blue-600">
+                  Đề xuất mua tài liệu
+                </Link>
+              </li>
+              <li>
+                <Link href="/opac/courses" className="hover:text-blue-600">
+                  Quản lý khóa học
+                </Link>
+              </li>
+              <li>
+                <Link href="/account" className="hover:text-blue-600">
+                  Tài khoản
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Dịch vụ */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-gray-800">Dịch vụ</h3>
+            <h3 className="mb-4 text-xl font-bold text-gray-800">Dịch vụ</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="hover:text-blue-600">Mượn trả tài liệu</Link></li>
-              <li><Link href="#" className="hover:text-blue-600">Đặt chỗ học tập</Link></li>
-              <li><Link href="#" className="hover:text-blue-600">Truy cập cơ sở dữ liệu</Link></li>
-              <li><Link href="#" className="hover:text-blue-600">Hỗ trợ nghiên cứu</Link></li>
-              <li><Link href="#" className="hover:text-blue-600">Đào tạo người dùng</Link></li>
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Mượn trả tài liệu
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Đặt chỗ học tập
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Truy cập cơ sở dữ liệu
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Hỗ trợ nghiên cứu
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-blue-600">
+                  Đào tạo người dùng
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Liên hệ */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-gray-800">Liên hệ</h3>
-            <address className="text-sm leading-relaxed not-italic space-y-1">
+            <h3 className="mb-4 text-xl font-bold text-gray-800">Liên hệ</h3>
+            <address className="space-y-1 text-sm leading-relaxed not-italic">
               <p>Thư viện Đại học Cds</p>
               <p>Số 1 Đường XYZ</p>
               <p>TP. Hồ Chí Minh, Việt Nam</p>
               <p className="mt-2">Điện thoại: (123) 456-789</p>
-              <p>Email: <a href="mailto:library@hoangkhanhcds.com" className="hover:text-blue-600">library@hoangkhanhcds.com</a></p>
+              <p>
+                Email:{' '}
+                <a href="mailto:library@hoangkhanhcds.com" className="hover:text-blue-600">
+                  library@hoangkhanhcds.com
+                </a>
+              </p>
             </address>
           </div>
         </div>
 
         {/* Footer bottom line */}
-        <div className="border-t border-gray-300 mt-10 pt-6 text-center text-xs text-gray-500">
+        <div className="mt-10 border-t border-gray-300 pt-6 text-center text-xs text-gray-500">
           &copy; {new Date().getFullYear()} Thư viện Đại học Cds. Tất cả các quyền được bảo lưu.
         </div>
       </div>

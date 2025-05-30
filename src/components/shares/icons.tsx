@@ -6,6 +6,7 @@ import {
   ChevronDown,
   Newspaper,
   Calendar,
+  Camera, QrCode, Scan,
 } from 'lucide-react';
 
 import { FaFacebookF, FaPlusSquare } from 'react-icons/fa';
@@ -20,6 +21,9 @@ const Icons = {
   chevronDown: ChevronDown,
   news: Newspaper,
   calendar: Calendar,
+  camera: Camera,
+  qrCode: QrCode,
+  scan: Scan,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,
