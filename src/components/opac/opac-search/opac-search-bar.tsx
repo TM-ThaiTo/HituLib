@@ -19,7 +19,7 @@ export default function OpacSearchBar() {
 
     return (
         <div className="w-full mx-auto">
-            <div className="flex items-center gap-2 w-full">
+            <div className="flex flex-col gap-2 w-full sm:flex-row sm:items-center sm:gap-2">
                 <div className="relative w-full">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
                         <Icons.search className="w-4 h-4" />
@@ -33,14 +33,17 @@ export default function OpacSearchBar() {
                         onKeyDown={e => { if (e.key === 'Enter') handleSearch(); }}
                     />
                 </div>
-                <Button onClick={handleSearch} className="shrink-0 flex items-center gap-1 bg-[#0a58ca] text-white hover:bg-[#0a58ca]/90 cursor-pointer">
+                <Button
+                    onClick={handleSearch}
+                    className="flex items-center gap-1 bg-primary text-white hover:bg-primary/90 w-full sm:w-auto"
+                >
                     <Icons.search className="w-4 h-4" />
                     Tìm kiếm
                 </Button>
                 <Button
                     variant="outline"
                     onClick={() => setShowAdvanced(v => !v)}
-                    className="shrink-0 cursor-pointer"
+                    className="flex items-center gap-1 w-full sm:w-auto"
                 >
                     <Icons.slidersHorizontal className="w-4 h-4" />
                     Bộ lọc nâng cao

@@ -1,4 +1,5 @@
 const APIPORTAL = '/api/portal';
+const APISEARCH = '/api/search';
 
 const ENDPOINTS_PORTAL = {
   BANNER: `${APIPORTAL}/banner/active`, //  `/api/portal/banner/active`
@@ -13,4 +14,8 @@ const ENDPOINTS_PORTAL = {
   LIBRARY_SERVICE_ID: `${APIPORTAL}/libraryservice`, //`/api/portal/libraryservice/{id}`
 };
 
-export { ENDPOINTS_PORTAL };
+const ENDPOINTS_SEARCH = {
+  FULLTEXT: `${APISEARCH}/fulltext`, // `/api/search/fulltext`
+};
+
+export { ENDPOINTS_PORTAL, ENDPOINTS_SEARCH };
