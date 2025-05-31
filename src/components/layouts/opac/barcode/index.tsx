@@ -91,7 +91,7 @@ export default function BarcodeMain() {
           stopScanning();
 
           // Navigate to search results with the barcode
-          router.push(`/opac/search?p=${result.barcode}&field=isbn`);
+          router.push(`/opac/search?q=${result.barcode}&field=isbn`);
         } else {
           // Tiếp tục quét nếu không tìm thấy mã vạch
           if (isScanning) {
@@ -113,7 +113,7 @@ export default function BarcodeMain() {
 
   const handleManualSearch = () => {
     if (barcode.trim()) {
-      router.push(`/opac/search?p=${barcode}&field=isbn`);
+      router.push(`/opac/search?q=${barcode}&field=isbn`);
     }
   };
 
