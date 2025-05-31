@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from 'next/image';
 import CustomLink from '@/hooks/next-link';
-import { BannersType } from '@/types/protal';
+import { BannersType } from '@/types/portal';
 
 export default function Banner({ banners }: { banners: BannersType }) {
   return (

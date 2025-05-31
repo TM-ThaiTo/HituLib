@@ -15,7 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { MenuNavigationsType, MenuNavigationType } from '@/types/protal';
+import { MenuNavigationsType, MenuNavigationType } from '@/types/portal';
 import IconAction from '@/components/layouts/header/icon-action';
 import MenuBarMobile from './components/menu-bar-mobile';
 

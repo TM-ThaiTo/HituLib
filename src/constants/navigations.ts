@@ -1,4 +1,4 @@
-import { MenuNavigationsType } from '@/types/protal';
+import { MenuNavigationsType } from '@/types/portal';
 import routes from '@/constants/routes';
 
 const Navigations: MenuNavigationsType = [

@@ -1,6 +1,6 @@
 import { ENDPOINTS_PORTAL } from '@/constants/url-api';
 import { fetchApi } from '@/lib/fetcher';
-import { NewDetailType, NewEventsType } from '@/types/protal';
+import { NewDetailType, NewEventsType } from '@/types/portal';
 
 const defaultLang = 1;
 

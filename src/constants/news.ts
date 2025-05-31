@@ -1,4 +1,4 @@
-import { NewEventsType } from '@/types/protal';
+import { NewEventsType } from '@/types/portal';
 
 const DataNews: NewEventsType = [
   {

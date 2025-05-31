@@ -10,6 +10,9 @@ import {
   QrCode,
   Scan,
   SlidersHorizontal,
+  Clock,
+  TrendingUp,
+  BookOpen,
 } from 'lucide-react';
 
 import { FaFacebookF, FaPlusSquare } from 'react-icons/fa';
@@ -28,6 +31,9 @@ const Icons = {
   qrCode: QrCode,
   scan: Scan,
   slidersHorizontal: SlidersHorizontal,
+  clock: Clock,
+  trendingUp: TrendingUp,
+  bookOpen: BookOpen,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,

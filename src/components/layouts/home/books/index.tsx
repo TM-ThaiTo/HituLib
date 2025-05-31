@@ -1,5 +1,5 @@
 import TitleLayout from '@/components/shares/title-layout';
-import { BooksType } from '@/types/protal';
+import { BooksType } from '@/types/portal';
 import Image from 'next/image';
 
 export default function ListBooks({ books }: { books: BooksType }) {

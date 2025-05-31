@@ -1,6 +1,6 @@
 import { ENDPOINTS_PORTAL } from '@/constants/url-api';
 import { fetchApi } from '@/lib/fetcher';
-import { GuidesType, GuideType } from '@/types/protal';
+import { GuidesType, GuideType } from '@/types/portal';
 
 const defaultLang = 1;
 

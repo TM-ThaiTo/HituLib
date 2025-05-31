@@ -1,6 +1,6 @@
 import { ENDPOINTS_PORTAL } from '@/constants/url-api';
 import { fetchApi } from '@/lib/fetcher';
-import { LibraryservicesType, LibraryserviceType } from '@/types/protal';
+import { LibraryservicesType, LibraryserviceType } from '@/types/portal';
 const defaultLang = 1;
 
 /**

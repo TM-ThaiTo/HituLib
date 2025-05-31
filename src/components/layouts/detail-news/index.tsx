@@ -1,7 +1,7 @@
 import Icons from '@/components/shares/icons';
 import Image from 'next/image';
 import './styles.css';
-import { NewDetailType } from '@/types/protal';
+import { NewDetailType } from '@/types/portal';
 import { mapImagePath } from '@/lib/utils';
 import renderTypeNews from '@/constants/type-page';
 

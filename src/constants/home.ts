@@ -1,4 +1,4 @@
-import { BannersType, BooksType, NewEventsType } from '@/types/protal';
+import { BannersType, BooksType, NewEventsType } from '@/types/portal';
 
 const newEvents: NewEventsType = [
   {
