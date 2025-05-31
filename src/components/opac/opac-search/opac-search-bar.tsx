@@ -6,24 +6,69 @@ import { Button } from '@/components/ui/button';
 import Icons from '@/components/shares/icons';
 import { useSearchHistory } from '@/hooks/use-search-history';
 import { OpacSearchSuggestions } from './opac-search-suggestions';
+import { useRouter } from '@/hooks/use-router';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
+import { Slider } from '@/components/ui/slider';
+import { SliderRange, SliderThumb } from '@radix-ui/react-slider';
+import { SliderTrack } from '@radix-ui/react-slider';
+import OpacAdvancedFilters from './opac-advanced-filters';
 
 export default function OpacSearchBar() {
+  const router = useRouter();
   const [search, setSearch] = useState('');
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { addHistory } = useSearchHistory();
 
+  // Advanced filter states
+  const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
+  const [category, setCategory] = useState('all');
+  const [author, setAuthor] = useState('');
+  const [yearRange, setYearRange] = useState<[number, number]>([2000, 2020]);
+
+  // Fetch categories for advanced filter
+  useEffect(() => {
+    if (showAdvanced) {
+      fetch('/api/search/document-categories')
+        .then((res) => res.json())
+        .then((data) => setCategories(data.categories || []));
+    }
+  }, [showAdvanced]);
+
   const handleSearch = async () => {
     if (!search.trim()) return;
     addHistory(search.trim());
     setShowSuggestions(false);
-    console.log('Tìm kiếm:', search);
-    // Xử lý tìm kiếm ở đây (ví dụ: gọi API hoặc filter dữ liệu)
-    // const data = await fetch(
-    //   `https://api.hoangkhanhcds.com/api/search/fulltext?q=${search}&page=1&pageSize=4`,
-    // );
-    // console.log('Tìm kiếm:', data);
+    const submitCategory = category === 'all' ? '' : category;
+    if (showAdvanced) {
+      // Gọi API nâng cao
+      const res = await fetch('/api/search/fulltext/advanced', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          q: search,
+          category: submitCategory,
+          author,
+          yearFrom: yearRange[0],
+          yearTo: yearRange[1],
+        }),
+      });
+      const data = await res.json();
+      console.log('Kết quả nâng cao:', data);
+      // Có thể điều hướng hoặc hiển thị kết quả tuỳ ý
+    } else {
+      // Gọi API thường
+      const searchWithPlus = search.replace(/ /g, '+');
+      router.push(`/opac/search?p=${searchWithPlus}`);
+    }
   };
 
   // Đóng gợi ý khi click ra ngoài
@@ -41,6 +86,79 @@ export default function OpacSearchBar() {
     return () => document.removeEventListener('mousedown', handleClick);
   }, [showSuggestions]);
 
+  // const renderAdvancedFilter = () => {
+  //   return (
+  //     <>
+  //       {showAdvanced && (
+  //         <div className="bg-muted mt-4 rounded border p-4 flex flex-col gap-4">
+  //           <div className="flex flex-col sm:flex-row gap-4">
+  //             <div className="flex-1">
+  //               <Label htmlFor="category">Danh mục</Label>
+  //               <Select value={category} onValueChange={setCategory}>
+  //                 <SelectTrigger id="category" className="w-full mt-1">
+  //                   <SelectValue placeholder="Tất cả" />
+  //                 </SelectTrigger>
+  //                 <SelectContent>
+  //                   <SelectItem value="all">Tất cả</SelectItem>
+  //                   {categories.map((cat) => (
+  //                     <SelectItem key={cat.id} value={String(cat.id)}>{cat.name}</SelectItem>
+  //                   ))}
+  //                 </SelectContent>
+  //               </Select>
+  //             </div>
+  //             <div className="flex-1">
+  //               <Label htmlFor="author">Tác giả</Label>
+  //               <Input
+  //                 id="author"
+  //                 value={author}
+  //                 onChange={e => setAuthor(e.target.value)}
+  //                 placeholder="Nhập tên tác giả"
+  //                 className="mt-1"
+  //               />
+  //             </div>
+  //           </div>
+
+  //           <div className="flex-1 flex flex-col">
+  //             <Label htmlFor="year">Năm xuất bản</Label>
+  //             <div className="flex items-center mt-1 mb-2">
+  //               <Icons.calendar className="h-4 w-4 mr-1 text-gray-500" />
+  //               <span className="text-sm text-muted-foreground">Từ năm: <b>{yearRange[0]} đến {yearRange[1]}</b></span>
+  //             </div>
+  //             <Slider
+  //               id="year"
+  //               min={1800}
+  //               max={2025}
+  //               step={1}
+  //               value={yearRange}
+  //               defaultValue={[1800, 2025]}
+  //               onValueChange={(vals) => setYearRange([vals[0], vals[1]])}
+  //               className="w-full"
+  //             />
+  //             <div className="flex justify-between text-sm text-muted-foreground mt-2">
+  //               <span>{1800}</span>
+  //               <span>{2025}</span>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       )}
+  //     </>
+  //   )
+  // }
+
+  const handleAdvancedFilters = (filters: any) => {
+    console.log('Applied filters:', filters);
+    setShowAdvanced(false);
+
+    // Thực hiện tìm kiếm với bộ lọc nâng cao
+    // if (onSearch) {
+    //   onSearch({
+    //     query,
+    //     source: activeTab,
+    //     ...filters,
+    //   })
+    // }
+  };
+
   return (
     <div className="mx-auto w-full">
       <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:gap-2">
@@ -55,7 +173,7 @@ export default function OpacSearchBar() {
             value={search}
             onFocus={() => setShowSuggestions(true)}
             onChange={(e) => setSearch(e.target.value)}
-            className="pl-9 pr-9"
+            className="pr-9 pl-9"
             autoComplete="off"
             onKeyDown={(e) => {
               if (e.key === 'Enter') handleSearch();
@@ -64,7 +182,7 @@ export default function OpacSearchBar() {
           {search && (
             <button
               type="button"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-destructive cursor-pointer focus:outline-none"
+              className="text-muted-foreground hover:text-destructive absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer focus:outline-none"
               onClick={() => setSearch('')}
               tabIndex={-1}
             >
@@ -94,6 +212,7 @@ export default function OpacSearchBar() {
           <Icons.search className="h-4 w-4" />
           Tìm kiếm
         </Button>
+
         <Button
           variant="outline"
           onClick={() => setShowAdvanced((v) => !v)}
@@ -103,12 +222,13 @@ export default function OpacSearchBar() {
           Bộ lọc nâng cao
         </Button>
       </div>
-      {showAdvanced && (
-        <div className="bg-muted mt-4 rounded border p-4">
-          {/* Thêm các trường bộ lọc nâng cao ở đây */}
-          <span className="text-muted-foreground text-sm">Bộ lọc nâng cao (placeholder)</span>
-        </div>
-      )}
+
+      <OpacAdvancedFilters
+        showAdvanced={showAdvanced}
+        categories={categories}
+        onApply={handleAdvancedFilters}
+      />
+      {/* {showAdvanced && renderAdvancedFilter()} */}
     </div>
   );
 }
