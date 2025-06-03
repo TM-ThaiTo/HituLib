@@ -22,18 +22,18 @@ export default function OpacMainPage() {
               <CardHeader className="flex flex-row items-center justify-between pb-2">
                 <CardTitle className="text-blue-600">Tìm kiếm tài liệu</CardTitle>
                 <Link href="/opac/barcode">
-                  <Button variant="outline" size="sm" className="flex items-center gap-1">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex cursor-pointer items-center gap-1"
+                  >
                     <Camera className="h-4 w-4" />
                     <span className="hidden sm:inline">Quét mã vạch</span>
                   </Button>
                 </Link>
               </CardHeader>
               <CardContent>
-                {/* <OpacSearchBar homePage={true} onExtendedSearch={() => setShowExtendedSearch(!showExtendedSearch)} /> */}
-
                 <OpacSearchBar />
-
-                {/* <OpacExtendedSearch query="" visible={showExtendedSearch} onClose={() => setShowExtendedSearch(false)} /> */}
               </CardContent>
               <CardFooter className="border-t bg-blue-50">
                 <div className="flex items-start text-sm text-gray-600">

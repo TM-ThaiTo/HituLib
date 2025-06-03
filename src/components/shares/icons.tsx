@@ -23,6 +23,9 @@ import {
   Filter,
   Check,
   RefreshCw,
+  Plus,
+  Trash,
+  Trash2,
 } from 'lucide-react';
 
 import { FaFacebookF, FaPlusSquare } from 'react-icons/fa';
@@ -54,6 +57,9 @@ const Icons = {
   filter: Filter,
   check: Check,
   refreshCw: RefreshCw,
+  plus: Plus,
+  trash: Trash,
+  trash2: Trash2,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,

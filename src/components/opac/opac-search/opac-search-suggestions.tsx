@@ -1,7 +1,6 @@
 'use client';
 
 import type React from 'react';
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -41,6 +40,7 @@ function SuggestionsData(query: string): string[] {
   ];
 }
 
+// TODO: COMPONENT SUGGESTIONS: xử lý gợi ý tìm kiếm
 export function OpacSearchSuggestions({
   query,
   onSuggestionClick,

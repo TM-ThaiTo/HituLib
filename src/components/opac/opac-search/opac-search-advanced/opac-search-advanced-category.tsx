@@ -123,7 +123,7 @@ export default function OpacSearchAdvancedCategory({ filter, onChange, categorie
           value={filter.yearRange}
           defaultValue={[2000, 2020]}
           onValueChange={(vals) => onChange({ yearRange: [vals[0], vals[1]] })}
-          className="w-full"
+          className="w-full cursor-pointer"
         />
         <div className="text-muted-foreground mt-2 flex justify-between text-sm">
           <span>{1800}</span>
@@ -190,9 +190,9 @@ export default function OpacSearchAdvancedCategory({ filter, onChange, categorie
   return (
     <div className="flex flex-col gap-4">
       {renderCheckbox()}
-      <Separator />
+      <Separator className="my-4" />
       {renderSlider()}
-      <Separator />
+      <Separator className="my-4" />
       {renderLanguges()}
     </div>
   );
