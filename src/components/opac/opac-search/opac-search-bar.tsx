@@ -14,24 +14,16 @@ export default function OpacSearchBar() {
   const [search, setSearch] = useState('');
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [advancedFilters, setAdvancedFilters] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { addHistory } = useSearchHistory();
-  const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
-
-  useEffect(() => {
-    if (showAdvanced) {
-      fetch('/api/search/document-categories')
-        .then((res) => res.json())
-        .then((data) => setCategories(data.categories || []));
-    }
-  }, [showAdvanced]);
 
   const handleSearch = async () => {
     if (!search.trim()) return;
     addHistory(search.trim());
     setShowSuggestions(false);
     const searchWithPlus = search.replace(/ /g, '+');
-    router.push(`/opac/search?p=${searchWithPlus}`);
+    router.push(`/opac/search?p=${searchWithPlus}${advancedFilters ? `&filters=${advancedFilters}` : ''}`);
   };
 
   // Đóng gợi ý khi click ra ngoài
@@ -51,9 +43,10 @@ export default function OpacSearchBar() {
 
   // Handle advanced filters
   // TODO: Handle advanced filters (API): xử lý kết quả tìm kiếm nâng cao
-  const handleAdvancedFilters = async (filters: any) => {
-    console.log('Applied filters:', filters);
-    // setShowAdvanced(false);
+  const handleAdvancedFilters = async (encodedFilters: string) => {
+    console.log('Applied filters:', encodedFilters);
+    setAdvancedFilters(encodedFilters);
+    setShowAdvanced(false);
   };
 
   return (
@@ -120,8 +113,7 @@ export default function OpacSearchBar() {
 
       <OpacAdvancedFilters
         showAdvanced={showAdvanced}
-        categories={categories}
-        onApply={handleAdvancedFilters}
+      // onApply={handleAdvancedFilters}
       />
     </div>
   );

@@ -3,14 +3,7 @@ import { Slider } from '@/components/ui/slider';
 import Icons from '@/components/shares/icons';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Separator } from '@/components/ui/separator';
-
-export type CategoryFilterType = {
-  category: string;
-  author: string;
-  yearRange: [number, number];
-  documentTypes: string[];
-  languages?: string[];
-};
+import { CategoryFilterType } from '@/types/opac-search';
 
 const DOCUMENT_TYPE_OPTIONS = [
   {
@@ -83,10 +76,9 @@ const LANGUAGE_OPTIONS = [
 interface Props {
   filter: CategoryFilterType;
   onChange: (changed: Partial<CategoryFilterType>) => void;
-  categories: { id: number; name: string }[];
 }
 
-export default function OpacSearchAdvancedCategory({ filter, onChange, categories }: Props) {
+export default function OpacSearchAdvancedCategory({ filter, onChange }: Props) {
   const handleCheckbox = (id: string) => {
     const exists = filter.documentTypes.includes(id);
     const newTypes = exists
@@ -133,7 +125,7 @@ export default function OpacSearchAdvancedCategory({ filter, onChange, categorie
     );
   };
 
-  const renderCheckbox = () => {
+  const renderCheckboxDocumentType = () => {
     return (
       <div>
         <Label className="mb-2 block">Loại tài liệu</Label>
@@ -189,7 +181,7 @@ export default function OpacSearchAdvancedCategory({ filter, onChange, categorie
 
   return (
     <div className="flex flex-col gap-4">
-      {renderCheckbox()}
+      {renderCheckboxDocumentType()}
       <Separator className="my-4" />
       {renderSlider()}
       <Separator className="my-4" />

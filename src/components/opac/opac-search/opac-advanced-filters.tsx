@@ -3,48 +3,29 @@ import { useState, useRef } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import Icons from '@/components/shares/icons';
-import OpacSearchAdvancedCategory, {
-  CategoryFilterType,
-} from '@/components/opac/opac-search/opac-search-advanced/opac-search-advanced-category';
+import OpacSearchAdvancedCategory from '@/components/opac/opac-search/opac-search-advanced/opac-search-advanced-category';
 import { Separator } from '@/components/ui/separator';
 import OpacAdvancedAccess from './opac-search-advanced/opac-search-advanced-access';
 import OpacAdvancedDisplay from './opac-search-advanced/opac-search-advanced-display';
 import OpacSearchAdvancedAndOr, {
   OpacSearchAdvancedAndOrHandle,
 } from './opac-search-advanced/opac-search-advanced-and-or';
-
-export type FilterType = CategoryFilterType & {
-  accessType?: string;
-  available?: boolean;
-  fulltext?: boolean;
-  onlineAccess?: boolean;
-  openAccess?: boolean;
-  locations?: string[];
-  availability?: string[];
-  sortBy?: string;
-  resultsPerPage?: number;
-  displayFields?: string[];
-  keywordFilters: { field: string; keyword: string; logic?: string }[];
-};
-
+import { FilterType } from '@/types/opac-search';
+import { useRouter } from '@/hooks/use-router';
 interface OpacAdvancedFiltersProps {
   showAdvanced: boolean;
-  categories: { id: number; name: string }[];
-  onApply?: (filter: FilterType) => void;
+  // onApply?: (filter: string) => void;
 }
 
 export default function OpacAdvancedFilters({
   showAdvanced,
-  categories,
-  onApply,
 }: OpacAdvancedFiltersProps) {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('material');
   const [filter, setFilter] = useState<Omit<FilterType, 'keywordFilters'>>({
     category: 'all',
-    author: '',
     yearRange: [2000, 2020],
     documentTypes: [],
-    accessType: 'all',
     available: false,
     fulltext: false,
     onlineAccess: false,
@@ -72,16 +53,16 @@ export default function OpacAdvancedFilters({
       keywordFilters: keywordFilters,
     };
 
-    if (onApply) onApply(finalFilter);
+    const encodedFilter = encodeURIComponent(JSON.stringify(finalFilter));
+
+    router.push(`/opac/search?p=&filters=${encodedFilter}`);
   };
 
   const handleReset = () => {
     setFilter({
       category: 'all',
-      author: '',
       yearRange: [2000, 2020],
       documentTypes: [],
-      accessType: 'all',
       available: false,
       fulltext: false,
       onlineAccess: false,
@@ -131,11 +112,7 @@ export default function OpacAdvancedFilters({
         <Separator />
 
         <TabsContent value="material">
-          <OpacSearchAdvancedCategory
-            filter={filter}
-            onChange={handleChange}
-            categories={categories}
-          />
+          <OpacSearchAdvancedCategory filter={filter} onChange={handleChange} />
         </TabsContent>
         <TabsContent value="access">
           <OpacAdvancedAccess filter={filter} onChange={handleChange} />
