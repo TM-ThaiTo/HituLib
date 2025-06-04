@@ -66,10 +66,7 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
   return (
     <div className="space-y-4">
       {filters.map((filter, idx) => (
-        <div
-          key={idx}
-          className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3"
-        >
+        <div key={idx} className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
           {/* Select Field */}
           <Select
             value={filter.field}
@@ -117,7 +114,7 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
               <Button
                 variant="ghost"
                 onClick={handleAddFilter}
-                className="text-muted-foreground text-sm flex items-center gap-1"
+                className="text-muted-foreground flex items-center gap-1 text-sm"
               >
                 <Icons.plus size={16} />
                 Thêm dòng
@@ -139,7 +136,6 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
         </div>
       ))}
     </div>
-
   );
 });
 
