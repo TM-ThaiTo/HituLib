@@ -66,13 +66,17 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
   return (
     <div className="space-y-4">
       {filters.map((filter, idx) => (
-        <div key={idx} className="flex flex-col items-start gap-2 sm:flex-row sm:items-center">
+        <div
+          key={idx}
+          className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3"
+        >
+          {/* Select Field */}
           <Select
             value={filter.field}
             onValueChange={(val) => handleChangeFilter(idx, 'field', val)}
           >
-            <SelectTrigger className="w-[200px] cursor-pointer">
-              <SelectValue />
+            <SelectTrigger className="w-full sm:w-[200px]">
+              <SelectValue placeholder="Chọn trường" />
             </SelectTrigger>
             <SelectContent>
               {searchFields.map((field) => (
@@ -83,53 +87,59 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
             </SelectContent>
           </Select>
 
+          {/* Keyword Input */}
           <Input
             placeholder="Nhập từ khóa tìm kiếm"
             value={filter.keyword}
             onChange={(e) => handleChangeFilter(idx, 'keyword', e.target.value)}
-            className="flex-1"
+            className="w-full flex-1"
           />
 
-          {idx < filters.length - 1 ? (
-            <Select
-              value={filter.logic}
-              onValueChange={(val) => handleChangeFilter(idx, 'logic', val)}
-            >
-              <SelectTrigger className="w-[100px]">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {logicOptions.map((logic) => (
-                  <SelectItem key={logic} value={logic}>
-                    {logic}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          ) : (
-            <Button
-              variant="ghost"
-              onClick={handleAddFilter}
-              className="text-muted-foreground flex items-center gap-2 text-sm"
-            >
-              <Icons.plus size={16} className="mr-1" />
-              Thêm dòng
-            </Button>
-          )}
+          {/* Logic Select / Add Button */}
+          <div className="flex items-center gap-2">
+            {idx < filters.length - 1 ? (
+              <Select
+                value={filter.logic}
+                onValueChange={(val) => handleChangeFilter(idx, 'logic', val)}
+              >
+                <SelectTrigger className="w-[100px]">
+                  <SelectValue placeholder="Logic" />
+                </SelectTrigger>
+                <SelectContent>
+                  {logicOptions.map((logic) => (
+                    <SelectItem key={logic} value={logic}>
+                      {logic}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            ) : (
+              <Button
+                variant="ghost"
+                onClick={handleAddFilter}
+                className="text-muted-foreground text-sm flex items-center gap-1"
+              >
+                <Icons.plus size={16} />
+                Thêm dòng
+              </Button>
+            )}
 
-          {filters.length > 1 && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => handleRemoveFilter(idx)}
-              className="hover:text-destructive text-red-500"
-            >
-              <Icons.trash2 size={16} />
-            </Button>
-          )}
+            {/* Delete Button */}
+            {filters.length > 1 && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => handleRemoveFilter(idx)}
+                className="hover:text-destructive text-red-500"
+              >
+                <Icons.trash2 size={16} />
+              </Button>
+            )}
+          </div>
         </div>
       ))}
     </div>
+
   );
 });
 
