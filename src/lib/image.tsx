@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { IMAGE_URL } from '@/config/env';
+import ImagePublic from '@/constants/image';
 
 interface OptimizedImageProps {
   src: string;
@@ -55,7 +56,7 @@ export default function OptimizedImage({
   }, [src]);
 
   const handleError = () => {
-    setImgSrc(fallbackImage);
+    setImgSrc(ImagePublic.notFound);
     setError(true);
     setIsLoading(false);
   };
@@ -86,7 +87,7 @@ export default function OptimizedImage({
     return (
       <div className="relative flex items-center justify-center" style={{ width, height }}>
         <Image
-          src={imgSrc || '/placeholder.webp'}
+          src={imgSrc || ImagePublic.notFound}
           alt={alt}
           width={width}
           height={height}
@@ -109,7 +110,7 @@ export default function OptimizedImage({
   return (
     <div className="relative flex h-48 w-full items-center justify-center overflow-hidden">
       <Image
-        src={imgSrc || '/Image-not-found.png'}
+        src={imgSrc || ImagePublic.notFound}
         alt={alt}
         fill
         className={imageClassName}

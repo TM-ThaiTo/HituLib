@@ -1,10 +1,12 @@
+import OpacDocumentLatest from '@/components/opac/opac-document-latest';
 import OpacSearchBar from '@/components/opac/opac-search/opac-search-bar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Camera, Info } from 'lucide-react';
 import Link from 'next/link';
 
-export default function OpacMainPage() {
+export default async function OpacMainPage() {
+
   return (
     <>
       <div className="max-w-screen-container mt-4 flex min-h-screen">
@@ -37,7 +39,7 @@ export default function OpacMainPage() {
               </CardContent>
               <CardFooter className="border-t bg-blue-50">
                 <div className="flex items-start text-sm text-gray-600">
-                  <Info className="mt-0.5 mr-2 h-5 w-5 flex-shrink-0 text-blue-600" />
+                  <Info className="mt-0.5 mr-2 h-full w-5 flex-shrink-0 text-blue-600" />
                   <p>
                     Bạn có thể tìm kiếm tài liệu trong Tài liệu nội sinh, từ các đơn vị liên kết,
                     học liệu mở (OER), hoặc từ các nguồn bên ngoài. Nếu không tìm thấy tài liệu bạn
@@ -46,6 +48,9 @@ export default function OpacMainPage() {
                 </div>
               </CardFooter>
             </Card>
+
+            <OpacDocumentLatest />
+
           </div>
         </main>
       </div>
