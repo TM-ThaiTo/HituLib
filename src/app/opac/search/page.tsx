@@ -38,28 +38,47 @@ export default function OpacSearchPage() {
       {filters && (
         <div>
           <h3>Applied Filters:</h3>
-          <p><strong>Category:</strong> {filters.category}</p>
-          {filters.author && <p><strong>Author:</strong> {filters.author}</p>}
-          {filters.yearRange && <p><strong>Year Range:</strong> {filters.yearRange[0]} - {filters.yearRange[1]}</p>}
-          {filters.documentTypes && filters.documentTypes.length > 0 && (
-            <p><strong>Document Types:</strong> {filters.documentTypes.join(', ')}</p>
+          <p>
+            <strong>Category:</strong> {filters.category}
+          </p>
+          {filters.author && (
+            <p>
+              <strong>Author:</strong> {filters.author}
+            </p>
           )}
-          {filters.accessType && <p><strong>Access Type:</strong> {filters.accessType}</p>}
+          {filters.yearRange && (
+            <p>
+              <strong>Year Range:</strong> {filters.yearRange[0]} - {filters.yearRange[1]}
+            </p>
+          )}
+          {filters.documentTypes && filters.documentTypes.length > 0 && (
+            <p>
+              <strong>Document Types:</strong> {filters.documentTypes.join(', ')}
+            </p>
+          )}
+          {filters.accessType && (
+            <p>
+              <strong>Access Type:</strong> {filters.accessType}
+            </p>
+          )}
           {filters.keywordFilters && filters.keywordFilters.length > 0 && (
             <div>
-              <p><strong>Keyword Filters:</strong></p>
+              <p>
+                <strong>Keyword Filters:</strong>
+              </p>
               <ul>
                 {filters.keywordFilters.map((kf: any, index: number) => (
-                  <li key={index}>Field: {kf.field}, Keyword: {kf.keyword}{kf.logic && `, Logic: ${kf.logic}`}</li>
+                  <li key={index}>
+                    Field: {kf.field}, Keyword: {kf.keyword}
+                    {kf.logic && `, Logic: ${kf.logic}`}
+                  </li>
                 ))}
               </ul>
             </div>
           )}
         </div>
       )}
-      {!filters && filtersParam && (
-        <p className="text-red-500">Error loading filters.</p>
-      )}
+      {!filters && filtersParam && <p className="text-red-500">Error loading filters.</p>}
     </div>
   );
 }

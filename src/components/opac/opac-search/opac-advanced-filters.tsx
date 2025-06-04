@@ -17,9 +17,7 @@ interface OpacAdvancedFiltersProps {
   // onApply?: (filter: string) => void;
 }
 
-export default function OpacAdvancedFilters({
-  showAdvanced,
-}: OpacAdvancedFiltersProps) {
+export default function OpacAdvancedFilters({ showAdvanced }: OpacAdvancedFiltersProps) {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState('material');
   const [filter, setFilter] = useState<Omit<FilterType, 'keywordFilters'>>({

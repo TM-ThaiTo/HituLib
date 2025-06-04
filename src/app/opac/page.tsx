@@ -6,7 +6,6 @@ import { Camera, Info } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function OpacMainPage() {
-
   return (
     <>
       <div className="max-w-screen-container mt-4 flex min-h-screen">
@@ -50,7 +49,6 @@ export default async function OpacMainPage() {
             </Card>
 
             <OpacDocumentLatest />
-
           </div>
         </main>
       </div>

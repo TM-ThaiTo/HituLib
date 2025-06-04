@@ -8,51 +8,48 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 export default function OpacDocumentLatest() {
+  const [documents, setDocuments] = useState<any[]>([]);
 
-    const [documents, setDocuments] = useState<any[]>([]);
-
-    useEffect(() => {
-        const fetchDocuments = async () => {
-            const docs = await getListDocument();
-            setDocuments(docs.slice(0, 4)); // Hiển thị 4 tài liệu đầu tiên ban đầu
-        };
-        fetchDocuments();
-    }, []);
-    const handleShowAll = async () => {
-        const allDocuments = await getListDocument(); // Lấy tất cả tài liệu từ API
-        setDocuments(allDocuments); // Cập nhật state để hiển thị tất cả tài liệu
+  useEffect(() => {
+    const fetchDocuments = async () => {
+      const docs = await getListDocument();
+      setDocuments(docs.slice(0, 4)); // Hiển thị 4 tài liệu đầu tiên ban đầu
     };
+    fetchDocuments();
+  }, []);
+  const handleShowAll = async () => {
+    const allDocuments = await getListDocument(); // Lấy tất cả tài liệu từ API
+    setDocuments(allDocuments); // Cập nhật state để hiển thị tất cả tài liệu
+  };
 
-    return (
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                {documents.map((doc) => (
-                    <Link href={`/opac/document/${doc.id}`} key={doc.id} className="block group">
-                        <div className="border rounded-md p-4 h-full hover:border-blue-300 hover:bg-blue-50/30 transition-colors flex flex-col">
-                            <div className="flex justify-center mb-4 w-full h-48">
-                                <OptimizedImage
-                                    src={doc.coverImage}
-                                    alt={doc.title}
-                                    className="rounded-md border border-gray-200 object-cover w-full h-full"
-                                />
-                            </div>
-                            <div className="flex flex-col flex-grow justify-between">
-                                <h3 className="font-medium text-blue-600 group-hover:underline text-center line-clamp-2 mb-2">
-                                    {doc.title}
-                                </h3>
-                                <p className="text-sm text-gray-500 text-center mb-4">
-                                    {doc.authors.join(', ')}
-                                </p>
-                            </div>
-                        </div>
-                    </Link>
-                ))}
+  return (
+    <div className="mb-8 rounded-lg bg-white p-6 shadow-sm">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+        {documents.map((doc) => (
+          <Link href={`/opac/document/${doc.id}`} key={doc.id} className="group block">
+            <div className="flex h-full flex-col rounded-md border p-4 transition-colors hover:border-blue-300 hover:bg-blue-50/30">
+              <div className="mb-4 flex h-48 w-full justify-center">
+                <OptimizedImage
+                  src={doc.coverImage}
+                  alt={doc.title}
+                  className="h-full w-full rounded-md border border-gray-200 object-cover"
+                />
+              </div>
+              <div className="flex flex-grow flex-col justify-between">
+                <h3 className="mb-2 line-clamp-2 text-center font-medium text-blue-600 group-hover:underline">
+                  {doc.title}
+                </h3>
+                <p className="mb-4 text-center text-sm text-gray-500">{doc.authors.join(', ')}</p>
+              </div>
             </div>
-            <div className="mt-6 text-center">
-                <Button variant="outline" onClick={handleShowAll}>
-                    Xem tất cả
-                </Button>
-            </div>
-        </div>
-    )
+          </Link>
+        ))}
+      </div>
+      <div className="mt-6 text-center">
+        <Button variant="outline" onClick={handleShowAll}>
+          Xem tất cả
+        </Button>
+      </div>
+    </div>
+  );
 }

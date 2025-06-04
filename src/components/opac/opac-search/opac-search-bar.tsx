@@ -23,7 +23,9 @@ export default function OpacSearchBar() {
     addHistory(search.trim());
     setShowSuggestions(false);
     const searchWithPlus = search.replace(/ /g, '+');
-    router.push(`/opac/search?p=${searchWithPlus}${advancedFilters ? `&filters=${advancedFilters}` : ''}`);
+    router.push(
+      `/opac/search?p=${searchWithPlus}${advancedFilters ? `&filters=${advancedFilters}` : ''}`,
+    );
   };
 
   // Đóng gợi ý khi click ra ngoài
@@ -113,7 +115,7 @@ export default function OpacSearchBar() {
 
       <OpacAdvancedFilters
         showAdvanced={showAdvanced}
-      // onApply={handleAdvancedFilters}
+        // onApply={handleAdvancedFilters}
       />
     </div>
   );
