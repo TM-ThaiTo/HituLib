@@ -47,8 +47,9 @@ const routes = {
   },
 
   opac: {
-    goc: { path: '/opac', title: 'Tìm kiếm tài liệu' },
+    goc: { path: '/opac', title: 'OPAC' },
     barcode: { path: '/opac/barcode', title: 'Quét mã vạch/QR tài liệu' },
+    search: { path: '/opac/search', title: 'Tìm kiếm tài liệu' },
   },
 
   chuyenMuc: {
@@ -59,7 +60,6 @@ const routes = {
     huongDan: { path: '/category/huong-dan', title: 'Hướng dẫn' },
   },
 
-  // Route động
   service: {
     theoSlug: (slug: string): RouteItem => ({
       path: `/${slug}`,

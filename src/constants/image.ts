@@ -1,6 +1,6 @@
 const ImagePublic = {
   logo: '/logo-lib-hitu.png',
-  notFound: 'image-not-found.png',
+  notFound: '/Image-not-found.png',
   thuCamOn: '/category/thu-cam-on.jpg',
 };
 
