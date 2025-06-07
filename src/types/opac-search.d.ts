@@ -1,5 +1,4 @@
 type CategoryFilterType = {
-  category: string;
   yearRange: [number, number];
   documentTypes: string[];
   languages?: string[];
@@ -19,4 +18,12 @@ type FilterType = CategoryFilterType & {
   keywordFilters: { field: string; keyword: string; logic?: string }[];
 };
 
-export type { CategoryFilterType, FilterType };
+type AdvancedType = {
+  id: string;
+  label: string;
+  checked: boolean;
+  icon?: JSX.Element;
+  onChange: (checked: boolean) => void;
+};
+
+export type { CategoryFilterType, FilterType, AdvancedType };

@@ -14,14 +14,12 @@ import { FilterType } from '@/types/opac-search';
 import { useRouter } from '@/hooks/use-router';
 interface OpacAdvancedFiltersProps {
   showAdvanced: boolean;
-  // onApply?: (filter: string) => void;
 }
 
 export default function OpacAdvancedFilters({ showAdvanced }: OpacAdvancedFiltersProps) {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState('material');
   const [filter, setFilter] = useState<Omit<FilterType, 'keywordFilters'>>({
-    category: 'all',
     yearRange: [2000, 2020],
     documentTypes: [],
     available: false,
@@ -58,7 +56,6 @@ export default function OpacAdvancedFilters({ showAdvanced }: OpacAdvancedFilter
 
   const handleReset = () => {
     setFilter({
-      category: 'all',
       yearRange: [2000, 2020],
       documentTypes: [],
       available: false,
