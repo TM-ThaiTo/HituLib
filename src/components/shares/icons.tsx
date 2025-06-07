@@ -27,6 +27,7 @@ import {
   Trash,
   Trash2,
   Info,
+  Loader,
 } from 'lucide-react';
 
 import { FaFacebookF, FaPlusSquare } from 'react-icons/fa';
@@ -62,6 +63,7 @@ const Icons = {
   trash: Trash,
   trash2: Trash2,
   info: Info,
+  loader: Loader,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,
