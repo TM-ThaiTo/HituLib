@@ -7,37 +7,12 @@ import { Button } from '@/components/ui/button';
 import { useSearchHistory, SearchHistoryItem } from '@/hooks/use-search-history';
 import { Badge } from '@/components/ui/badge';
 import Icons from '@/components/shares/icons';
-
+import { TRENDING_SEARCH_DATA, PROPOSED_DATA, SUGGESTION_DATA } from '@/constants/opac-search';
 interface OpacSearchSuggestionsProps {
   query: string;
   onSuggestionClick?: (suggestion: string) => void;
   autoComplete?: boolean;
   onClose?: () => void;
-}
-
-const trendingSearchesData = [
-  'machine learning',
-  'blockchain',
-  'internet of things',
-  'big data',
-  'cloud computing',
-];
-
-const proposedData = [
-  'Giáo trình Lập trình hướng đối tượng với Java',
-  'Nhập môn Trí tuệ nhân tạo',
-  'Kiến trúc máy tính và Hệ điều hành',
-  'Lập trình hướng đối tượng với Java',
-];
-
-function SuggestionsData(query: string): string[] {
-  return [
-    `${query} cơ bản`,
-    `${query} nâng cao`,
-    `${query} ứng dụng`,
-    `giáo trình ${query}`,
-    `${query} cho người mới bắt đầu`,
-  ];
 }
 
 // TODO: COMPONENT SUGGESTIONS: xử lý gợi ý tìm kiếm
@@ -62,14 +37,14 @@ export function OpacSearchSuggestions({
     if (recentSearches.length >= 3) {
       setTrendingSearches(recentSearches.map((item) => item.keyword));
     } else {
-      setTrendingSearches(trendingSearchesData);
+      setTrendingSearches(TRENDING_SEARCH_DATA);
     }
   }, [recentSearches]);
 
   // Cập nhật gợi ý tự động hoàn thành
   useEffect(() => {
     if (query && autoComplete) {
-      setAutoCompleteSuggestions(SuggestionsData(query));
+      setAutoCompleteSuggestions(SUGGESTION_DATA(query));
     } else {
       setAutoCompleteSuggestions([]);
     }
@@ -84,7 +59,6 @@ export function OpacSearchSuggestions({
   };
 
   const handleRemoveSearch = (e: React.MouseEvent, id: number) => {
-    console.log('removeSearch', id);
     e.stopPropagation();
     const updated = removeHistory(id);
     setRecentSearches(updated);
@@ -147,7 +121,7 @@ export function OpacSearchSuggestions({
           Tài liệu đề xuất
         </h4>
         <div className="space-y-2">
-          {proposedData.map((item, index) => (
+          {PROPOSED_DATA.map((item, index) => (
             <Button
               key={index}
               variant="ghost"

@@ -2,6 +2,32 @@ import Icons from '@/components/shares/icons';
 import React, { JSX } from 'react';
 import { AdvancedType } from '@/types/opac-search';
 
+//======= SUGGESTION_DATA ======//
+const TRENDING_SEARCH_DATA = [
+  'machine learning',
+  'blockchain',
+  'internet of things',
+  'big data',
+  'cloud computing',
+];
+
+const PROPOSED_DATA = [
+  'Giáo trình Lập trình hướng đối tượng với Java',
+  'Nhập môn Trí tuệ nhân tạo',
+  'Kiến trúc máy tính và Hệ điều hành',
+  'Lập trình hướng đối tượng với Java',
+];
+
+function SUGGESTION_DATA(query: string): string[] {
+  return [
+    `${query} cơ bản`,
+    `${query} nâng cao`,
+    `${query} ứng dụng`,
+    `giáo trình ${query}`,
+    `${query} cho người mới bắt đầu`,
+  ];
+}
+
 //======= OPAC_SEARCH_ADVANCED_CATEGORY ======//
 const DOCUMENT_TYPE_OPTIONS = () => [
   {
@@ -160,6 +186,11 @@ const ACCESS_OPTIONS = () => [
 ];
 
 export {
+  //======= SUGGESTION_DATA ======//
+  TRENDING_SEARCH_DATA,
+  PROPOSED_DATA,
+  SUGGESTION_DATA,
+  //======= OPAC_SEARCH_ADVANCED_CATEGORY ======//
   DOCUMENT_TYPE_OPTIONS,
   LANGUAGE_OPTIONS,
   //======= OPAC_SEARCH_ADVANCED_ACCESS ======//
