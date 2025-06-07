@@ -1,12 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Link } from 'lucide-react';
-import { Button } from '../ui/button';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 import Icons from '@/components/shares/icons';
 import OpacSearchBar from '@/components/opac/opac-search/opac-search-bar';
 
 export default function OpacCardSearch() {
   return (
     <Card className="mb-8 border-t-4 border-t-blue-600">
+      {/* --- Header --- */}
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-blue-600">Tìm kiếm tài liệu</CardTitle>
         <Link href="/opac/barcode">
@@ -16,9 +17,13 @@ export default function OpacCardSearch() {
           </Button>
         </Link>
       </CardHeader>
+
+      {/* --- Content --- */}
       <CardContent>
         <OpacSearchBar />
       </CardContent>
+
+      {/* --- Footer --- */}
       <CardFooter className="border-t bg-blue-50">
         <div className="flex items-start text-sm text-gray-600">
           <Icons.info className="mt-0.5 mr-2 h-full w-5 flex-shrink-0 text-blue-600" />
