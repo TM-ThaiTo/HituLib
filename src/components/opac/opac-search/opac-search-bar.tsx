@@ -28,7 +28,6 @@ export default function OpacSearchBar() {
     );
   };
 
-  // Đóng gợi ý khi click ra ngoài
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (!inputRef.current) return;
@@ -42,14 +41,6 @@ export default function OpacSearchBar() {
     }
     return () => document.removeEventListener('mousedown', handleClick);
   }, [showSuggestions]);
-
-  // Handle advanced filters
-  // TODO: Handle advanced filters (API): xử lý kết quả tìm kiếm nâng cao
-  const handleAdvancedFilters = async (encodedFilters: string) => {
-    console.log('Applied filters:', encodedFilters);
-    setAdvancedFilters(encodedFilters);
-    setShowAdvanced(false);
-  };
 
   return (
     <div className="mx-auto w-full">
@@ -113,10 +104,7 @@ export default function OpacSearchBar() {
         </Button>
       </div>
 
-      <OpacAdvancedFilters
-        showAdvanced={showAdvanced}
-        // onApply={handleAdvancedFilters}
-      />
+      <OpacAdvancedFilters showAdvanced={showAdvanced} />
     </div>
   );
 }

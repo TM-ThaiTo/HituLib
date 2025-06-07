@@ -22,7 +22,7 @@ export default function OpacSearchPage() {
 
   return (
     <div className="max-w-screen-container sm:px-6 lg:px-8">
-      <p>Query: {p}</p>
+      {/* <p>Query: {p}</p>
       {filtersParam && (
         <div>
           <h3>Raw Filters JSON:</h3>
@@ -78,7 +78,7 @@ export default function OpacSearchPage() {
           )}
         </div>
       )}
-      {!filters && filtersParam && <p className="text-red-500">Error loading filters.</p>}
+      {!filters && filtersParam && <p className="text-red-500">Error loading filters.</p>} */}
     </div>
   );
 }
