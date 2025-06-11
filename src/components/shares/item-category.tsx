@@ -7,15 +7,17 @@ type Props = {
   id: number;
   anhDaiDien: string;
   moTa: string | null;
-  rel?: string;
 };
 
-export default function ItemCategory({ tieuDe, id, anhDaiDien, moTa, rel }: Props) {
+export default function ItemCategory({ tieuDe, id, anhDaiDien, moTa }: Props) {
+  const mapSlug = (tieuDe: string, id: number) => {
+    return mapSlugWithId(tieuDe, id, 'news');
+  };
   return (
     <>
       <div className="group flex gap-4 rounded-lg border border-gray-100 bg-white p-3 transition-all duration-300">
         <div className="flex-shrink-0">
-          <CustomLink href={mapSlugWithId(tieuDe, id, rel)}>
+          <CustomLink href={mapSlug(tieuDe, id)}>
             <Image
               width={200}
               height={120}
@@ -26,7 +28,7 @@ export default function ItemCategory({ tieuDe, id, anhDaiDien, moTa, rel }: Prop
           </CustomLink>
         </div>
         <div className="p-2">
-          <CustomLink href={`${mapSlugWithId(tieuDe, id)}`}>
+          <CustomLink href={`${mapSlug(tieuDe, id)}`}>
             <div className="cursor-pointer text-base font-bold transition-colors duration-300 group-hover:text-blue-600">
               {tieuDe}
             </div>

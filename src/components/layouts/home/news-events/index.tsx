@@ -10,6 +10,10 @@ export default async function NewsEventsLayout() {
   const dataNewsEvents = await getNewLastest();
   const data = dataNewsEvents ? dataNewsEvents : newEvents;
 
+  const mapSlug = (tieuDe: string, id: number) => {
+    return mapSlugWithId(tieuDe, id, 'news');
+  };
+
   return (
     <div className="max-w-[1074px] rounded-lg bg-white p-4 shadow-sm sm:p-6 md:p-9">
       <TitleLayout title="Tin tức & Sự kiện" />
@@ -21,7 +25,7 @@ export default async function NewsEventsLayout() {
             className="group flex gap-4 rounded-lg border border-gray-100 bg-white p-3 transition-all duration-300"
           >
             <div className="flex-shrink-0">
-              <CustomLink href={`${mapSlugWithId(item.tieuDe, item.id)}`}>
+              <CustomLink href={`${mapSlug(item.tieuDe, item.id)}`}>
                 <Image
                   width={112}
                   height={80}
@@ -34,7 +38,7 @@ export default async function NewsEventsLayout() {
             </div>
 
             <div className="flex-1">
-              <CustomLink href={`${mapSlugWithId(item.tieuDe, item.id)}`}>
+              <CustomLink href={`${mapSlug(item.tieuDe, item.id)}`}>
                 <div className="cursor-pointer text-base font-medium transition-colors duration-300 group-hover:text-blue-600">
                   {item.tieuDe}
                 </div>

@@ -10,9 +10,9 @@ const mapSlug = (slug: string) =>
     trim: true,
   });
 
-const mapSlugWithId = (slug: string, id: number, prefix = '') => {
+const mapSlugWithId = (slug: string, id: number, url = '') => {
   const slugifyId = `${mapSlug(slug)}-${id}.html`;
-  return `${prefix ? '/' + prefix : ''}/${slugifyId}`;
+  return url ? `/${url}/${slugifyId}` : `/${slugifyId}`;
 };
 
 const getIdFromSlug = (slug: string) => {

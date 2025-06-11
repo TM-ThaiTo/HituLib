@@ -6,4 +6,5 @@ export const DataBreadcrumb = [
   ...Object.values(routes.dichVu),
   ...Object.values(routes.chuyenMuc),
   ...Object.values(routes.opac),
+  ...Object.values(routes.tintuc),
 ];
