@@ -1,4 +1,4 @@
-import BarcodeMain from '@/components/layouts/opac/barcode';
+import BarcodeMain from '@/components/opac/barcode';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { QrCode } from 'lucide-react';
 
