@@ -62,10 +62,6 @@ const routes = {
 
   tintuc: {
     goc: { path: '/news', title: 'Tin tức' },
-    theoSlug: (slug: string): RouteItem => ({
-      path: `/${slug}`,
-      title: slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
-    }),
   },
 
   service: {
