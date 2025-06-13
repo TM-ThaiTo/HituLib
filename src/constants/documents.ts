@@ -748,6 +748,21 @@ async function getDocumentById(id: string): Promise<Document | null> {
   };
 }
 
+const getAvailabilityDisplay = (availability: DocumentAvailability): string => {
+  switch (availability) {
+    case 'available':
+      return 'Có sẵn';
+    case 'on_loan':
+      return 'Đang mượn';
+    case 'reserved':
+      return 'Đã đặt chỗ';
+    case 'reference_only':
+      return 'Chỉ tham khảo';
+    default:
+      return 'Không xác định';
+  }
+};
+
 export {
   authors,
   documents,
@@ -757,4 +772,5 @@ export {
   researchProjects,
   getListDocument,
   getDocumentById,
+  getAvailabilityDisplay,
 };

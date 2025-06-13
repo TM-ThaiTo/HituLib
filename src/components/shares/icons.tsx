@@ -34,6 +34,7 @@ import {
   Timer,
   Mail,
   Link2,
+  AlertCircle,
 } from 'lucide-react';
 
 import { FaFacebookF, FaPlusSquare, FaBarcode, FaBuilding, FaFileAlt } from 'react-icons/fa';
@@ -76,6 +77,7 @@ const Icons = {
   timer: Timer,
   mail: Mail,
   link2: Link2,
+  alertCircle: AlertCircle,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,

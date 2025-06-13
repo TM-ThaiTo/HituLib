@@ -5,52 +5,55 @@ import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { useState } from 'react';
 import DocumentDetail from './document-tab-detail';
+import DocumentTabPositionCopy from './document-tab-position-copy';
 import { DocumentType } from '@/types/opac-document';
 
 type Props = {
-  document: DocumentType;
+    document: DocumentType;
 };
 
 export default function DocumentTabs({ document }: Props) {
-  const [activeTab, setActiveTab] = useState('detail');
+    const [activeTab, setActiveTab] = useState('detail');
 
-  return (
-    <>
-      <section className="md:col-span-2">
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="mb-4 grid w-full grid-cols-3">
-            <TabsTrigger
-              value="detail"
-              className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
-            >
-              <Icons.bookOpen className="mr-2 h-4 w-4" />
-              Thông tin chi tiết
-            </TabsTrigger>
-            <TabsTrigger
-              value="access"
-              className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
-            >
-              <Icons.bookA className="mr-2 h-4 w-4" />
-              Bản sao và vị trí
-            </TabsTrigger>
-            <TabsTrigger
-              value="display"
-              className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
-            >
-              <Icons.filter className="mr-2 h-4 w-4" />
-              Trích dẫn
-            </TabsTrigger>
-          </TabsList>
+    return (
+        <>
+            <section className="md:col-span-2">
+                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                    <TabsList className="mb-4 grid w-full grid-cols-3">
+                        <TabsTrigger
+                            value="detail"
+                            className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                        >
+                            <Icons.bookOpen className="mr-2 h-4 w-4" />
+                            Thông tin chi tiết
+                        </TabsTrigger>
+                        <TabsTrigger
+                            value="position-copy"
+                            className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                        >
+                            <Icons.bookA className="mr-2 h-4 w-4" />
+                            Bản sao và vị trí
+                        </TabsTrigger>
+                        <TabsTrigger
+                            value="display"
+                            className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                        >
+                            <Icons.filter className="mr-2 h-4 w-4" />
+                            Trích dẫn
+                        </TabsTrigger>
+                    </TabsList>
 
-          <Separator />
+                    <Separator />
 
-          <TabsContent value="detail">
-            <DocumentDetail document={document} />
-          </TabsContent>
-          <TabsContent value="access">{/* TODO: Add access content component */}</TabsContent>
-          <TabsContent value="display">{/* TODO: Add display content component */}</TabsContent>
-        </Tabs>
-      </section>
-    </>
-  );
+                    <TabsContent value="detail">
+                        <DocumentDetail document={document} />
+                    </TabsContent>
+                    <TabsContent value="position-copy">
+                        <DocumentTabPositionCopy document={document} />
+                    </TabsContent>
+                    <TabsContent value="display">{/* TODO: Add display content component */}</TabsContent>
+                </Tabs>
+            </section>
+        </>
+    );
 }

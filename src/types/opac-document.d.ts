@@ -20,6 +20,14 @@ interface DocumentType {
   fullTextUrl?: string;
   keywords: string[];
   collections?: string[];
+  documentItems?: DocumentItem[];
+}
+
+interface DocumentItem {
+  id: string;
+  location: string;
+  classification: string;
+  status: string;
 }
 
 interface AuthorType {
