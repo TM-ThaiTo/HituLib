@@ -221,7 +221,7 @@ const documents: Document[] = [
     callNumber: 'QA303.N5',
     availability: 'available',
     location: 'Kho sách tầng 2',
-    coverImage: '/mathematics-textbook.png',
+    coverImage: '/documents/document-demo.png',
     access: 'open_access',
     keywords: ['toán cao cấp', 'giải tích', 'đại số tuyến tính'],
     collections: ['1', '3'],
@@ -240,7 +240,7 @@ const documents: Document[] = [
     callNumber: 'QC21.T7',
     availability: 'on_loan',
     location: 'Kho sách tầng 2',
-    coverImage: '/physics-textbook.png',
+    coverImage: '/documents/document-demo.png',
     access: 'open_access',
     keywords: ['vật lý đại cương', 'cơ học', 'điện từ học'],
     collections: ['1'],
@@ -259,7 +259,8 @@ const documents: Document[] = [
     isbn: '978-3-030-12345-6',
     doi: '10.1007/978-3-030-12345-6',
     availability: 'available',
-    coverImage: '/abstract-book-cover.png',
+    coverImage: '/documents/document-demo.png',
+
     access: 'subscription',
     citations: 45,
     fullTextUrl: 'https://example.com/ebooks/advances-ml-algorithms',
@@ -391,7 +392,7 @@ const collections: Collection[] = [
     name: 'Giáo trình đại cương',
     description: 'Bộ sưu tập các giáo trình đại cương dành cho sinh viên năm nhất và năm hai.',
     documentCount: 45,
-    coverImage: '/abstract-geometric-shapes.png',
+    coverImage: '/documents/document-demo.png',
     subjects: ['Toán học', 'Vật lý', 'Hóa học', 'Sinh học'],
     featured: true,
   },
@@ -401,7 +402,8 @@ const collections: Collection[] = [
     description:
       'Collection of books and resources on computer science and information technology.',
     documentCount: 78,
-    coverImage: '/abstract-mathematics.png',
+    coverImage: '/documents/document-demo.png',
+
     subjects: [
       'Computer Science',
       'Information Technology',
@@ -730,6 +732,37 @@ async function getListDocument(): Promise<SimplifiedDocument[]> {
     id: doc.id,
   }));
 }
+
+async function getDocumentById(id: string): Promise<Document | null> {
+  await new Promise((resolve) => setTimeout(resolve, 500));
+  const document = documents.find((doc) => doc.id === id);
+  if (!document) return null;
+  return {
+    ...document,
+    authors: document.authors.map((author) => ({
+      ...author,
+      name: author.name,
+      affiliation: author.affiliation || '',
+      orcid: author.orcid || '',
+    })),
+  };
+}
+
+const getAvailabilityDisplay = (availability: DocumentAvailability): string => {
+  switch (availability) {
+    case 'available':
+      return 'Có sẵn';
+    case 'on_loan':
+      return 'Đang mượn';
+    case 'reserved':
+      return 'Đã đặt chỗ';
+    case 'reference_only':
+      return 'Chỉ tham khảo';
+    default:
+      return 'Không xác định';
+  }
+};
+
 export {
   authors,
   documents,
@@ -738,4 +771,6 @@ export {
   purchaseSuggestions,
   researchProjects,
   getListDocument,
+  getDocumentById,
+  getAvailabilityDisplay,
 };

@@ -50,6 +50,7 @@ const routes = {
     goc: { path: '/opac', title: 'OPAC' },
     barcode: { path: '/opac/barcode', title: 'Quét mã vạch/QR tài liệu' },
     search: { path: '/opac/search', title: 'Tìm kiếm tài liệu' },
+    document: { path: '/opac/document', title: 'Tài liệu' },
   },
 
   chuyenMuc: {

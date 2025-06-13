@@ -28,9 +28,16 @@ import {
   Trash2,
   Info,
   Loader,
+  User,
+  Share2,
+  Bookmark,
+  Timer,
+  Mail,
+  Link2,
+  AlertCircle,
 } from 'lucide-react';
 
-import { FaFacebookF, FaPlusSquare } from 'react-icons/fa';
+import { FaFacebookF, FaPlusSquare, FaBarcode, FaBuilding, FaFileAlt } from 'react-icons/fa';
 import { AiOutlineX } from 'react-icons/ai';
 import { FaYoutube } from 'react-icons/fa6';
 
@@ -64,10 +71,20 @@ const Icons = {
   trash2: Trash2,
   info: Info,
   loader: Loader,
+  user: User,
+  share2: Share2,
+  bookmark: Bookmark,
+  timer: Timer,
+  mail: Mail,
+  link2: Link2,
+  alertCircle: AlertCircle,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,
   plusSquare: FaPlusSquare,
+  faBarcode: FaBarcode,
+  faBuilding: FaBuilding,
+  faFileAlt: FaFileAlt,
 };
 
 export default Icons;

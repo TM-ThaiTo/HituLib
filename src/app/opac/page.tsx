@@ -1,9 +1,12 @@
 import OpacCardSearch from '@/components/opac/opac-card-search';
 import OpacDocumentLatest from '@/components/opac/opac-document-latest';
+import { BreadcrumbWithCustomSeparator } from '@/components/shares/bread-crumb';
 
 export default async function OpacMainPage() {
   return (
     <>
+      <BreadcrumbWithCustomSeparator />
+
       <div className="max-w-screen-container mt-4 flex min-h-screen">
         <main className="flex-1 bg-gray-50">
           <div className="">

@@ -6,6 +6,8 @@ import { getListDocument } from '@/constants/documents';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import TitleLayout from '@/components/shares/title-layout';
+import { mapSlugWithId } from '@/lib/slug';
 
 export default function OpacDocumentLatest() {
   const [documents, setDocuments] = useState<any[]>([]);
@@ -22,11 +24,17 @@ export default function OpacDocumentLatest() {
     setDocuments(allDocuments); // Cập nhật state để hiển thị tất cả tài liệu
   };
 
+  function mapSlug(title: string, id: number) {
+    return mapSlugWithId(title, id, 'opac/document');
+  }
+
   return (
     <div className="mb-8 rounded-lg bg-white p-6 shadow-sm">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+      <TitleLayout title="Giáo trình nội bộ" />
+
+      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
         {documents.map((doc) => (
-          <Link href={`/opac/document/${doc.id}`} key={doc.id} className="group block">
+          <Link href={mapSlug(doc.title, doc.id)} key={doc.id} className="group block">
             <div className="flex h-full flex-col rounded-md border p-4 transition-colors hover:border-blue-300 hover:bg-blue-50/30">
               <div className="mb-4 flex h-48 w-full justify-center">
                 <OptimizedImage
