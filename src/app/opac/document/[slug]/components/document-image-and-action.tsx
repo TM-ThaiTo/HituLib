@@ -112,10 +112,11 @@ export default function DocumentImageAndAction({ document, params }: Props) {
         {/* Action Buttons */}
         <div className="mt-4 space-y-2">
           <Button
-            className={`flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl text-base font-medium transition-colors ${document.availability === 'available'
-              ? 'bg-blue-500 text-white hover:bg-blue-600'
-              : 'cursor-not-allowed bg-gray-200 text-gray-500'
-              }`}
+            className={`flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl text-base font-medium transition-colors ${
+              document.availability === 'available'
+                ? 'bg-blue-500 text-white hover:bg-blue-600'
+                : 'cursor-not-allowed bg-gray-200 text-gray-500'
+            }`}
             disabled={document.availability !== 'available'}
           >
             <Icons.bookOpen className="text-lg" />
