@@ -5,6 +5,7 @@ import { geistMono, geistSans } from '@/lib/fonts';
 import { ThemeProvider } from '@/providers/theme';
 import NextTopLoader from '@/components/next-toploader';
 import MainFooter from '@/components/layouts/footer';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'HIUT LIB - Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh',
@@ -24,6 +25,7 @@ export default function RootLayout({
           <MainHeader />
           {children}
           <MainFooter />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

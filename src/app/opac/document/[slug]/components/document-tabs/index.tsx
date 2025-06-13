@@ -7,6 +7,7 @@ import { useState } from 'react';
 import DocumentDetail from './document-tab-detail';
 import DocumentTabPositionCopy from './document-tab-position-copy';
 import { DocumentType } from '@/types/opac-document';
+import DocumentTabCitation from './document-tab-citation';
 
 type Props = {
     document: DocumentType;
@@ -35,7 +36,7 @@ export default function DocumentTabs({ document }: Props) {
                             Bản sao và vị trí
                         </TabsTrigger>
                         <TabsTrigger
-                            value="display"
+                            value="citation"
                             className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
                         >
                             <Icons.filter className="mr-2 h-4 w-4" />
@@ -51,7 +52,7 @@ export default function DocumentTabs({ document }: Props) {
                     <TabsContent value="position-copy">
                         <DocumentTabPositionCopy document={document} />
                     </TabsContent>
-                    <TabsContent value="display">{/* TODO: Add display content component */}</TabsContent>
+                    <TabsContent value="citation"><DocumentTabCitation document={document} /></TabsContent>
                 </Tabs>
             </section>
         </>
