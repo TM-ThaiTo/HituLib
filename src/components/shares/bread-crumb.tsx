@@ -17,9 +17,17 @@ type BreadcrumbProps = {
   customTitle?: string;
 };
 
+// Danh sách mã ngôn ngữ hỗ trợ
+const supportedLocales = ['vi', 'en'];
+
 export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) {
   const pathname = usePathname();
-  const segments = pathname.split('/').filter(Boolean);
+  let segments = pathname.split('/').filter(Boolean);
+
+  // Nếu segment đầu tiên là mã ngôn ngữ, thì loại bỏ nó
+  if (segments.length && supportedLocales.includes(segments[0])) {
+    segments = segments.slice(1);
+  }
 
   const breadcrumbs = segments.map((_, index) => {
     const href = '/' + segments.slice(0, index + 1).join('/');

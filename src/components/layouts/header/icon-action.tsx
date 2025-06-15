@@ -2,6 +2,7 @@ import Icons from '@/components/shares/icons';
 import SearchButton from './components/icon-search';
 import { IconButton } from './components/icon-button';
 import ThemeToggle from '@/components/ThemeToggle';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function IconAction() {
   const iconSize = 18;
@@ -14,21 +15,21 @@ export default function IconAction() {
       blueIcon: <Icons.spaceX size={iconSize} color={iconColorBlue} />,
       href: 'https://x.com',
     },
-    {
-      blackIcon: <Icons.facebook size={iconSize} color={iconColorBlack} />,
-      blueIcon: <Icons.facebook size={iconSize} color={iconColorBlue} />,
-      href: 'https://facebook.com',
-    },
-    {
-      blackIcon: <Icons.youtube size={iconSize} color={iconColorBlack} />,
-      blueIcon: <Icons.youtube size={iconSize} color={iconColorBlue} />,
-      href: 'https://youtube.com',
-    },
+    // {
+    //   blackIcon: <Icons.facebook size={iconSize} color={iconColorBlack} />,
+    //   blueIcon: <Icons.facebook size={iconSize} color={iconColorBlue} />,
+    //   href: 'https://facebook.com',
+    // },
+    // {
+    //   blackIcon: <Icons.youtube size={iconSize} color={iconColorBlack} />,
+    //   blueIcon: <Icons.youtube size={iconSize} color={iconColorBlue} />,
+    //   href: 'https://youtube.com',
+    // },
   ];
 
   return (
     <div className="flex items-center space-x-4">
-      <div className="flex justify-center gap-2">
+      {/* <div className="flex justify-center gap-2">
         {icons.map((icon, index) => (
           <IconButton
             key={index}
@@ -37,6 +38,9 @@ export default function IconAction() {
             href={icon.href}
           />
         ))}
+      </div> */}
+      <div className="flex justify-center">
+        <LanguageSwitcher />
       </div>
       <div className="flex justify-center">
         <ThemeToggle />
