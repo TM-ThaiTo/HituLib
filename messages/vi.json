@@ -1,12 +1,6 @@
 {
-  "welcome": "Chào mừng đến với HituLib",
-  "home": "Trang chủ",
-  "about": "Giới thiệu",
-  "contact": "Liên hệ",
-  "login": "Đăng nhập",
-  "register": "Đăng ký",
-  "search": "Tìm kiếm",
-  "language": "Ngôn ngữ",
-  "english": "Tiếng Anh",
-  "vietnamese": "Tiếng Việt"
+  "meta": {
+    "title": "HIUT LIB - Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh",
+    "description": "Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh "
+  }
 }

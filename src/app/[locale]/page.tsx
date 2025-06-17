@@ -1,10 +1,9 @@
 import { getBanners } from '@/api/portal/api-banner';
 import Banner from '@/components/layouts/home/banner';
-// import OpacDocumentLatest from '@/components/layouts/home/books';
 import NewsEventsLayout from '@/components/layouts/home/news-events';
 import OpacDocumentLatest from '@/components/opac/opac-document-latest';
 import LibraryList from '@/components/shares/library-list';
-import { banners, books } from '@/constants/home';
+import { banners } from '@/constants/home';
 
 export default async function Home() {
   const dataBanner = await getBanners();
@@ -24,8 +23,6 @@ export default async function Home() {
       </div>
 
       <div className="mt-12">
-        {/* <ListBooks books={books} /> */}
-        {/* <OpacDocumentLatest /> */}
         <OpacDocumentLatest />
       </div>
     </div>

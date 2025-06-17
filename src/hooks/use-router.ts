@@ -1,5 +1,5 @@
 import { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import { useRouter as useNextRouter, usePathname } from 'next/navigation';
+import { useRouter as useNextRouter, usePathname } from '@/i18n/navigation';
 import { useCallback } from 'react';
 import NProgress from 'nprogress';
 
