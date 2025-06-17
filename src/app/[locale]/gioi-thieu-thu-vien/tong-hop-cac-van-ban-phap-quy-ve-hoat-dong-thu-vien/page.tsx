@@ -1,18 +1,30 @@
-import { PhapQuyThuVien } from '@/constants/scrape';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
-import '@/styles/index.css';
+import { PhapQuyThuVien } from '@/constants/scrape';
+import { LibraryLegalDocuments } from '@/constants/scrape.en';
+import { getLocale, getTranslations } from 'next-intl/server';
 
-export default function QuyDinhPhapQuyPage() {
+export default async function PhapQuyThuVienPage() {
+  const locale = await getLocale();
+  const t = await getTranslations('library_introduction');
+
+  const title = t('legal_documents');
+  const noContentMessage = t('no_content');
+  const content = locale === 'en' ? LibraryLegalDocuments : PhapQuyThuVien;
+
   return (
     <div className="rounded-lg bg-white p-6 shadow-sm">
-      <TieuDeGioiThieu tieuDe="Tổng hợp các văn bản pháp quy về hoạt động thư viện" />
+      <TieuDeGioiThieu tieuDe={title} />
 
       <div className="mt-8 flex flex-col gap-8 lg:flex-row">
         <div className="flex flex-1 flex-col gap-8">
-          <div
-            className="prose prose-sm max-w-none"
-            dangerouslySetInnerHTML={{ __html: PhapQuyThuVien.contentHtml }}
-          />
+          {content?.contentHtml ? (
+            <div
+              className="prose prose-sm max-w-none"
+              dangerouslySetInnerHTML={{ __html: content.contentHtml }}
+            />
+          ) : (
+            <span className="flex justify-center text-red-500">{noContentMessage}</span>
+          )}
         </div>
       </div>
     </div>

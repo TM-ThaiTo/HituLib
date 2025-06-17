@@ -2,5 +2,78 @@
   "meta": {
     "title": "HIUT LIB - Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh",
     "description": "Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh "
+  },
+  "library_introduction": {
+    "no_content": "Không có nội dung",
+    "general_introduction": "Giới thiệu chung",
+    "photos_of_activities": "Hình ảnh hoạt động",
+    "working_hours": "Giờ làm việc",
+    "library_regulations": "Nội quy thư viện",
+    "usage_regulations": "Quy định sử dụng thư viện",
+    "organization_diagram": "Sơ đồ tổ chức hoạt động",
+    "legal_documents": "Tổng hợp các văn bản pháp quy về hoạt động thư viện",
+    "working_procedures": "Quy trình làm việc",
+    "title": "Giới thiệu thư viện",
+    "description": "Các thông tin giới thiệu thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh",
+    "menu": {
+      "general_introduction": "Giới thiệu chung",
+      "organization_diagram": "Sơ đồ tổ chức hoạt động",
+      "library_regulations": "Nội quy thư viện",
+      "usage_regulations": "Quy định sử dụng thư viện",
+      "working_hours": "Lịch làm việc của thư viện",
+      "photos_of_activities": "Hình ảnh hoạt động",
+      "legal_documents": "Tổng hợp các văn bản pháp quy về hoạt động thư viện",
+      "working_procedures": "Quy trình làm việc"
+    }
+  },
+  "routes": {
+    "home": "Trang chủ",
+    "library_introduction": {
+      "title": "Giới thiệu Thư viện",
+      "general_introduction": "Giới thiệu chung",
+      "photos_of_activities": "Hình ảnh hoạt động",
+      "working_hours": "Lịch làm việc của thư viện",
+      "library_regulations": "Nội quy thư viện",
+      "usage_regulations": "Quy định sử dụng thư viện",
+      "organization_diagram": "Sơ đồ tổ chức hoạt động",
+      "legal_documents": "Tổng hợp các văn bản pháp quy về hoạt động thư viện",
+      "working_procedures": "Quy trình làm việc"
+    },
+    "services": {
+      "title": "Dịch vụ",
+      "featured_services": "Dịch vụ nổi bật",
+      "service_details": "Chi tiết dịch vụ",
+      "library_services": "Dịch vụ thư viện"
+    },
+    "opac": {
+      "title": "OPAC",
+      "barcode": "Quét mã vạch/QR tài liệu",
+      "search": "Tìm kiếm tài liệu",
+      "document": "Tài liệu",
+      "document_latest": {
+        "title": "Giáo trình nội bộ",
+        "view_all": "Xem tất cả"
+      }
+    },
+    "categories": {
+      "title": "Phân loại",
+      "announcements": "Thông báo",
+      "news": "Tin tức",
+      "thank_you_letters": "Thư cảm ơn",
+      "guides": "Hướng dẫn"
+    },
+    "news": {
+      "title": "Tin tức"
+    }
+  },
+  "breadcrumb": {
+    "home": "Trang chủ",
+    "format_slug": "Định dạng slug"
+  },
+  "home": {
+    "news_events": {
+      "title": "Tin tức & Sự kiện",
+      "view_more": "Xem thêm"
+    }
   }
 }
