@@ -1,12 +1,13 @@
-import Image from 'next/image';
 import CustomLink from '@/hooks/next-link';
 import MenuBar from './menu-bar';
 import { Navigations } from '@/constants/navigations';
 import ImagePublic from '@/constants/image';
-// import { getMenuNavigation } from '@/api/portal/api-navigation';
+import { getMenuNavigation } from '@/api/portal/api-navigation';
+import OptimizedImage from '@/lib/image';
 
 export default async function MainHeader() {
-  // const data = await getMenuNavigation();
+  const data = await getMenuNavigation();
+  // console.log('data', data);
   return (
     <header>
       <div className="flex h-[35px] items-center justify-between bg-[#0a58ca] px-4">
@@ -17,7 +18,7 @@ export default async function MainHeader() {
       <div className="flex h-[81px] items-center justify-between bg-white px-4 shadow-sm">
         <div className="container flex items-center justify-between">
           <CustomLink href="/" className="flex items-center">
-            <Image
+            <OptimizedImage
               src={ImagePublic.logo}
               alt="HITU LIB"
               width={341}

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { MenuNavigationsType, MenuNavigationType } from '@/types/portal';
@@ -14,6 +13,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import IconAction from '@/components/layouts/header/icon-action';
+import OptimizedImage from '@/lib/image';
 
 export default function MenuBarMobile({ data }: { data: MenuNavigationsType }) {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -49,7 +49,7 @@ export default function MenuBarMobile({ data }: { data: MenuNavigationsType }) {
                 className="mb-6 flex items-center justify-start"
                 onClick={() => setIsSheetOpen(false)}
               >
-                <Image
+                <OptimizedImage
                   src="/logo-lib-hitu.png"
                   alt="HITU LIB"
                   width={341}
