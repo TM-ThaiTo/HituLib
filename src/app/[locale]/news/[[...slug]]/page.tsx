@@ -22,7 +22,11 @@ async function NewsContent({ id }: { id: number }) {
   );
 }
 
-export default async function NewsPage({ params }: { params: { slug: string[] } }) {
+export default async function NewsPage({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>;
+}) {
   const { slug } = await params;
   const lastSegment = slug?.[slug.length - 1] ?? '';
   const id = getIdFromSlug(lastSegment);
