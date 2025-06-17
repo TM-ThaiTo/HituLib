@@ -1,9 +1,9 @@
-import Icons from '@/components/shares/icons';
-import Image from 'next/image';
 import './styles.css';
+import Icons from '@/components/shares/icons';
 import { NewDetailType } from '@/types/portal';
 import { mapImagePath } from '@/lib/utils';
 import renderTypeNews from '@/constants/type-page';
+import OptionalImage from '@/lib/image';
 
 type Props = {
   data: NewDetailType;
@@ -11,7 +11,7 @@ type Props = {
 
 export default function DetailNews({ data }: Props) {
   return (
-    <div className="flex w-full flex-col gap-6 rounded-lg bg-white p-4 shadow-md sm:p-6">
+    <div className="flex h-auto w-full flex-col gap-6 rounded-lg p-4 shadow-md sm:p-6">
       <div className="flex flex-col gap-4">
         <div className="space-y-2">
           <h1 className="text-xl leading-snug font-bold text-gray-900 sm:text-2xl">
@@ -31,12 +31,15 @@ export default function DetailNews({ data }: Props) {
         </div>
 
         {data.anhDaiDien && (
-          <img
-            // src={data.anhDaiDien}
-            src={mapImagePath(data.anhDaiDien)}
-            alt="News Thumbnail"
-            className="custom-content rounded-lg"
-          />
+          <div className="mx-auto flex h-auto w-full max-w-[900px] justify-center overflow-hidden">
+            <OptionalImage
+              width={900}
+              height={500}
+              src={mapImagePath(data.anhDaiDien)}
+              alt="News Thumbnail"
+              className="h-full w-full rounded-lg object-cover"
+            />
+          </div>
         )}
 
         <p className="mt-2 text-base text-gray-800 sm:text-lg">{data.tomTat}</p>

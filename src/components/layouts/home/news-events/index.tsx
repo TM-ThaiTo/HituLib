@@ -1,22 +1,34 @@
-import Image from 'next/image';
 import TitleLayout from '@/components/shares/title-layout';
 import CustomLink from '@/hooks/next-link';
-import { mapSlugWithId } from '@/lib/slug';
+import { mapSlugNews, mapSlugWithId } from '@/lib/slug';
 import { mapImagePath } from '@/lib/utils';
 import { newEvents } from '@/constants/home';
 import { getNewLastest } from '@/api/portal/api-new';
+import OptionalImage from '@/lib/image';
+import { Button } from '@/components/ui/button';
+import { ChevronRight } from 'lucide-react';
 
 export default async function NewsEventsLayout() {
   const dataNewsEvents = await getNewLastest();
   const data = dataNewsEvents ? dataNewsEvents : newEvents;
 
-  const mapSlug = (tieuDe: string, id: number) => {
-    return mapSlugWithId(tieuDe, id, 'news');
-  };
-
   return (
     <div className="max-w-[1074px] rounded-lg bg-white p-4 shadow-sm sm:p-6 md:p-9">
-      <TitleLayout title="Tin tức & Sự kiện" />
+      <div className="flex items-center gap-4">
+        <div className="flex-1">
+          <TitleLayout title="Tin tức & Sự kiện" />
+        </div>
+        <Button
+          variant="ghost"
+          className="group flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-blue-600"
+          asChild
+        >
+          <CustomLink href="/category/tin-tuc">
+            Xem thêm
+            <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </CustomLink>
+        </Button>
+      </div>
 
       <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {data.map((item) => (
@@ -25,11 +37,10 @@ export default async function NewsEventsLayout() {
             className="group flex gap-4 rounded-lg border border-gray-100 bg-white p-3 transition-all duration-300"
           >
             <div className="flex-shrink-0">
-              <CustomLink href={`${mapSlug(item.tieuDe, item.id)}`}>
-                <Image
+              <CustomLink href={`${mapSlugNews(item.tieuDe, item.id)}`}>
+                <OptionalImage
                   width={112}
                   height={80}
-                  // src={item.anhDaiDien}
                   src={mapImagePath(item.anhDaiDien)}
                   alt={item.tieuDe}
                   className="h-[80px] w-[112px] transform rounded-md object-cover transition-transform duration-300 group-hover:scale-105 sm:h-24 sm:w-32"
@@ -38,7 +49,7 @@ export default async function NewsEventsLayout() {
             </div>
 
             <div className="flex-1">
-              <CustomLink href={`${mapSlug(item.tieuDe, item.id)}`}>
+              <CustomLink href={`${mapSlugNews(item.tieuDe, item.id)}`}>
                 <div className="cursor-pointer text-base font-medium transition-colors duration-300 group-hover:text-blue-600">
                   {item.tieuDe}
                 </div>

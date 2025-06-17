@@ -1,10 +1,18 @@
 import routes from '@/constants/routes';
 
+// Helper function to filter out function routes
+const filterStaticRoutes = (obj: Record<string, any>): any[] => {
+  return Object.values(obj).filter(
+    (item): item is { path: string; title: string } =>
+      item !== null && typeof item === 'object' && 'path' in item && 'title' in item,
+  );
+};
+
 export const DataBreadcrumb = [
   routes.trangChu,
-  ...Object.values(routes.gioiThieuThuVien),
-  ...Object.values(routes.dichVu),
-  ...Object.values(routes.chuyenMuc),
-  ...Object.values(routes.opac),
-  ...Object.values(routes.tintuc),
+  ...filterStaticRoutes(routes.gioiThieuThuVien),
+  ...filterStaticRoutes(routes.dichVu),
+  ...filterStaticRoutes(routes.chuyenMuc),
+  ...filterStaticRoutes(routes.opac),
+  routes.tintuc.goc,
 ];
