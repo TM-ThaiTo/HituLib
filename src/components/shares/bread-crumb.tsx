@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import { useEffect, Fragment } from 'react';
 import CustomLink from '@/hooks/next-link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,24 +12,70 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { DataBreadcrumb } from '@/constants/breadcrumb';
+import routes from '@/constants/routes';
 
 type BreadcrumbProps = {
   customTitle?: string;
 };
 
+// Danh sách mã ngôn ngữ hỗ trợ
+const supportedLocales = ['vi', 'en'];
+
+// Hàm format slug thành title
+const formatSlugTitle = (slug: string): string => {
+  return slug
+    .replace(/-/g, ' ')
+    .replace(/\.html$/, '')
+    .replace(/\b\w/g, (l) => l.toUpperCase());
+};
+
 export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) {
   const pathname = usePathname();
-  const segments = pathname.split('/').filter(Boolean);
+  const router = useRouter();
+  let segments = pathname.split('/').filter(Boolean);
 
-  const breadcrumbs = segments.map((_, index) => {
-    const href = '/' + segments.slice(0, index + 1).join('/');
-    const item = DataBreadcrumb.find((item) => item.path === href);
+  // Nếu segment đầu tiên là mã ngôn ngữ, thì loại bỏ nó
+  if (segments.length && supportedLocales.includes(segments[0])) {
+    segments = segments.slice(1);
+  }
 
-    return {
-      href,
-      tieuDe: item?.title || segments[index],
-    };
-  });
+  // Chuyển hướng từ /news về /category/tin-tuc
+  useEffect(() => {
+    if (segments[0] === 'news' && segments.length === 1) {
+      router.replace('/category/tin-tuc');
+    }
+  }, [segments, router]);
+
+  const breadcrumbs: { href: string; tieuDe: string }[] = [];
+
+  // Nếu là đường dẫn tin tức
+  if (segments[0] === 'news') {
+    // Breadcrumb "Tin tức"
+    breadcrumbs.push({
+      href: routes.chuyenMuc.tinTuc.path,
+      tieuDe: routes.chuyenMuc.tinTuc.title,
+    });
+
+    // Nếu có thêm slug sau "/news"
+    if (segments.length > 1) {
+      const slug = segments[segments.length - 1];
+      breadcrumbs.push({
+        href: `${routes.tintuc.goc.path}/${slug}`,
+        tieuDe: customTitle || formatSlugTitle(slug),
+      });
+    }
+  } else {
+    // Các route khác, sử dụng DataBreadcrumb
+    segments.forEach((_, index) => {
+      const href = '/' + segments.slice(0, index + 1).join('/');
+      const matched = DataBreadcrumb.find((r) => r.path === href);
+
+      breadcrumbs.push({
+        href,
+        tieuDe: matched?.title || segments[index],
+      });
+    });
+  }
 
   return (
     <Breadcrumb>
@@ -41,7 +87,7 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
         </BreadcrumbItem>
 
         {breadcrumbs.map((item, index) => (
-          <React.Fragment key={item.href}>
+          <Fragment key={item.href}>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               {index === breadcrumbs.length - 1 ? (
@@ -59,7 +105,7 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
                 </BreadcrumbLink>
               )}
             </BreadcrumbItem>
-          </React.Fragment>
+          </Fragment>
         ))}
       </BreadcrumbList>
     </Breadcrumb>

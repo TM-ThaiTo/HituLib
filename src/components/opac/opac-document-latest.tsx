@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import TitleLayout from '@/components/shares/title-layout';
 import { mapSlugWithId } from '@/lib/slug';
+import CustomLink from '@/hooks/next-link';
 
 export default function OpacDocumentLatest() {
   const [documents, setDocuments] = useState<any[]>([]);
@@ -34,7 +35,7 @@ export default function OpacDocumentLatest() {
 
       <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
         {documents.map((doc) => (
-          <Link href={mapSlug(doc.title, doc.id)} key={doc.id} className="group block">
+          <CustomLink href={mapSlug(doc.title, doc.id)} key={doc.id} className="group block">
             <div className="flex h-full flex-col rounded-md border p-4 transition-colors hover:border-blue-300 hover:bg-blue-50/30">
               <div className="mb-4 flex h-48 w-full justify-center">
                 <OptimizedImage
@@ -50,7 +51,7 @@ export default function OpacDocumentLatest() {
                 <p className="mb-4 text-center text-sm text-gray-500">{doc.authors.join(', ')}</p>
               </div>
             </div>
-          </Link>
+          </CustomLink>
         ))}
       </div>
       <div className="mt-6 text-center">
