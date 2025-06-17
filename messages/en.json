@@ -1,12 +1,6 @@
 {
-  "welcome": "Welcome to HituLib",
-  "home": "Home",
-  "about": "About",
-  "contact": "Contact",
-  "login": "Login",
-  "register": "Register",
-  "search": "Search",
-  "language": "Language",
-  "english": "English",
-  "vietnamese": "Vietnamese"
+  "meta": {
+    "title": "HIUT LIB - Ho Chi Minh City College of Industry Library",
+    "description": "Ho Chi Minh City College of Industry Library"
+  }
 }

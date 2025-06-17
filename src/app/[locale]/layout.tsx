@@ -10,11 +10,32 @@ import { Toaster } from 'sonner';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { getMessages } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  title: 'HIUT LIB - Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh',
-  description: 'Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh',
-};
+// export const metadata: Metadata = {
+//   title: 'HIUT LIB - Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh',
+//   description: 'Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh',
+// };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  const messages = await getMessages({ locale });
+
+  return {
+    title: messages.meta?.title ?? 'HIUT LIB',
+    description:
+      messages.meta?.description ?? 'Thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh',
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -27,10 +48,11 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  const messages = await getMessages({ locale });
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <NextTopLoader />
             <MainHeader />
