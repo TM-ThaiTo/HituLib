@@ -4,9 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Image from 'next/image';
 import CustomLink from '@/hooks/next-link';
 import { BannersType } from '@/types/portal';
+import OptimizedImage from '@/lib/image';
 
 export default function Banner({ banners }: { banners: BannersType }) {
   return (
@@ -16,15 +16,13 @@ export default function Banner({ banners }: { banners: BannersType }) {
           {banners.map((banner) => (
             <SwiperSlide key={banner.id} className="relative aspect-[16/7] w-full">
               <CustomLink href={banner.lienKet}>
-                <Image
-                  width={1064}
-                  height={460}
+                <OptimizedImage
                   src={banner.duongDan}
                   alt={banner.tieuDe}
+                  width={1064}
+                  height={460}
                   className="rounded-sm"
-                  sizes="(max-width: 768px) 100vw,
-                         (max-width: 1280px) 90vw,
-                         1064px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1064px"
                 />
               </CustomLink>
             </SwiperSlide>

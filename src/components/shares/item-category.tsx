@@ -1,6 +1,6 @@
 import CustomLink from '@/hooks/next-link';
+import OptimizedImage from '@/lib/image';
 import { mapSlugWithId } from '@/lib/slug';
-import Image from 'next/image';
 
 type Props = {
   tieuDe: string;
@@ -18,7 +18,7 @@ export default function ItemCategory({ tieuDe, id, anhDaiDien, moTa }: Props) {
       <div className="group flex gap-4 rounded-lg border border-gray-100 bg-white p-3 transition-all duration-300">
         <div className="flex-shrink-0">
           <CustomLink href={mapSlug(tieuDe, id)}>
-            <Image
+            <OptimizedImage
               width={200}
               height={120}
               src={anhDaiDien}

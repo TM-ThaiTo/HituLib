@@ -17,7 +17,6 @@ interface OptimizedImageProps {
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
   objectPosition?: string;
   sizes?: string;
-  cdnPrefix?: string;
   fallbackImage?: string;
   fill?: boolean;
 }
@@ -34,8 +33,9 @@ export default function OptimizedImage({
   objectPosition = 'center',
   sizes,
   fallbackImage = '/fallback.webp',
+  fill = true,
 }: OptimizedImageProps) {
-  const [imgSrc, setImgSrc] = useState<string>('');
+  const [imgSrc, setImgSrc] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -46,17 +46,15 @@ export default function OptimizedImage({
       setImgSrc(src);
     } else {
       let formattedSrc = src.replace(/^(?:\.\.\/)+|^\.\//, '');
-
       if (formattedSrc.includes('Upload/')) {
         formattedSrc = formattedSrc.substring(formattedSrc.indexOf('Upload/') + 7);
       }
-
       setImgSrc(`${baseUrl}${formattedSrc}`);
     }
   }, [src]);
 
   const handleError = () => {
-    setImgSrc(ImagePublic.notFound);
+    setImgSrc(ImagePublic.notFound || fallbackImage);
     setError(true);
     setIsLoading(false);
   };
@@ -78,25 +76,30 @@ export default function OptimizedImage({
   );
 
   const Loader = (
-    <div className="bg-opacity-30 absolute inset-0 flex items-center justify-center bg-gray-100">
-      <div className="border-primary h-6 w-6 animate-spin rounded-full border-2 border-t-transparent"></div>
+    <div className="bg-opacity-30 absolute inset-0 z-10 flex items-center justify-center bg-gray-100">
+      <div className="border-primary h-6 w-6 animate-spin rounded-full border-2 border-t-transparent" />
     </div>
   );
 
-  if (width && height) {
+  // Case: Responsive fill layout
+  if (fill || !width || !height) {
     return (
-      <div className="relative flex items-center justify-center" style={{ width, height }}>
+      <div
+        className={cn('relative w-full overflow-hidden', className)}
+        style={{
+          aspectRatio: width && height ? `${width} / ${height}` : undefined,
+        }}
+      >
         <Image
-          src={imgSrc || ImagePublic.notFound}
+          src={imgSrc || fallbackImage}
           alt={alt}
-          width={width}
-          height={height}
+          fill
           className={imageClassName}
           priority={priority}
           quality={quality}
           unoptimized={isExternal}
           onError={handleError}
-          onLoadingComplete={handleLoad}
+          onLoad={handleLoad}
           style={{ objectFit, objectPosition }}
           sizes={responsiveSizes}
           loading={priority ? 'eager' : 'lazy'}
@@ -107,19 +110,21 @@ export default function OptimizedImage({
     );
   }
 
+  // Case: Fixed width & height layout
   return (
-    <div className="relative flex h-48 w-full items-center justify-center overflow-hidden">
+    <div className="relative flex items-center justify-center" style={{ width, height }}>
       <Image
-        src={imgSrc || ImagePublic.notFound}
+        src={imgSrc || fallbackImage}
         alt={alt}
-        fill
+        width={width}
+        height={height}
         className={imageClassName}
         priority={priority}
         quality={quality}
         unoptimized={isExternal}
-        style={{ objectFit, objectPosition }}
         onError={handleError}
-        onLoadingComplete={handleLoad}
+        onLoad={handleLoad}
+        style={{ objectFit, objectPosition }}
         sizes={responsiveSizes}
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : 'auto'}

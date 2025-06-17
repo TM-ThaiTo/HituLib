@@ -1,4 +1,5 @@
 import CustomLink from '@/hooks/next-link';
+import OptimizedImage from '@/lib/image';
 import React from 'react';
 
 const items = [
@@ -40,7 +41,13 @@ export default function LibraryList() {
       {items.map((item, index) => (
         <div key={index} className="mb-3">
           <CustomLink href={item.duongDan}>
-            <img src={item.anhDaiDien} alt={item.title} className="rounded-lg object-contain" />
+            <OptimizedImage
+              width={500}
+              height={300}
+              src={item.anhDaiDien}
+              alt={item.title}
+              className="rounded-lg object-contain"
+            />
           </CustomLink>
         </div>
       ))}

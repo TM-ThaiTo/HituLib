@@ -1,8 +1,8 @@
 import Icons from '@/components/shares/icons';
 import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
-import Image from 'next/image';
 import CustomLink from '@/hooks/next-link';
 import routes from '@/constants/routes';
+import OptimizedImage from '@/lib/image';
 
 const dataGioiThieu = [
   {
@@ -60,7 +60,7 @@ export default function MainGioiThieu() {
     <div className="rounded-lg bg-white p-6 shadow-sm">
       <TieuDeGioiThieu tieuDe="giới thiệu thư viện" />
 
-      <Image
+      <OptimizedImage
         width={1012}
         height={342}
         src="/gioi-thieu/gioi-thieu-thu-vien-hitu-2024.png"
