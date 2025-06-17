@@ -2,5 +2,78 @@
   "meta": {
     "title": "HIUT LIB - Ho Chi Minh City College of Industry Library",
     "description": "Ho Chi Minh City College of Industry Library"
+  },
+  "library_introduction": {
+    "no_content": "No content available",
+    "general_introduction": "General Introduction",
+    "photos_of_activities": "Photos of Activities",
+    "working_hours": "Working Hours",
+    "library_regulations": "Library Regulations",
+    "usage_regulations": "Usage Regulations",
+    "organization_diagram": "Organization Activity Diagram",
+    "legal_documents": "Library Legal Documents",
+    "working_procedures": "Working Procedures",
+    "title": "Library Introduction",
+    "description": "Information about Ho Chi Minh City College of Industry and Trade Library",
+    "menu": {
+      "general_introduction": "General Introduction",
+      "organization_diagram": "Organization Activity Diagram",
+      "library_regulations": "Library Regulations",
+      "usage_regulations": "Usage Regulations",
+      "working_hours": "Working Hours",
+      "photos_of_activities": "Activity Images",
+      "legal_documents": "Library Legal Documents",
+      "working_procedures": "Working Procedures"
+    }
+  },
+  "routes": {
+    "home": "Home",
+    "library_introduction": {
+      "title": "Library Introduction",
+      "general_introduction": "General Introduction",
+      "photos_of_activities": "Photos of Activities",
+      "working_hours": "Working Hours",
+      "library_regulations": "Library Regulations",
+      "usage_regulations": "Usage Regulations",
+      "organization_diagram": "Organization Activity Diagram",
+      "legal_documents": "Library Legal Documents",
+      "working_procedures": "Working Procedures"
+    },
+    "services": {
+      "title": "Services",
+      "featured_services": "Featured Services",
+      "service_details": "Service Details",
+      "library_services": "Library Services"
+    },
+    "opac": {
+      "title": "OPAC",
+      "barcode": "Scan Document Barcode/QR",
+      "search": "Search Documents",
+      "document": "Document",
+      "document_latest": {
+        "title": "Internal Textbooks",
+        "view_all": "View all"
+      }
+    },
+    "categories": {
+      "title": "Categories",
+      "announcements": "Announcements",
+      "news": "News",
+      "thank_you_letters": "Thank You Letters",
+      "guides": "Guides"
+    },
+    "news": {
+      "title": "News"
+    }
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "format_slug": "Format Slug"
+  },
+  "home": {
+    "news_events": {
+      "title": "News & Events",
+      "view_more": "View more"
+    }
   }
 }

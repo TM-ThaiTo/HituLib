@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { DataBreadcrumb } from '@/constants/breadcrumb';
 import routes from '@/constants/routes';
+import { useTranslations } from 'next-intl';
 
 type BreadcrumbProps = {
   customTitle?: string;
@@ -32,6 +33,7 @@ const formatSlugTitle = (slug: string): string => {
 export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const t = useTranslations();
   let segments = pathname.split('/').filter(Boolean);
 
   // Nếu segment đầu tiên là mã ngôn ngữ, thì loại bỏ nó
@@ -53,7 +55,7 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
     // Breadcrumb "Tin tức"
     breadcrumbs.push({
       href: routes.chuyenMuc.tinTuc.path,
-      tieuDe: routes.chuyenMuc.tinTuc.title,
+      tieuDe: t(routes.chuyenMuc.tinTuc.translationKey),
     });
 
     // Nếu có thêm slug sau "/news"
@@ -61,7 +63,7 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
       const slug = segments[segments.length - 1];
       breadcrumbs.push({
         href: `${routes.tintuc.goc.path}/${slug}`,
-        tieuDe: customTitle || formatSlugTitle(slug),
+        tieuDe: customTitle || t('breadcrumb.format_slug', { slug: formatSlugTitle(slug) }),
       });
     }
   } else {
@@ -72,7 +74,7 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
 
       breadcrumbs.push({
         href,
-        tieuDe: matched?.title || segments[index],
+        tieuDe: matched ? t(matched.translationKey) : segments[index],
       });
     });
   }
@@ -82,7 +84,7 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <CustomLink href="/">Trang chủ</CustomLink>
+            <CustomLink href="/">{t('breadcrumb.home')}</CustomLink>
           </BreadcrumbLink>
         </BreadcrumbItem>
 

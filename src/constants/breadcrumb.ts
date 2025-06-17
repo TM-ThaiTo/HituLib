@@ -3,8 +3,8 @@ import routes from '@/constants/routes';
 // Helper function to filter out function routes
 const filterStaticRoutes = (obj: Record<string, any>): any[] => {
   return Object.values(obj).filter(
-    (item): item is { path: string; title: string } =>
-      item !== null && typeof item === 'object' && 'path' in item && 'title' in item,
+    (item): item is { path: string; translationKey: string } =>
+      item !== null && typeof item === 'object' && 'path' in item && 'translationKey' in item,
   );
 };
 

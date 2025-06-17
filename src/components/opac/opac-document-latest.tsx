@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import OptimizedImage from '@/lib/image';
 import { getListDocument } from '@/constants/documents';
 import { Button } from '@/components/ui/button';
@@ -9,20 +8,23 @@ import { useEffect } from 'react';
 import TitleLayout from '@/components/shares/title-layout';
 import { mapSlugWithId } from '@/lib/slug';
 import CustomLink from '@/hooks/next-link';
+import { useTranslations } from 'next-intl';
 
 export default function OpacDocumentLatest() {
   const [documents, setDocuments] = useState<any[]>([]);
+  const t = useTranslations('routes.opac.document_latest');
 
   useEffect(() => {
     const fetchDocuments = async () => {
       const docs = await getListDocument();
-      setDocuments(docs.slice(0, 4)); // Hiển thị 4 tài liệu đầu tiên ban đầu
+      setDocuments(docs.slice(0, 4)); // Show first 4 documents initially
     };
     fetchDocuments();
   }, []);
+
   const handleShowAll = async () => {
-    const allDocuments = await getListDocument(); // Lấy tất cả tài liệu từ API
-    setDocuments(allDocuments); // Cập nhật state để hiển thị tất cả tài liệu
+    const allDocuments = await getListDocument(); // Get all documents from API
+    setDocuments(allDocuments); // Update state to show all documents
   };
 
   function mapSlug(title: string, id: number) {
@@ -31,7 +33,7 @@ export default function OpacDocumentLatest() {
 
   return (
     <div className="mb-8 rounded-lg bg-white p-6 shadow-sm">
-      <TitleLayout title="Giáo trình nội bộ" />
+      <TitleLayout title={t('title')} />
 
       <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
         {documents.map((doc) => (
@@ -56,7 +58,7 @@ export default function OpacDocumentLatest() {
       </div>
       <div className="mt-6 text-center">
         <Button variant="outline" onClick={handleShowAll}>
-          Xem tất cả
+          {t('view_all')}
         </Button>
       </div>
     </div>

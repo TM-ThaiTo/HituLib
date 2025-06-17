@@ -3,74 +3,75 @@ import TieuDeGioiThieu from '@/components/shares/title-gioi-thieu';
 import CustomLink from '@/hooks/next-link';
 import routes from '@/constants/routes';
 import OptimizedImage from '@/lib/image';
+import { useTranslations } from 'next-intl';
 
 const dataGioiThieu = [
   {
     id: 1,
-    tieuDe: 'Giới thiệu chung',
+    key: 'general_introduction',
     duongDan: routes.gioiThieuThuVien.gioiThieuChung.path,
     moCuaSoMoi: false,
   },
   {
     id: 2,
-    tieuDe: 'Sơ đồ tổ chức hoạt động',
+    key: 'organization_diagram',
     duongDan: routes.gioiThieuThuVien.soDoToChuc.path,
     moCuaSoMoi: false,
   },
   {
     id: 3,
-    tieuDe: 'Nội quy thư viện',
+    key: 'library_regulations',
     duongDan: routes.gioiThieuThuVien.noiQuy.path,
     moCuaSoMoi: false,
   },
   {
     id: 4,
-    tieuDe: 'Quy định sử dụng thư viện',
+    key: 'usage_regulations',
     duongDan: routes.gioiThieuThuVien.quyDinhSuDung.path,
     moCuaSoMoi: false,
   },
   {
     id: 5,
-    tieuDe: 'Lịch làm việc của thư viện',
+    key: 'working_hours',
     duongDan: routes.gioiThieuThuVien.lichLamViec.path,
     moCuaSoMoi: false,
   },
   {
     id: 6,
-    tieuDe: 'Hình ảnh hoạt động',
+    key: 'photos_of_activities',
     duongDan: routes.gioiThieuThuVien.hinhAnhHoatDong.path,
     moCuaSoMoi: false,
   },
   {
     id: 7,
-    tieuDe: 'Tổng hợp các văn bản pháp quy về hoạt động thư viện',
+    key: 'legal_documents',
     duongDan: routes.gioiThieuThuVien.vanBanPhapQuy.path,
     moCuaSoMoi: false,
   },
   {
     id: 8,
-    tieuDe: 'Quy trình làm việc',
+    key: 'working_procedures',
     duongDan: routes.gioiThieuThuVien.quyTrinhLamViec.path,
     moCuaSoMoi: false,
   },
 ];
 
 export default function MainGioiThieu() {
+  const t = useTranslations('library_introduction');
+
   return (
     <div className="rounded-lg bg-white p-6 shadow-sm">
-      <TieuDeGioiThieu tieuDe="giới thiệu thư viện" />
+      <TieuDeGioiThieu tieuDe={t('title')} />
 
       <OptimizedImage
         width={1012}
         height={342}
         src="/gioi-thieu/gioi-thieu-thu-vien-hitu-2024.png"
-        alt="Giới thiệu thư viện HITU 2024"
+        alt={t('title')}
         className="mb-6 h-auto w-full object-contain"
       />
 
-      <p className="mb-4 text-lg font-semibold text-gray-800">
-        Các thông tin giới thiệu thư viện trường Cao đẳng Công Thương TP.Hồ Chí Minh
-      </p>
+      <p className="mb-4 text-lg font-semibold text-gray-800">{t('description')}</p>
 
       <div className="border border-gray-200 bg-blue-50 px-4">
         <ul className="divide-y divide-gray-200">
@@ -84,7 +85,7 @@ export default function MainGioiThieu() {
                 target={item.moCuaSoMoi ? '_blank' : '_self'}
                 className="w-full text-sm font-semibold text-blue-600 no-underline hover:text-black"
               >
-                {item.tieuDe}
+                {t(`menu.${item.key}`)}
               </CustomLink>
             </li>
           ))}
