@@ -64,8 +64,12 @@ export default function DocumentTabPositionCopy({ document }: Props) {
       <Table className="w-full overflow-hidden rounded-md border border-gray-200">
         <TableHeader>
           <TableRow className="bg-gray-50">
-            <TableHead className="px-4 py-2 text-left">{t('position_copy.table.position')}</TableHead>
-            <TableHead className="px-4 py-2 text-left">{t('position_copy.table.call_number')}</TableHead>
+            <TableHead className="px-4 py-2 text-left">
+              {t('position_copy.table.position')}
+            </TableHead>
+            <TableHead className="px-4 py-2 text-left">
+              {t('position_copy.table.call_number')}
+            </TableHead>
             <TableHead className="px-4 py-2 text-left">{t('position_copy.table.status')}</TableHead>
             <TableHead className="px-4 py-2 text-left">{t('position_copy.table.action')}</TableHead>
           </TableRow>
@@ -88,8 +92,9 @@ export default function DocumentTabPositionCopy({ document }: Props) {
               <Button
                 variant="outline"
                 disabled={document.availability !== 'available'}
-                className={`text-sm ${document.availability === 'available' ? '' : 'cursor-not-allowed opacity-50'
-                  }`}
+                className={`text-sm ${
+                  document.availability === 'available' ? '' : 'cursor-not-allowed opacity-50'
+                }`}
               >
                 <Icons.bookOpen className="mr-1 h-4 w-4" />
                 {t('position_copy.actions.reserve')}
@@ -103,9 +108,7 @@ export default function DocumentTabPositionCopy({ document }: Props) {
         <Icons.info className="mt-1 h-5 w-5 flex-shrink-0" />
         <div>
           <h4 className="mb-1 text-sm font-semibold">{t('position_copy.info.title')}</h4>
-          <p className="text-sm leading-relaxed">
-            {t('position_copy.info.description')}
-          </p>
+          <p className="text-sm leading-relaxed">{t('position_copy.info.description')}</p>
         </div>
       </div>
     </div>

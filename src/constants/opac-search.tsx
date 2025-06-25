@@ -103,66 +103,66 @@ const LOCATION_OPTIONS = (
   t: any,
   handleLocationChange: (location: string) => void,
 ): AdvancedType[] => [
-    {
-      id: 'location-main',
-      label: t('location_options.main'),
-      checked: filter.locations?.includes('main') || false,
-      icon: <Icons.mapPin className="h-4 w-4 text-red-600" />,
-      onChange: () => handleLocationChange('main'),
-    },
-    {
-      id: 'location-it',
-      label: t('location_options.it'),
-      checked: filter.locations?.includes('it') || false,
-      icon: <Icons.mapPin className="h-4 w-4 text-blue-600" />,
-      onChange: () => handleLocationChange('it'),
-    },
-    {
-      id: 'location-engineering',
-      label: t('location_options.engineering'),
-      checked: filter.locations?.includes('engineering') || false,
-      icon: <Icons.mapPin className="h-4 w-4 text-green-600" />,
-      onChange: () => handleLocationChange('engineering'),
-    },
-    {
-      id: 'location-economics',
-      label: t('location_options.economics'),
-      checked: filter.locations?.includes('economics') || false,
-      icon: <Icons.mapPin className="h-4 w-4 text-amber-600" />,
-      onChange: () => handleLocationChange('economics'),
-    },
-  ];
+  {
+    id: 'location-main',
+    label: t('location_options.main'),
+    checked: filter.locations?.includes('main') || false,
+    icon: <Icons.mapPin className="h-4 w-4 text-red-600" />,
+    onChange: () => handleLocationChange('main'),
+  },
+  {
+    id: 'location-it',
+    label: t('location_options.it'),
+    checked: filter.locations?.includes('it') || false,
+    icon: <Icons.mapPin className="h-4 w-4 text-blue-600" />,
+    onChange: () => handleLocationChange('it'),
+  },
+  {
+    id: 'location-engineering',
+    label: t('location_options.engineering'),
+    checked: filter.locations?.includes('engineering') || false,
+    icon: <Icons.mapPin className="h-4 w-4 text-green-600" />,
+    onChange: () => handleLocationChange('engineering'),
+  },
+  {
+    id: 'location-economics',
+    label: t('location_options.economics'),
+    checked: filter.locations?.includes('economics') || false,
+    icon: <Icons.mapPin className="h-4 w-4 text-amber-600" />,
+    onChange: () => handleLocationChange('economics'),
+  },
+];
 
 const AVAILABILITY_OPTIONS = (
   filter: any,
   t: any,
   handleAvailabilityChange: (availability: string) => void,
 ): AdvancedType[] => [
-    {
-      id: 'availability-available',
-      label: t('availability_options.available'),
-      checked: filter.availability?.includes('available') || false,
-      onChange: () => handleAvailabilityChange('available'),
-    },
-    {
-      id: 'availability-online',
-      label: t('availability_options.online_access'),
-      checked: filter.availability?.includes('onlineAccess') || false,
-      onChange: () => handleAvailabilityChange('onlineAccess'),
-    },
-    {
-      id: 'availability-fulltext',
-      label: t('availability_options.fulltext'),
-      checked: filter.availability?.includes('fulltext') || false,
-      onChange: () => handleAvailabilityChange('fulltext'),
-    },
-    {
-      id: 'availability-open-access',
-      label: t('availability_options.open_access'),
-      checked: filter.availability?.includes('openAccess') || false,
-      onChange: () => handleAvailabilityChange('openAccess'),
-    },
-  ];
+  {
+    id: 'availability-available',
+    label: t('availability_options.available'),
+    checked: filter.availability?.includes('available') || false,
+    onChange: () => handleAvailabilityChange('available'),
+  },
+  {
+    id: 'availability-online',
+    label: t('availability_options.online_access'),
+    checked: filter.availability?.includes('onlineAccess') || false,
+    onChange: () => handleAvailabilityChange('onlineAccess'),
+  },
+  {
+    id: 'availability-fulltext',
+    label: t('availability_options.fulltext'),
+    checked: filter.availability?.includes('fulltext') || false,
+    onChange: () => handleAvailabilityChange('fulltext'),
+  },
+  {
+    id: 'availability-open-access',
+    label: t('availability_options.open_access'),
+    checked: filter.availability?.includes('openAccess') || false,
+    onChange: () => handleAvailabilityChange('openAccess'),
+  },
+];
 
 const ACCESS_OPTIONS = (t: any) => [
   {

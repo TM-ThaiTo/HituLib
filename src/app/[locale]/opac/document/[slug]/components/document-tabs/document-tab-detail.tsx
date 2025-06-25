@@ -110,7 +110,9 @@ export default function DocumentDetail({ document }: Props) {
 
       {/* Subjects */}
       <div className="mt-6">
-        <h2 className="mb-2 flex items-center gap-2 text-base font-semibold">{t('detail.subjects')}</h2>
+        <h2 className="mb-2 flex items-center gap-2 text-base font-semibold">
+          {t('detail.subjects')}
+        </h2>
         <div className="flex flex-wrap gap-2">
           {document.subjects.map((subject, idx) => (
             <span key={idx} className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800">
@@ -123,7 +125,9 @@ export default function DocumentDetail({ document }: Props) {
       {/* Keywords */}
       {document.keywords?.length > 0 && (
         <div className="mt-6">
-          <h2 className="mb-2 flex items-center gap-2 text-base font-semibold">{t('detail.keywords')}</h2>
+          <h2 className="mb-2 flex items-center gap-2 text-base font-semibold">
+            {t('detail.keywords')}
+          </h2>
           <div className="flex flex-wrap gap-2">
             {document.keywords.map((kw, idx) => (
               <span key={idx} className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800">

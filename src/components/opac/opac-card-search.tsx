@@ -30,9 +30,7 @@ export default function OpacCardSearch() {
       <CardFooter className="border-t bg-blue-50">
         <div className="flex items-start text-sm text-gray-600">
           <Icons.info className="mt-0.5 mr-2 h-full w-5 flex-shrink-0 text-blue-600" />
-          <p>
-            {t('info')}
-          </p>
+          <p>{t('info')}</p>
         </div>
       </CardFooter>
     </Card>

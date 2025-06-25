@@ -17,9 +17,7 @@ export default async function BarcodePage() {
         </CardHeader>
         <CardContent className="p-4 sm:p-6">
           <div className="mb-4 text-center">
-            <p className="text-sm text-gray-600 sm:text-base">
-              {t('description')}
-            </p>
+            <p className="text-sm text-gray-600 sm:text-base">{t('description')}</p>
           </div>
 
           <BarcodeMain />

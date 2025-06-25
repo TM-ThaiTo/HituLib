@@ -117,10 +117,11 @@ export default function DocumentImageAndAction({ document, params }: Props) {
         {/* Action Buttons */}
         <div className="mt-4 space-y-2">
           <Button
-            className={`flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl text-base font-medium transition-colors ${document.availability === 'available'
-              ? 'bg-blue-500 text-white hover:bg-blue-600'
-              : 'cursor-not-allowed bg-gray-200 text-gray-500'
-              }`}
+            className={`flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl text-base font-medium transition-colors ${
+              document.availability === 'available'
+                ? 'bg-blue-500 text-white hover:bg-blue-600'
+                : 'cursor-not-allowed bg-gray-200 text-gray-500'
+            }`}
             disabled={document.availability !== 'available'}
           >
             <Icons.bookOpen className="text-lg" />
@@ -205,9 +206,7 @@ export default function DocumentImageAndAction({ document, params }: Props) {
             <div ref={qrRef} className="mb-4 rounded-lg border border-gray-200 bg-white p-4">
               <QRCodeSVG value={qrData} size={200} level="H" includeMargin={true} />
             </div>
-            <p className="text-center text-sm text-gray-600">
-              {t('actions.qr_modal.description')}
-            </p>
+            <p className="text-center text-sm text-gray-600">{t('actions.qr_modal.description')}</p>
           </div>
           <DialogFooter className="flex justify-center gap-2">
             <Button variant="outline" onClick={() => setIsQrModalOpen(false)}>

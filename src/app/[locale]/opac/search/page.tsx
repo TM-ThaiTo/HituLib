@@ -56,7 +56,8 @@ export default function OpacSearchPage() {
               )}
               {filters.yearRange && (
                 <p>
-                  <strong>{t('debug.year_range')}</strong> {filters.yearRange[0]} - {filters.yearRange[1]}
+                  <strong>{t('debug.year_range')}</strong> {filters.yearRange[0]} -{' '}
+                  {filters.yearRange[1]}
                 </p>
               )}
               {filters.documentTypes && filters.documentTypes.length > 0 && (

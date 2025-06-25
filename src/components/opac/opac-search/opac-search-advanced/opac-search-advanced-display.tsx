@@ -41,11 +41,31 @@ export default function OpacAdvancedDisplay({ filter, onChange }: DisplayFilterP
 
   const displayFieldOptions = [
     { value: 'field-title', label: t('field_options.title'), defaultChecked: true, disabled: true },
-    { value: 'field-author', label: t('field_options.author'), defaultChecked: true, disabled: false },
-    { value: 'field-publisher', label: t('field_options.publisher'), defaultChecked: true, disabled: false },
+    {
+      value: 'field-author',
+      label: t('field_options.author'),
+      defaultChecked: true,
+      disabled: false,
+    },
+    {
+      value: 'field-publisher',
+      label: t('field_options.publisher'),
+      defaultChecked: true,
+      disabled: false,
+    },
     { value: 'field-year', label: t('field_options.year'), defaultChecked: true, disabled: false },
-    { value: 'field-description', label: t('field_options.description'), defaultChecked: false, disabled: false },
-    { value: 'field-subject', label: t('field_options.subject'), defaultChecked: false, disabled: false },
+    {
+      value: 'field-description',
+      label: t('field_options.description'),
+      defaultChecked: false,
+      disabled: false,
+    },
+    {
+      value: 'field-subject',
+      label: t('field_options.subject'),
+      defaultChecked: false,
+      disabled: false,
+    },
   ];
 
   const handleFieldChange = (field: string, checked: boolean) => {

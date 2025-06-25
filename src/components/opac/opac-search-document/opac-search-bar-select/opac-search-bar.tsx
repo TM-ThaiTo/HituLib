@@ -206,8 +206,12 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
             <AccordionContent>
               <div className="flex flex-col space-y-4 px-2">
                 <div className="flex justify-between text-sm">
-                  <span>{t('filters.from')} {filter.yearRange?.[0] ?? 1900}</span>
-                  <span>{t('filters.to')} {filter.yearRange?.[1] ?? 2023}</span>
+                  <span>
+                    {t('filters.from')} {filter.yearRange?.[0] ?? 1900}
+                  </span>
+                  <span>
+                    {t('filters.to')} {filter.yearRange?.[1] ?? 2023}
+                  </span>
                 </div>
                 <Slider
                   min={1900}

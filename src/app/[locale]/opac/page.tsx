@@ -15,9 +15,7 @@ export default async function OpacMainPage() {
           <div className="">
             <div className="mb-8 text-center">
               <h1 className="mb-2 text-3xl font-bold text-blue-600">{t('title')}</h1>
-              <p className="mx-auto max-w-2xl text-gray-600">
-                {t('description')}
-              </p>
+              <p className="mx-auto max-w-2xl text-gray-600">{t('description')}</p>
             </div>
             <OpacCardSearch />
             <OpacDocumentLatest />
