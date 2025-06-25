@@ -23,6 +23,7 @@ import { DocumentType, AuthorType } from '@/types/opac-document';
 import { useState, useRef } from 'react';
 import { DOMAIN_URL } from '@/config/env';
 import ImagePublic from '@/constants/image';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   document: DocumentType;
@@ -32,6 +33,7 @@ type Props = {
 export default function DocumentImageAndAction({ document, params }: Props) {
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
   const qrRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('document');
 
   const documentUrl = `${DOMAIN_URL}/opac/document/${params.slug}`;
   const qrData = JSON.stringify({
@@ -72,9 +74,9 @@ export default function DocumentImageAndAction({ document, params }: Props) {
       case 'copy':
         try {
           await navigator.clipboard.writeText(window.location.href);
-          toast.success('Đã sao chép liên kết vào clipboard');
+          toast.success(t('actions.toast.link_copied'));
         } catch (err) {
-          toast.error('Không thể sao chép liên kết');
+          toast.error(t('actions.toast.link_copy_error'));
         }
         break;
       case 'facebook':
@@ -122,20 +124,20 @@ export default function DocumentImageAndAction({ document, params }: Props) {
             disabled={document.availability !== 'available'}
           >
             <Icons.bookOpen className="text-lg" />
-            Đặt mượn
+            {t('actions.borrow')}
           </Button>
 
           {[
-            { icon: <Icons.bookmark className="text-lg" />, label: 'Lưu vào danh sách' },
+            { icon: <Icons.bookmark className="text-lg" />, label: t('actions.save_to_list') },
             {
               icon: <Icons.share2 className="text-lg" />,
-              label: 'Chia sẻ',
+              label: t('actions.share'),
               dropdown: (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button className="flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white text-base font-medium text-gray-800 transition-colors hover:bg-gray-100">
                       <Icons.share2 className="text-lg" />
-                      Chia sẻ
+                      {t('actions.share')}
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-48">
@@ -144,28 +146,28 @@ export default function DocumentImageAndAction({ document, params }: Props) {
                       onClick={() => handleShare('copy')}
                     >
                       <Icons.link2 className="mr-2 h-4 w-4" />
-                      Sao chép liên kết
+                      {t('actions.share_options.copy_link')}
                     </DropdownMenuItem>
                     <DropdownMenuItem
                       className="cursor-pointer"
                       onClick={() => handleShare('facebook')}
                     >
                       <Icons.facebook className="mr-2 h-4 w-4" />
-                      Facebook
+                      {t('actions.share_options.facebook')}
                     </DropdownMenuItem>
                     <DropdownMenuItem
                       className="cursor-pointer"
                       onClick={() => handleShare('twitter')}
                     >
                       <Icons.spaceX className="mr-2 h-4 w-4" />
-                      Twitter
+                      {t('actions.share_options.twitter')}
                     </DropdownMenuItem>
                     <DropdownMenuItem
                       className="cursor-pointer"
                       onClick={() => handleShare('email')}
                     >
                       <Icons.mail className="mr-2 h-4 w-4" />
-                      Email
+                      {t('actions.share_options.email')}
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -173,7 +175,7 @@ export default function DocumentImageAndAction({ document, params }: Props) {
             },
             {
               icon: <Icons.qrCode className="text-lg" />,
-              label: 'Mã QR',
+              label: t('actions.qr_code'),
               onClick: () => setIsQrModalOpen(true),
             },
           ].map((item, idx) =>
@@ -197,23 +199,23 @@ export default function DocumentImageAndAction({ document, params }: Props) {
       <Dialog open={isQrModalOpen} onOpenChange={setIsQrModalOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Mã QR tài liệu</DialogTitle>
+            <DialogTitle>{t('actions.qr_modal.title')}</DialogTitle>
           </DialogHeader>
           <div className="flex flex-col items-center justify-center p-6">
             <div ref={qrRef} className="mb-4 rounded-lg border border-gray-200 bg-white p-4">
               <QRCodeSVG value={qrData} size={200} level="H" includeMargin={true} />
             </div>
             <p className="text-center text-sm text-gray-600">
-              Quét mã QR để xem thông tin chi tiết về tài liệu
+              {t('actions.qr_modal.description')}
             </p>
           </div>
           <DialogFooter className="flex justify-center gap-2">
             <Button variant="outline" onClick={() => setIsQrModalOpen(false)}>
-              Đóng
+              {t('actions.qr_modal.close')}
             </Button>
             <Button onClick={handleDownloadQR}>
               <Icons.share2 className="mr-2 h-4 w-4" />
-              Tải xuống
+              {t('actions.qr_modal.download')}
             </Button>
           </DialogFooter>
         </DialogContent>

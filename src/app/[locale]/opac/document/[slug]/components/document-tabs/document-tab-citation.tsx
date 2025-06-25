@@ -3,12 +3,15 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { DocumentType } from '@/types/opac-document';
 import { toast } from 'sonner';
 import Icons from '@/components/shares/icons';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   document: DocumentType;
 };
 
 export default function DocumentTabCitation({ document }: Props) {
+  const t = useTranslations('document');
+
   const citationFormats = [
     {
       key: 'APA',
@@ -57,15 +60,15 @@ export default function DocumentTabCitation({ document }: Props) {
     if (!format) return;
     const citationText = format.getText();
     navigator.clipboard.writeText(citationText);
-    toast.success('Đã sao chép trích dẫn vào clipboard');
+    toast.success(t('citation.copy_success'));
   };
 
   return (
     <>
       <Card>
         <CardHeader>
-          <CardTitle>Trích dẫn</CardTitle>
-          <CardDescription>Các định dạng trích dẫn cho tài liệu này</CardDescription>
+          <CardTitle>{t('citation.title')}</CardTitle>
+          <CardDescription>{t('citation.description')}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           {citationFormats.map((format) => (
@@ -77,7 +80,7 @@ export default function DocumentTabCitation({ document }: Props) {
                   size="icon"
                   className="absolute top-2 right-2 cursor-pointer"
                   onClick={() => handleCopyCitation(format.key)}
-                  aria-label={`Sao chép trích dẫn ${format.label}`}
+                  aria-label={`${t('citation.copy_button')} ${format.label}`}
                 >
                   <Icons.copy size={18} />
                 </Button>

@@ -75,5 +75,89 @@
       "title": "News & Events",
       "view_more": "View more"
     }
+  },
+  "document": {
+    "tags": {
+      "printed_book": "Printed Book",
+      "being_borrowed": "Being Borrowed"
+    },
+    "tabs": {
+      "detail": "Details",
+      "position_copy": "Copies & Location",
+      "citation": "Citation"
+    },
+    "detail": {
+      "author": "Author",
+      "isbn": "ISBN",
+      "publisher": "Publisher",
+      "call_number": "Call Number",
+      "publication_year": "Publication Year",
+      "location": "Location",
+      "language": "Language",
+      "subjects": "Subjects",
+      "keywords": "Keywords",
+      "languages": {
+        "vietnamese": "Vietnamese",
+        "english": "English",
+        "french": "French",
+        "german": "German",
+        "chinese": "Chinese",
+        "japanese": "Japanese",
+        "korean": "Korean",
+        "russian": "Russian",
+        "spanish": "Spanish"
+      }
+    },
+    "position_copy": {
+      "table": {
+        "position": "POSITION",
+        "call_number": "CALL NUMBER",
+        "status": "STATUS",
+        "action": "ACTION"
+      },
+      "availability": {
+        "available": "Available",
+        "on_loan": "On Loan",
+        "reserved": "Reserved",
+        "reference_only": "Reference Only",
+        "unknown": "Unknown"
+      },
+      "actions": {
+        "reserve": "Reserve"
+      },
+      "info": {
+        "title": "Location Information",
+        "description": "This document is located in the 2nd floor book storage. Please contact library staff if you need help finding the document or cannot find it at this location."
+      },
+      "error": "Document information not found."
+    },
+    "citation": {
+      "title": "Citation",
+      "description": "Citation formats for this document",
+      "copy_success": "Citation copied to clipboard",
+      "copy_button": "Copy citation"
+    },
+    "actions": {
+      "borrow": "Borrow",
+      "save_to_list": "Save to List",
+      "share": "Share",
+      "qr_code": "QR Code",
+      "share_options": {
+        "copy_link": "Copy Link",
+        "facebook": "Facebook",
+        "twitter": "Twitter",
+        "email": "Email"
+      },
+      "qr_modal": {
+        "title": "Document QR Code",
+        "description": "Scan QR code to view detailed information about the document",
+        "close": "Close",
+        "download": "Download"
+      },
+      "toast": {
+        "link_copied": "Link copied to clipboard",
+        "link_copy_error": "Could not copy link"
+      }
+    }
   }
 }

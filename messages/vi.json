@@ -75,5 +75,89 @@
       "title": "Tin tức & Sự kiện",
       "view_more": "Xem thêm"
     }
+  },
+  "document": {
+    "tags": {
+      "printed_book": "Sách in",
+      "being_borrowed": "Đang được mượn"
+    },
+    "tabs": {
+      "detail": "Thông tin chi tiết",
+      "position_copy": "Bản sao và vị trí",
+      "citation": "Trích dẫn"
+    },
+    "detail": {
+      "author": "Tác giả",
+      "isbn": "ISBN",
+      "publisher": "Nhà xuất bản",
+      "call_number": "Số hiệu phân loại",
+      "publication_year": "Năm xuất bản",
+      "location": "Vị trí",
+      "language": "Ngôn ngữ",
+      "subjects": "Chủ đề",
+      "keywords": "Từ khóa",
+      "languages": {
+        "vietnamese": "Tiếng Việt",
+        "english": "Tiếng Anh",
+        "french": "Tiếng Pháp",
+        "german": "Tiếng Đức",
+        "chinese": "Tiếng Trung",
+        "japanese": "Tiếng Nhật",
+        "korean": "Tiếng Hàn",
+        "russian": "Tiếng Nga",
+        "spanish": "Tiếng Tây Ban Nha"
+      }
+    },
+    "position_copy": {
+      "table": {
+        "position": "VỊ TRÍ",
+        "call_number": "KÝ HIỆU PHÂN LOẠI",
+        "status": "TRẠNG THÁI",
+        "action": "THAO TÁC"
+      },
+      "availability": {
+        "available": "Có sẵn",
+        "on_loan": "Đang được mượn",
+        "reserved": "Đã đặt trước",
+        "reference_only": "Chỉ tham khảo",
+        "unknown": "Không xác định"
+      },
+      "actions": {
+        "reserve": "Đặt chỗ"
+      },
+      "info": {
+        "title": "Thông tin vị trí",
+        "description": "Tài liệu này được đặt tại Kho sách tầng 2. Vui lòng liên hệ nhân viên thư viện nếu bạn cần hỗ trợ tìm tài liệu hoặc không tìm thấy tại vị trí này."
+      },
+      "error": "Không tìm thấy thông tin tài liệu."
+    },
+    "citation": {
+      "title": "Trích dẫn",
+      "description": "Các định dạng trích dẫn cho tài liệu này",
+      "copy_success": "Đã sao chép trích dẫn vào clipboard",
+      "copy_button": "Sao chép trích dẫn"
+    },
+    "actions": {
+      "borrow": "Đặt mượn",
+      "save_to_list": "Lưu vào danh sách",
+      "share": "Chia sẻ",
+      "qr_code": "Mã QR",
+      "share_options": {
+        "copy_link": "Sao chép liên kết",
+        "facebook": "Facebook",
+        "twitter": "Twitter",
+        "email": "Email"
+      },
+      "qr_modal": {
+        "title": "Mã QR tài liệu",
+        "description": "Quét mã QR để xem thông tin chi tiết về tài liệu",
+        "close": "Đóng",
+        "download": "Tải xuống"
+      },
+      "toast": {
+        "link_copied": "Đã sao chép liên kết vào clipboard",
+        "link_copy_error": "Không thể sao chép liên kết"
+      }
+    }
   }
 }
