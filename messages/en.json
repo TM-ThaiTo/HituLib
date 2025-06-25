@@ -75,5 +75,264 @@
       "title": "News & Events",
       "view_more": "View more"
     }
+  },
+  "document": {
+    "tags": {
+      "printed_book": "Printed Book",
+      "being_borrowed": "Being Borrowed"
+    },
+    "tabs": {
+      "detail": "Details",
+      "position_copy": "Copies & Location",
+      "citation": "Citation"
+    },
+    "detail": {
+      "author": "Author",
+      "isbn": "ISBN",
+      "publisher": "Publisher",
+      "call_number": "Call Number",
+      "publication_year": "Publication Year",
+      "location": "Location",
+      "language": "Language",
+      "subjects": "Subjects",
+      "keywords": "Keywords",
+      "languages": {
+        "vietnamese": "Vietnamese",
+        "english": "English",
+        "french": "French",
+        "german": "German",
+        "chinese": "Chinese",
+        "japanese": "Japanese",
+        "korean": "Korean",
+        "russian": "Russian",
+        "spanish": "Spanish"
+      }
+    },
+    "position_copy": {
+      "table": {
+        "position": "POSITION",
+        "call_number": "CALL NUMBER",
+        "status": "STATUS",
+        "action": "ACTION"
+      },
+      "availability": {
+        "available": "Available",
+        "on_loan": "On Loan",
+        "reserved": "Reserved",
+        "reference_only": "Reference Only",
+        "unknown": "Unknown"
+      },
+      "actions": {
+        "reserve": "Reserve"
+      },
+      "info": {
+        "title": "Location Information",
+        "description": "This document is located in the 2nd floor book storage. Please contact library staff if you need help finding the document or cannot find it at this location."
+      },
+      "error": "Document information not found."
+    },
+    "citation": {
+      "title": "Citation",
+      "description": "Citation formats for this document",
+      "copy_success": "Citation copied to clipboard",
+      "copy_button": "Copy citation"
+    },
+    "actions": {
+      "borrow": "Borrow",
+      "save_to_list": "Save to List",
+      "share": "Share",
+      "qr_code": "QR Code",
+      "share_options": {
+        "copy_link": "Copy Link",
+        "facebook": "Facebook",
+        "twitter": "Twitter",
+        "email": "Email"
+      },
+      "qr_modal": {
+        "title": "Document QR Code",
+        "description": "Scan QR code to view detailed information about the document",
+        "close": "Close",
+        "download": "Download"
+      },
+      "toast": {
+        "link_copied": "Link copied to clipboard",
+        "link_copy_error": "Could not copy link"
+      }
+    }
+  },
+  "barcode": {
+    "title": "Scan Document Barcode/QR",
+    "description": "Scan barcode or QR code on documents to quickly search for detailed information.",
+    "guide": {
+      "title": "Instructions:",
+      "steps": [
+        "Press \"Start Scan\" to activate camera",
+        "Place barcode/QR in the scanning frame",
+        "Keep device steady until scan is successful",
+        "Or manually enter ISBN/ISSN code in the search field"
+      ]
+    },
+    "scanner": {
+      "start_scan": "Start Scan",
+      "scanning": "Scanning barcode...",
+      "manual_search": "Manual Search",
+      "placeholder": "Enter ISBN/ISSN/barcode",
+      "errors": {
+        "browser_not_supported": "Your browser does not support camera access.",
+        "camera_access_denied": "Cannot access camera. Please check camera permissions."
+      }
+    }
+  },
+  "opac": {
+    "title": "Online Library",
+    "description": "Search, explore and access thousands of academic documents, books, journals and open educational resources from various sources.",
+    "search": {
+      "title": "Search Documents",
+      "scan_barcode": "Scan Barcode",
+      "placeholder": "Enter search keywords...",
+      "search_button": "Search",
+      "advanced_filters_button": "Advanced Filters",
+      "info": "You can search documents in Internal Documents, from partner units, Open Educational Resources (OER), or from external sources. If you cannot find the document you need, you can submit a purchase request.",
+      "history": {
+        "title": "Search History",
+        "clear_all": "Clear All",
+        "loading": "Loading...",
+        "no_history": "No search history yet."
+      },
+      "filters": {
+        "title": "Filters",
+        "reset": "Reset",
+        "apply": "Apply Filters",
+        "document_type": "Document Type",
+        "publication_year": "Publication Year",
+        "from": "From",
+        "to": "to",
+        "status": "Status",
+        "location": "Location",
+        "language": "Language"
+      },
+      "debug": {
+        "raw_filters": "Raw Filters JSON:",
+        "applied_filters": "Applied Filters:",
+        "category": "Category:",
+        "author": "Author:",
+        "year_range": "Year Range:",
+        "document_types": "Document Types:",
+        "access_type": "Access Type:",
+        "keyword_filters": "Keyword Filters:",
+        "field": "Field:",
+        "keyword": "Keyword:",
+        "logic": "Logic:",
+        "parse_error": "Could not parse filters.",
+        "load_error": "Error loading filters."
+      },
+      "suggestions": {
+        "recent_searches": "Recent Searches",
+        "trending_searches": "Trending Searches",
+        "proposed_documents": "Proposed Documents",
+        "close_suggestions": "Close Suggestions",
+        "remove_history": "Remove History"
+      },
+      "advanced_filters": {
+        "tabs": {
+          "material": "Document Type",
+          "access": "Access",
+          "display": "Display"
+        },
+        "buttons": {
+          "reset": "Reset",
+          "apply": "Apply"
+        },
+        "category": {
+          "publication_year": "Publication Year",
+          "from_year": "From year:",
+          "to_year": "to",
+          "document_type": "Document Type",
+          "language": "Language",
+          "document_type_options": {
+            "book": "Printed Book",
+            "journal": "Journal/Newspaper",
+            "thesis": "Thesis/Dissertation",
+            "video": "Video/Multimedia",
+            "database": "Database",
+            "ebook": "E-book",
+            "audio": "Audio"
+          },
+          "language_options": {
+            "vietnamese": "Vietnamese",
+            "english": "English",
+            "chinese": "Chinese",
+            "japanese": "Japanese"
+          }
+        },
+        "access": {
+          "status": "Status",
+          "location": "Location",
+          "access_type": "Access Type",
+          "availability_options": {
+            "available": "Available",
+            "online_access": "Online Access",
+            "fulltext": "Full Text",
+            "open_access": "Open Access"
+          },
+          "location_options": {
+            "main": "Central Library",
+            "it": "IT Faculty Library",
+            "engineering": "Engineering Faculty Library",
+            "economics": "Economics Faculty Library"
+          },
+          "access_options": {
+            "all": "All",
+            "free": "Free",
+            "subscription": "Requires Subscription",
+            "restricted": "Restricted Access"
+          }
+        },
+        "display": {
+          "sort_by": "Sort by",
+          "sort_placeholder": "Choose sorting method",
+          "results_per_page": "Results per page",
+          "results_placeholder": "Choose number of results",
+          "display_fields": "Display fields",
+          "sort_options": {
+            "relevance": "Relevance",
+            "newest": "Newest",
+            "oldest": "Oldest",
+            "title_asc": "Title (A-Z)",
+            "title_desc": "Title (Z-A)",
+            "author_asc": "Author (A-Z)",
+            "author_desc": "Author (Z-A)"
+          },
+          "results_options": {
+            "10": "10 results",
+            "20": "20 results",
+            "50": "50 results",
+            "100": "100 results"
+          },
+          "field_options": {
+            "title": "Title",
+            "author": "Author",
+            "publisher": "Publisher",
+            "year": "Publication Year",
+            "description": "Description",
+            "subject": "Subject"
+          }
+        },
+        "and_or": {
+          "field_placeholder": "Select field",
+          "keyword_placeholder": "Enter search keyword",
+          "logic_placeholder": "Logic",
+          "add_row": "Add row",
+          "search_fields": {
+            "all": "All fields",
+            "title": "Title",
+            "author": "Author",
+            "subject": "Subject",
+            "publisher": "Publisher",
+            "isbn": "ISBN/ISSN"
+          }
+        }
+      }
+    }
   }
 }

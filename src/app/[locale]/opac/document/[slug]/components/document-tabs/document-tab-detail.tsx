@@ -1,17 +1,18 @@
 import Icons from '@/components/shares/icons';
 import { DocumentType } from '@/types/opac-document';
+import { useTranslations } from 'next-intl';
 
-function getLanguageDisplay(language: string): string {
+function getLanguageDisplay(language: string, t: any): string {
   const languageMap: Record<string, string> = {
-    vietnamese: 'Tiếng Việt',
-    english: 'Tiếng Anh',
-    french: 'Tiếng Pháp',
-    german: 'Tiếng Đức',
-    chinese: 'Tiếng Trung',
-    japanese: 'Tiếng Nhật',
-    korean: 'Tiếng Hàn',
-    russian: 'Tiếng Nga',
-    spanish: 'Tiếng Tây Ban Nha',
+    vietnamese: t('detail.languages.vietnamese'),
+    english: t('detail.languages.english'),
+    french: t('detail.languages.french'),
+    german: t('detail.languages.german'),
+    chinese: t('detail.languages.chinese'),
+    japanese: t('detail.languages.japanese'),
+    korean: t('detail.languages.korean'),
+    russian: t('detail.languages.russian'),
+    spanish: t('detail.languages.spanish'),
   };
   return languageMap[language] || language;
 }
@@ -45,6 +46,8 @@ type Props = {
   document: DocumentType;
 };
 export default function DocumentDetail({ document }: Props) {
+  const t = useTranslations('document');
+
   return (
     <>
       {/* Details */}
@@ -54,7 +57,7 @@ export default function DocumentDetail({ document }: Props) {
             <Icons.user className="h-4 w-4" />
           </div>
           <div>
-            <p className="text-gray-600">Tác giả</p>
+            <p className="text-gray-600">{t('detail.author')}</p>
             <div className="space-y-1">
               {document.authors?.map((author, index) => (
                 <p key={index} className="leading-tight font-medium">
@@ -69,45 +72,47 @@ export default function DocumentDetail({ document }: Props) {
         </div>
         <DetailItem
           icon={<Icons.faBarcode className="h-4 w-4" />}
-          label="ISBN"
+          label={t('detail.isbn')}
           value={document.isbn}
           type="isbn"
         />
         <DetailItem
           icon={<Icons.faBuilding className="h-4 w-4" />}
-          label="Nhà xuất bản"
+          label={t('detail.publisher')}
           value={document.publisher}
           type="publisher"
         />
         <DetailItem
           icon={<Icons.faFileAlt className="h-4 w-4" />}
-          label="Số hiệu phân loại"
+          label={t('detail.call_number')}
           value={document.callNumber}
           type="callNumber"
         />
         <DetailItem
           icon={<Icons.calendar className="h-4 w-4" />}
-          label="Năm xuất bản"
+          label={t('detail.publication_year')}
           value={document.publicationYear}
           type="publicationYear"
         />
         <DetailItem
           icon={<Icons.mapPin className="h-4 w-4" />}
-          label="Vị trí"
+          label={t('detail.location')}
           value={document.location}
           type="location"
         />
         <DetailItem
           icon={<Icons.languages className="h-4 w-4" />}
-          label="Ngôn ngữ"
-          value={getLanguageDisplay(document.language || '')}
+          label={t('detail.language')}
+          value={getLanguageDisplay(document.language || '', t)}
           type="language"
         />
       </div>
 
       {/* Subjects */}
       <div className="mt-6">
-        <h2 className="mb-2 flex items-center gap-2 text-base font-semibold">Chủ đề</h2>
+        <h2 className="mb-2 flex items-center gap-2 text-base font-semibold">
+          {t('detail.subjects')}
+        </h2>
         <div className="flex flex-wrap gap-2">
           {document.subjects.map((subject, idx) => (
             <span key={idx} className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800">
@@ -120,7 +125,9 @@ export default function DocumentDetail({ document }: Props) {
       {/* Keywords */}
       {document.keywords?.length > 0 && (
         <div className="mt-6">
-          <h2 className="mb-2 flex items-center gap-2 text-base font-semibold">Từ khóa</h2>
+          <h2 className="mb-2 flex items-center gap-2 text-base font-semibold">
+            {t('detail.keywords')}
+          </h2>
           <div className="flex flex-wrap gap-2">
             {document.keywords.map((kw, idx) => (
               <span key={idx} className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800">

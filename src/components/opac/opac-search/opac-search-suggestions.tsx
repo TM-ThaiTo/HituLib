@@ -8,6 +8,8 @@ import { useSearchHistory, SearchHistoryItem } from '@/hooks/use-search-history'
 import { Badge } from '@/components/ui/badge';
 import Icons from '@/components/shares/icons';
 import { TRENDING_SEARCH_DATA, PROPOSED_DATA, SUGGESTION_DATA } from '@/constants/opac-search';
+import { useTranslations } from 'next-intl';
+
 interface OpacSearchSuggestionsProps {
   query: string;
   onSuggestionClick?: (suggestion: string) => void;
@@ -26,6 +28,7 @@ export function OpacSearchSuggestions({
   const [recentSearches, setRecentSearches] = useState<SearchHistoryItem[]>(getHistory());
   const [trendingSearches, setTrendingSearches] = useState<string[]>([]);
   const [autoCompleteSuggestions, setAutoCompleteSuggestions] = useState<string[]>([]);
+  const t = useTranslations('opac.search.suggestions');
 
   // Cập nhật từ lịch sử tìm kiếm khi query thay đổi hoặc khi component mount
   useEffect(() => {
@@ -93,7 +96,7 @@ export function OpacSearchSuggestions({
       <div>
         <h4 className="mb-2 flex items-center text-sm font-semibold text-gray-700">
           <Icons.trendingUp className="mr-2 h-4 w-4 text-gray-400" />
-          Xu hướng tìm kiếm
+          {t('trending_searches')}
         </h4>
         <div className="flex flex-col flex-wrap gap-2 sm:flex-row sm:gap-2">
           {trendingSearches.map((search, index) => (
@@ -118,7 +121,7 @@ export function OpacSearchSuggestions({
       <div className="mt-4">
         <h4 className="mb-2 flex items-center text-sm font-semibold text-gray-700">
           <Icons.bookOpen className="mr-2 h-4 w-4 text-gray-400" />
-          Tài liệu đề xuất
+          {t('proposed_documents')}
         </h4>
         <div className="space-y-2">
           {PROPOSED_DATA.map((item, index) => (
@@ -146,7 +149,7 @@ export function OpacSearchSuggestions({
             <h4 className="mb-2 flex justify-between gap-2 text-sm font-semibold">
               <span className="flex items-center text-gray-700">
                 <Icons.clock className="mr-2 h-4 w-4 text-gray-400" />
-                Tìm kiếm gần đây
+                {t('recent_searches')}
               </span>
               {onClose && (
                 <Button
@@ -154,7 +157,7 @@ export function OpacSearchSuggestions({
                   size="sm"
                   className="h-6 w-6 p-0"
                   onClick={onClose}
-                  aria-label="Đóng gợi ý"
+                  aria-label={t('close_suggestions')}
                 >
                   <Icons.close className="h-4 w-4" />
                 </Button>
@@ -177,7 +180,7 @@ export function OpacSearchSuggestions({
                     type="button"
                     className="cursor-pointer text-gray-400 transition-colors hover:text-red-500"
                     onClick={(e) => handleRemoveSearch(e, item.time)}
-                    aria-label="Xoá lịch sử"
+                    aria-label={t('remove_history')}
                   >
                     <Icons.close className="h-3 w-3" />
                   </button>

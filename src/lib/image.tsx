@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { IMAGE_URL } from '@/config/env';
 import ImagePublic from '@/constants/image';
 
-const notFoundImage = ImagePublic.notFound
+const notFoundImage = ImagePublic.notFound;
 interface OptimizedImageProps {
   src: string;
   alt: string;

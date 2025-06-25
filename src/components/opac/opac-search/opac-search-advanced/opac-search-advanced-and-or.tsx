@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/select';
 import Icons from '@/components/shares/icons';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 // Define the interface for the exposed handle
 export interface OpacSearchAdvancedAndOrHandle {
@@ -18,13 +19,15 @@ export interface OpacSearchAdvancedAndOrHandle {
 
 // Use forwardRef to allow parent component to get a ref to this component
 const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props, ref) => {
+  const t = useTranslations('opac.search.advanced_filters.and_or');
+
   const searchFields = [
-    { label: 'Tất cả trường', value: 'all' },
-    { label: 'Nhan đề', value: 'title' },
-    { label: 'Tác giả', value: 'author' },
-    { label: 'Chủ đề', value: 'subject' },
-    { label: 'Nhà xuất bản', value: 'publisher' },
-    { label: 'ISBN/ISSN', value: 'isbn' },
+    { label: t('search_fields.all'), value: 'all' },
+    { label: t('search_fields.title'), value: 'title' },
+    { label: t('search_fields.author'), value: 'author' },
+    { label: t('search_fields.subject'), value: 'subject' },
+    { label: t('search_fields.publisher'), value: 'publisher' },
+    { label: t('search_fields.isbn'), value: 'isbn' },
   ];
 
   const logicOptions = ['AND', 'OR'];
@@ -73,7 +76,7 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
             onValueChange={(val) => handleChangeFilter(idx, 'field', val)}
           >
             <SelectTrigger className="w-full sm:w-[200px]">
-              <SelectValue placeholder="Chọn trường" />
+              <SelectValue placeholder={t('field_placeholder')} />
             </SelectTrigger>
             <SelectContent>
               {searchFields.map((field) => (
@@ -86,7 +89,7 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
 
           {/* Keyword Input */}
           <Input
-            placeholder="Nhập từ khóa tìm kiếm"
+            placeholder={t('keyword_placeholder')}
             value={filter.keyword}
             onChange={(e) => handleChangeFilter(idx, 'keyword', e.target.value)}
             className="w-full flex-1"
@@ -100,7 +103,7 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
                 onValueChange={(val) => handleChangeFilter(idx, 'logic', val)}
               >
                 <SelectTrigger className="w-[100px]">
-                  <SelectValue placeholder="Logic" />
+                  <SelectValue placeholder={t('logic_placeholder')} />
                 </SelectTrigger>
                 <SelectContent>
                   {logicOptions.map((logic) => (
@@ -117,7 +120,7 @@ const OpacSearchAdvancedAndOr = forwardRef<OpacSearchAdvancedAndOrHandle>((props
                 className="text-muted-foreground flex items-center gap-1 text-sm"
               >
                 <Icons.plus size={16} />
-                Thêm dòng
+                {t('add_row')}
               </Button>
             )}
 

@@ -85,8 +85,8 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <CustomLink href="/" className='flex'>
-              <Icons.home className='h-5 w-5 mr-1' />
+            <CustomLink href="/" className="flex">
+              <Icons.home className="mr-1 h-5 w-5" />
               {t('breadcrumb.home')}
             </CustomLink>
           </BreadcrumbLink>

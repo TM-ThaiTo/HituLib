@@ -8,6 +8,7 @@ import DocumentDetail from './document-tab-detail';
 import DocumentTabPositionCopy from './document-tab-position-copy';
 import { DocumentType } from '@/types/opac-document';
 import DocumentTabCitation from './document-tab-citation';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   document: DocumentType;
@@ -15,6 +16,7 @@ type Props = {
 
 export default function DocumentTabs({ document }: Props) {
   const [activeTab, setActiveTab] = useState<string>('detail');
+  const t = useTranslations('document');
 
   return (
     <>
@@ -26,21 +28,21 @@ export default function DocumentTabs({ document }: Props) {
               className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
             >
               <Icons.bookOpen className="mr-2 h-4 w-4" />
-              Thông tin chi tiết
+              {t('tabs.detail')}
             </TabsTrigger>
             <TabsTrigger
               value="position-copy"
               className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
             >
               <Icons.bookA className="mr-2 h-4 w-4" />
-              Bản sao và vị trí
+              {t('tabs.position_copy')}
             </TabsTrigger>
             <TabsTrigger
               value="citation"
               className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
             >
               <Icons.filter className="mr-2 h-4 w-4" />
-              Trích dẫn
+              {t('tabs.citation')}
             </TabsTrigger>
           </TabsList>
 

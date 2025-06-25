@@ -75,5 +75,264 @@
       "title": "Tin tức & Sự kiện",
       "view_more": "Xem thêm"
     }
+  },
+  "document": {
+    "tags": {
+      "printed_book": "Sách in",
+      "being_borrowed": "Đang được mượn"
+    },
+    "tabs": {
+      "detail": "Thông tin chi tiết",
+      "position_copy": "Bản sao và vị trí",
+      "citation": "Trích dẫn"
+    },
+    "detail": {
+      "author": "Tác giả",
+      "isbn": "ISBN",
+      "publisher": "Nhà xuất bản",
+      "call_number": "Số hiệu phân loại",
+      "publication_year": "Năm xuất bản",
+      "location": "Vị trí",
+      "language": "Ngôn ngữ",
+      "subjects": "Chủ đề",
+      "keywords": "Từ khóa",
+      "languages": {
+        "vietnamese": "Tiếng Việt",
+        "english": "Tiếng Anh",
+        "french": "Tiếng Pháp",
+        "german": "Tiếng Đức",
+        "chinese": "Tiếng Trung",
+        "japanese": "Tiếng Nhật",
+        "korean": "Tiếng Hàn",
+        "russian": "Tiếng Nga",
+        "spanish": "Tiếng Tây Ban Nha"
+      }
+    },
+    "position_copy": {
+      "table": {
+        "position": "VỊ TRÍ",
+        "call_number": "KÝ HIỆU PHÂN LOẠI",
+        "status": "TRẠNG THÁI",
+        "action": "THAO TÁC"
+      },
+      "availability": {
+        "available": "Có sẵn",
+        "on_loan": "Đang được mượn",
+        "reserved": "Đã đặt trước",
+        "reference_only": "Chỉ tham khảo",
+        "unknown": "Không xác định"
+      },
+      "actions": {
+        "reserve": "Đặt chỗ"
+      },
+      "info": {
+        "title": "Thông tin vị trí",
+        "description": "Tài liệu này được đặt tại Kho sách tầng 2. Vui lòng liên hệ nhân viên thư viện nếu bạn cần hỗ trợ tìm tài liệu hoặc không tìm thấy tại vị trí này."
+      },
+      "error": "Không tìm thấy thông tin tài liệu."
+    },
+    "citation": {
+      "title": "Trích dẫn",
+      "description": "Các định dạng trích dẫn cho tài liệu này",
+      "copy_success": "Đã sao chép trích dẫn vào clipboard",
+      "copy_button": "Sao chép trích dẫn"
+    },
+    "actions": {
+      "borrow": "Đặt mượn",
+      "save_to_list": "Lưu vào danh sách",
+      "share": "Chia sẻ",
+      "qr_code": "Mã QR",
+      "share_options": {
+        "copy_link": "Sao chép liên kết",
+        "facebook": "Facebook",
+        "twitter": "Twitter",
+        "email": "Email"
+      },
+      "qr_modal": {
+        "title": "Mã QR tài liệu",
+        "description": "Quét mã QR để xem thông tin chi tiết về tài liệu",
+        "close": "Đóng",
+        "download": "Tải xuống"
+      },
+      "toast": {
+        "link_copied": "Đã sao chép liên kết vào clipboard",
+        "link_copy_error": "Không thể sao chép liên kết"
+      }
+    }
+  },
+  "barcode": {
+    "title": "Quét mã vạch/QR tài liệu",
+    "description": "Quét mã vạch hoặc mã QR trên tài liệu để tìm kiếm nhanh thông tin chi tiết.",
+    "guide": {
+      "title": "Hướng dẫn:",
+      "steps": [
+        "Nhấn \"Bắt đầu quét\" để kích hoạt camera",
+        "Đưa mã vạch/QR vào khung quét",
+        "Giữ thiết bị ổn định cho đến khi quét thành công",
+        "Hoặc nhập mã ISBN/ISSN thủ công vào ô tìm kiếm"
+      ]
+    },
+    "scanner": {
+      "start_scan": "Bắt đầu quét",
+      "scanning": "Đang quét mã vạch...",
+      "manual_search": "Tìm kiếm thủ công",
+      "placeholder": "Nhập mã ISBN/ISSN/mã vạch",
+      "errors": {
+        "browser_not_supported": "Trình duyệt của bạn không hỗ trợ truy cập camera.",
+        "camera_access_denied": "Không thể truy cập camera. Vui lòng kiểm tra quyền truy cập camera."
+      }
+    }
+  },
+  "opac": {
+    "title": "Thư viện trực tuyến",
+    "description": "Tìm kiếm, khám phá và truy cập hàng ngàn tài liệu học thuật, sách, tạp chí và tài nguyên giáo dục mở từ nhiều nguồn khác nhau.",
+    "search": {
+      "title": "Tìm kiếm tài liệu",
+      "scan_barcode": "Quét mã vạch",
+      "placeholder": "Nhập từ khóa tìm kiếm...",
+      "search_button": "Tìm kiếm",
+      "advanced_filters_button": "Bộ lọc nâng cao",
+      "info": "Bạn có thể tìm kiếm tài liệu trong Tài liệu nội sinh, từ các đơn vị liên kết, học liệu mở (OER), hoặc từ các nguồn bên ngoài. Nếu không tìm thấy tài liệu bạn cần, bạn có thể gửi đề xuất mua.",
+      "history": {
+        "title": "Lịch sử tìm kiếm",
+        "clear_all": "Xoá tất cả",
+        "loading": "Đang tải...",
+        "no_history": "Chưa có lịch sử tìm kiếm."
+      },
+      "filters": {
+        "title": "Bộ lọc",
+        "reset": "Đặt lại",
+        "apply": "Áp dụng bộ lọc",
+        "document_type": "Loại tài liệu",
+        "publication_year": "Năm xuất bản",
+        "from": "Từ",
+        "to": "đến",
+        "status": "Tình trạng",
+        "location": "Vị trí",
+        "language": "Ngôn ngữ"
+      },
+      "debug": {
+        "raw_filters": "Raw Filters JSON:",
+        "applied_filters": "Applied Filters:",
+        "category": "Category:",
+        "author": "Author:",
+        "year_range": "Year Range:",
+        "document_types": "Document Types:",
+        "access_type": "Access Type:",
+        "keyword_filters": "Keyword Filters:",
+        "field": "Field:",
+        "keyword": "Keyword:",
+        "logic": "Logic:",
+        "parse_error": "Could not parse filters.",
+        "load_error": "Error loading filters."
+      },
+      "suggestions": {
+        "recent_searches": "Tìm kiếm gần đây",
+        "trending_searches": "Xu hướng tìm kiếm",
+        "proposed_documents": "Tài liệu đề xuất",
+        "close_suggestions": "Đóng gợi ý",
+        "remove_history": "Xoá lịch sử"
+      },
+      "advanced_filters": {
+        "tabs": {
+          "material": "Loại tài liệu",
+          "access": "Truy cập",
+          "display": "Hiển thị"
+        },
+        "buttons": {
+          "reset": "Đặt lại",
+          "apply": "Áp dụng"
+        },
+        "category": {
+          "publication_year": "Năm xuất bản",
+          "from_year": "Từ năm:",
+          "to_year": "đến",
+          "document_type": "Loại tài liệu",
+          "language": "Ngôn ngữ",
+          "document_type_options": {
+            "book": "Sách in",
+            "journal": "Tạp chí/Báo",
+            "thesis": "Luận văn/Luận án",
+            "video": "Video/Đa phương tiện",
+            "database": "Cơ sở dữ liệu",
+            "ebook": "Sách điện tử",
+            "audio": "Âm thanh"
+          },
+          "language_options": {
+            "vietnamese": "Tiếng Việt",
+            "english": "Tiếng Anh",
+            "chinese": "Tiếng Trung",
+            "japanese": "Tiếng Nhật"
+          }
+        },
+        "access": {
+          "status": "Tình trạng",
+          "location": "Vị trí",
+          "access_type": "Loại truy cập",
+          "availability_options": {
+            "available": "Có sẵn",
+            "online_access": "Truy cập trực tuyến",
+            "fulltext": "Có toàn văn",
+            "open_access": "Truy cập mở"
+          },
+          "location_options": {
+            "main": "Thư viện trung tâm",
+            "it": "Thư viện khoa CNTT",
+            "engineering": "Thư viện khoa Kỹ thuật",
+            "economics": "Thư viện khoa Kinh tế"
+          },
+          "access_options": {
+            "all": "Tất cả",
+            "free": "Miễn phí",
+            "subscription": "Yêu cầu đăng ký",
+            "restricted": "Hạn chế truy cập"
+          }
+        },
+        "display": {
+          "sort_by": "Sắp xếp theo",
+          "sort_placeholder": "Chọn cách sắp xếp",
+          "results_per_page": "Kết quả mỗi trang",
+          "results_placeholder": "Chọn số kết quả",
+          "display_fields": "Hiển thị trường",
+          "sort_options": {
+            "relevance": "Độ liên quan",
+            "newest": "Mới nhất",
+            "oldest": "Cũ nhất",
+            "title_asc": "Tên sách (A-Z)",
+            "title_desc": "Tên sách (Z-A)",
+            "author_asc": "Tác giả (A-Z)",
+            "author_desc": "Tác giả (Z-A)"
+          },
+          "results_options": {
+            "10": "10 kết quả",
+            "20": "20 kết quả",
+            "50": "50 kết quả",
+            "100": "100 kết quả"
+          },
+          "field_options": {
+            "title": "Nhan đề",
+            "author": "Tác giả",
+            "publisher": "Nhà xuất bản",
+            "year": "Năm xuất bản",
+            "description": "Mô tả",
+            "subject": "Chủ đề"
+          }
+        },
+        "and_or": {
+          "field_placeholder": "Chọn trường",
+          "keyword_placeholder": "Nhập từ khóa tìm kiếm",
+          "logic_placeholder": "Logic",
+          "add_row": "Thêm dòng",
+          "search_fields": {
+            "all": "Tất cả trường",
+            "title": "Nhan đề",
+            "author": "Tác giả",
+            "subject": "Chủ đề",
+            "publisher": "Nhà xuất bản",
+            "isbn": "ISBN/ISSN"
+          }
+        }
+      }
+    }
   }
 }

@@ -12,12 +12,15 @@ import OpacSearchAdvancedAndOr, {
 } from './opac-search-advanced/opac-search-advanced-and-or';
 import { FilterType } from '@/types/opac-search';
 import { useRouter } from '@/hooks/use-router';
+import { useTranslations } from 'next-intl';
+
 interface OpacAdvancedFiltersProps {
   showAdvanced: boolean;
 }
 
 export default function OpacAdvancedFilters({ showAdvanced }: OpacAdvancedFiltersProps) {
   const router = useRouter();
+  const t = useTranslations('opac.search.advanced_filters');
   const [activeTab, setActiveTab] = useState('material');
   const [filter, setFilter] = useState<Omit<FilterType, 'keywordFilters'>>({
     yearRange: [2000, 2020],
@@ -86,21 +89,21 @@ export default function OpacAdvancedFilters({ showAdvanced }: OpacAdvancedFilter
             className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
           >
             <Icons.bookOpen className="mr-2 h-4 w-4" />
-            Loại tài liệu
+            {t('tabs.material')}
           </TabsTrigger>
           <TabsTrigger
             value="access"
             className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
           >
             <Icons.bookA className="mr-2 h-4 w-4" />
-            Truy cập
+            {t('tabs.access')}
           </TabsTrigger>
           <TabsTrigger
             value="display"
             className="cursor-pointer data-[state=active]:bg-blue-600 data-[state=active]:text-white"
           >
             <Icons.filter className="mr-2 h-4 w-4" />
-            Hiển thị
+            {t('tabs.display')}
           </TabsTrigger>
         </TabsList>
 
@@ -122,11 +125,11 @@ export default function OpacAdvancedFilters({ showAdvanced }: OpacAdvancedFilter
       <div className="mt-2 flex justify-between gap-2">
         <Button type="button" variant="outline" onClick={handleReset} className="cursor-pointer">
           <Icons.refreshCw className="mr-2 h-4 w-4" />
-          Đặt lại
+          {t('buttons.reset')}
         </Button>
         <Button type="submit" className="bg-primary cursor-pointer text-white">
           <Icons.check className="mr-1 h-4 w-4" />
-          Áp dụng
+          {t('buttons.apply')}
         </Button>
       </div>
     </form>

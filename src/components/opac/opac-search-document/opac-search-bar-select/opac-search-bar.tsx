@@ -20,6 +20,7 @@ import {
   LANGUAGE_OPTIONS,
   LOCATION_OPTIONS,
 } from '@/constants/opac-search';
+import { useTranslations } from 'next-intl';
 
 interface OpacSearchBarSelectProps {
   filters: any;
@@ -27,8 +28,13 @@ interface OpacSearchBarSelectProps {
 }
 
 const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
-  const defaultFilter: Omit<FilterType, 'keywordFilters'> = {
-    yearRange: [2000, 2020],
+  const router = useRouter();
+  const t = useTranslations('opac.search');
+  const accessLocale = useTranslations('opac.search.advanced_filters.access');
+  const categoryLocale = useTranslations('opac.search.advanced_filters.category');
+
+  const [filter, setFilter] = useState<Omit<FilterType, 'keywordFilters'>>({
+    yearRange: [2000, new Date().getFullYear()],
     documentTypes: [],
     available: false,
     fulltext: false,
@@ -39,40 +45,29 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
     sortBy: 'relevance',
     resultsPerPage: 10,
     displayFields: [],
-    languages: [],
-  };
-  const initialFilterState = filters
-    ? {
-        yearRange: filters.yearRange ?? defaultFilter.yearRange,
-        documentTypes: filters.documentTypes ?? defaultFilter.documentTypes,
-        available: filters.available ?? defaultFilter.available,
-        fulltext: filters.fulltext ?? defaultFilter.fulltext,
-        onlineAccess: filters.onlineAccess ?? defaultFilter.onlineAccess,
-        openAccess: filters.openAccess ?? defaultFilter.openAccess,
-        locations: filters.locations ?? defaultFilter.locations,
-        availability: filters.availability ?? defaultFilter.availability,
-        sortBy: filters.sortBy ?? defaultFilter.sortBy,
-        resultsPerPage: filters.resultsPerPage ?? defaultFilter.resultsPerPage,
-        displayFields: filters.displayFields ?? defaultFilter.displayFields,
-        languages: filters.languages ?? defaultFilter.languages,
-      }
-    : defaultFilter;
+  });
 
-  const [filter, setFilter] = useState<Omit<FilterType, 'keywordFilters'>>(initialFilterState);
-  const [hasFilterChanged, setHasFilterChanged] = useState<boolean>(false);
+  const keywordFilterRef = useRef<any>(null);
 
-  const keywordFilterRef = useRef<{ getKeywordFilters: () => any[]; resetFilters: () => void }>(
-    null,
-  );
-  const router = useRouter();
-
-  //**
-  //  kiểm tra thay đổi để ẩn hiện nút reset và add
-  //  */
   useEffect(() => {
-    const changed = JSON.stringify(filter) !== JSON.stringify(initialFilterState);
-    setHasFilterChanged(changed);
-  }, [filter, initialFilterState]);
+    if (filters) {
+      setFilter({
+        yearRange: filters.yearRange || [2000, new Date().getFullYear()],
+        documentTypes: filters.documentTypes || [],
+        available: filters.available || false,
+        fulltext: filters.fulltext || false,
+        onlineAccess: filters.onlineAccess || false,
+        openAccess: filters.openAccess || false,
+        locations: filters.locations || [],
+        availability: filters.availability || [],
+        sortBy: filters.sortBy || 'relevance',
+        resultsPerPage: filters.resultsPerPage || 10,
+        displayFields: filters.displayFields || [],
+      });
+    }
+  }, [filters]);
+
+  const hasFilterChanged = true; // You can implement logic to check if filters have changed
 
   //**
   // hàm thay đổi giá trị search
@@ -115,7 +110,6 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
       sortBy: 'relevance',
       resultsPerPage: 10,
       displayFields: [],
-      languages: [],
     });
     keywordFilterRef.current?.resetFilters(); // Reset keyword filters if applicable.
     router.push('/opac/search');
@@ -156,19 +150,19 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
   const handleYearRangeChange = (year: number[]) => {
     onChange({ yearRange: [year[0], year[1]] });
   };
-  const documentOptions = DOCUMENT_TYPE_OPTIONS();
-  const languageOptions = LANGUAGE_OPTIONS();
-  const locationOptions = LOCATION_OPTIONS(filter, handleLocationChange);
-  const availabilityOptions = AVAILABILITY_OPTIONS(filter, handleAvailabilityChange);
+  const documentOptions = DOCUMENT_TYPE_OPTIONS(categoryLocale);
+  const languageOptions = LANGUAGE_OPTIONS(categoryLocale);
+  const locationOptions = LOCATION_OPTIONS(filter, accessLocale, handleLocationChange);
+  const availabilityOptions = AVAILABILITY_OPTIONS(filter, accessLocale, handleAvailabilityChange);
 
   return (
     <Card className="max-w-[400px] border border-gray-200">
       {/* --- Card Header --- */}
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="flex items-center text-lg">Bộ lọc</CardTitle>
+        <CardTitle className="flex items-center text-lg">{t('filters.title')}</CardTitle>
         <Button onClick={handleReset} type="button" variant="outline" className="cursor-pointer">
           <Icons.refreshCw className="mr-2 h-4 w-4" />
-          Đặt lại
+          {t('filters.reset')}
         </Button>
       </CardHeader>
 
@@ -179,7 +173,7 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
           {/* --- loại sách --- */}
           <AccordionItem value="documentType" className="border-b border-gray-200">
             <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline">
-              Loại tài liệu
+              {t('filters.document_type')}
             </AccordionTrigger>
             <AccordionContent className="accordion-content">
               <div className="flex flex-col space-y-3">
@@ -207,13 +201,17 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
           {/* --- năm --- */}
           <AccordionItem value="publicationYear">
             <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline">
-              Năm xuất bản
+              {t('filters.publication_year')}
             </AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col space-y-4 px-2">
                 <div className="flex justify-between text-sm">
-                  <span>Từ {filter.yearRange?.[0] ?? 1900}</span>
-                  <span>đến {filter.yearRange?.[1] ?? 2023}</span>
+                  <span>
+                    {t('filters.from')} {filter.yearRange?.[0] ?? 1900}
+                  </span>
+                  <span>
+                    {t('filters.to')} {filter.yearRange?.[1] ?? 2023}
+                  </span>
                 </div>
                 <Slider
                   min={1900}
@@ -229,7 +227,7 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
           {/* --- tình trạng--- */}
           <AccordionItem value="status">
             <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline">
-              Tình trạng
+              {t('filters.status')}
             </AccordionTrigger>
             <AccordionContent>
               {availabilityOptions.map((item) => (
@@ -246,7 +244,7 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
           {/* --- vị trí  --- */}
           <AccordionItem value="location">
             <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline">
-              Vị trí
+              {t('filters.location')}
             </AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col space-y-2">
@@ -268,7 +266,7 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
           {/* --- ngôn ngữ --- */}
           <AccordionItem value="language">
             <AccordionTrigger className="py-3 text-sm font-medium hover:no-underline">
-              Ngôn ngữ
+              {t('filters.language')}
             </AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col space-y-2">
@@ -301,7 +299,7 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
           disabled={!hasFilterChanged}
           className="w-full cursor-pointer rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
         >
-          Áp dụng bộ lọc
+          {t('filters.apply')}
         </Button>
       </CardContent>
     </Card>

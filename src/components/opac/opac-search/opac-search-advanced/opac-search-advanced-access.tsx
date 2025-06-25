@@ -5,6 +5,8 @@ import { Separator } from '@/components/ui/separator';
 import React from 'react';
 import Icons from '@/components/shares/icons';
 import { ACCESS_OPTIONS, AVAILABILITY_OPTIONS, LOCATION_OPTIONS } from '@/constants/opac-search';
+import { useTranslations } from 'next-intl';
+
 export interface AccessFilterProps {
   filter: {
     available?: boolean;
@@ -20,6 +22,8 @@ export interface AccessFilterProps {
 }
 
 export default function OpacAdvancedAccess({ filter, onChange }: AccessFilterProps) {
+  const t = useTranslations('opac.search.advanced_filters.access');
+
   const handleLocationChange = (location: string) => {
     const prev = filter.locations || [];
     if (prev.includes(location)) {
@@ -38,15 +42,15 @@ export default function OpacAdvancedAccess({ filter, onChange }: AccessFilterPro
     }
   };
 
-  const availabilityOptions = AVAILABILITY_OPTIONS(filter, handleAvailabilityChange);
-  const locationOptions = LOCATION_OPTIONS(filter, handleLocationChange);
-  const accessOptions = ACCESS_OPTIONS();
+  const availabilityOptions = AVAILABILITY_OPTIONS(filter, t, handleAvailabilityChange);
+  const locationOptions = LOCATION_OPTIONS(filter, t, handleLocationChange);
+  const accessOptions = ACCESS_OPTIONS(t);
 
   return (
     <section className="flex flex-col gap-4">
       {/* tình trạng */}
       <div>
-        <h3 className="mb-4 text-sm font-medium">Tình trạng</h3>
+        <h3 className="mb-4 text-sm font-medium">{t('status')}</h3>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           {availabilityOptions.map((item) => (
             <div key={item.id} className="flex items-center space-x-2">
@@ -63,7 +67,7 @@ export default function OpacAdvancedAccess({ filter, onChange }: AccessFilterPro
 
       {/* vị trí */}
       <div>
-        <h3 className="mb-4 text-sm font-medium">Vị trí</h3>
+        <h3 className="mb-4 text-sm font-medium">{t('location')}</h3>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           {locationOptions.map((item) => (
             <div key={item.id} className="flex items-center space-x-2">
@@ -83,7 +87,7 @@ export default function OpacAdvancedAccess({ filter, onChange }: AccessFilterPro
 
       {/* loại truy cập */}
       <div>
-        <h3 className="mb-4 text-sm font-medium">Loại truy cập</h3>
+        <h3 className="mb-4 text-sm font-medium">{t('access_type')}</h3>
         <RadioGroup
           value={filter.accessType ?? 'all'}
           onValueChange={(val) => onChange({ accessType: val })}
