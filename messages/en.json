@@ -159,5 +159,28 @@
         "link_copy_error": "Could not copy link"
       }
     }
+  },
+  "barcode": {
+    "title": "Scan Document Barcode/QR",
+    "description": "Scan barcode or QR code on documents to quickly search for detailed information.",
+    "guide": {
+      "title": "Instructions:",
+      "steps": [
+        "Press \"Start Scan\" to activate camera",
+        "Place barcode/QR in the scanning frame",
+        "Keep device steady until scan is successful",
+        "Or manually enter ISBN/ISSN code in the search field"
+      ]
+    },
+    "scanner": {
+      "start_scan": "Start Scan",
+      "scanning": "Scanning barcode...",
+      "manual_search": "Manual Search",
+      "placeholder": "Enter ISBN/ISSN/barcode",
+      "errors": {
+        "browser_not_supported": "Your browser does not support camera access.",
+        "camera_access_denied": "Cannot access camera. Please check camera permissions."
+      }
+    }
   }
 }

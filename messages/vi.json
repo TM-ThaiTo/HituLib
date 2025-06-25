@@ -159,5 +159,28 @@
         "link_copy_error": "Không thể sao chép liên kết"
       }
     }
+  },
+  "barcode": {
+    "title": "Quét mã vạch/QR tài liệu",
+    "description": "Quét mã vạch hoặc mã QR trên tài liệu để tìm kiếm nhanh thông tin chi tiết.",
+    "guide": {
+      "title": "Hướng dẫn:",
+      "steps": [
+        "Nhấn \"Bắt đầu quét\" để kích hoạt camera",
+        "Đưa mã vạch/QR vào khung quét",
+        "Giữ thiết bị ổn định cho đến khi quét thành công",
+        "Hoặc nhập mã ISBN/ISSN thủ công vào ô tìm kiếm"
+      ]
+    },
+    "scanner": {
+      "start_scan": "Bắt đầu quét",
+      "scanning": "Đang quét mã vạch...",
+      "manual_search": "Tìm kiếm thủ công",
+      "placeholder": "Nhập mã ISBN/ISSN/mã vạch",
+      "errors": {
+        "browser_not_supported": "Trình duyệt của bạn không hỗ trợ truy cập camera.",
+        "camera_access_denied": "Không thể truy cập camera. Vui lòng kiểm tra quyền truy cập camera."
+      }
+    }
   }
 }

@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { useRouter } from 'next/navigation';
 import { scanBarcode } from '@/app/action/barcode-actions';
 import Icons from '@/components/shares/icons';
+import { useTranslations } from 'next-intl';
 
 export default function BarcodeMain() {
   const [barcode, setBarcode] = useState('');
@@ -14,12 +15,13 @@ export default function BarcodeMain() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const router = useRouter();
+  const t = useTranslations('barcode');
 
   useEffect(() => {
     // Check if browser supports getUserMedia
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
       setHasCamera(false);
-      setError('Trình duyệt của bạn không hỗ trợ truy cập camera.');
+      setError(t('scanner.errors.browser_not_supported'));
       return;
     }
 
@@ -31,7 +33,7 @@ export default function BarcodeMain() {
         tracks.forEach((track) => track.stop());
       }
     };
-  }, []);
+  }, [t]);
 
   const startScanning = async () => {
     setError('');
@@ -52,7 +54,7 @@ export default function BarcodeMain() {
     } catch (err) {
       console.error('Error accessing camera:', err);
       setIsScanning(false);
-      setError('Không thể truy cập camera. Vui lòng kiểm tra quyền truy cập camera.');
+      setError(t('scanner.errors.camera_access_denied'));
     }
   };
 
@@ -141,7 +143,7 @@ export default function BarcodeMain() {
             </Button>
             <div className="absolute inset-x-0 bottom-4 flex justify-center">
               <div className="rounded-full bg-black/70 px-4 py-2 text-sm text-white">
-                Đang quét mã vạch...
+                {t('scanner.scanning')}
               </div>
             </div>
           </div>
@@ -151,7 +153,7 @@ export default function BarcodeMain() {
               {hasCamera && (
                 <Button className="w-full bg-blue-600 hover:bg-blue-700" onClick={startScanning}>
                   <Icons.camera className="mr-2 h-4 w-4" />
-                  Bắt đầu quét
+                  {t('scanner.start_scan')}
                 </Button>
               )}
 
@@ -161,7 +163,7 @@ export default function BarcodeMain() {
                 </div>
                 <Input
                   type="text"
-                  placeholder="Nhập mã ISBN/ISSN/mã vạch"
+                  placeholder={t('scanner.placeholder')}
                   value={barcode}
                   onChange={(e) => setBarcode(e.target.value)}
                   className="pl-10"
@@ -175,7 +177,7 @@ export default function BarcodeMain() {
                 disabled={!barcode.trim()}
               >
                 <Icons.qrCode className="mr-2 h-4 w-4" />
-                Tìm kiếm thủ công
+                {t('scanner.manual_search')}
               </Button>
 
               {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
