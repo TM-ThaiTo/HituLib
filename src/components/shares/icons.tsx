@@ -35,6 +35,8 @@ import {
   Mail,
   Link2,
   AlertCircle,
+  Copy,
+  Home,
 } from 'lucide-react';
 
 import { FaFacebookF, FaPlusSquare, FaBarcode, FaBuilding, FaFileAlt } from 'react-icons/fa';
@@ -78,6 +80,8 @@ const Icons = {
   mail: Mail,
   link2: Link2,
   alertCircle: AlertCircle,
+  copy: Copy,
+  home: Home,
   facebook: FaFacebookF,
   spaceX: AiOutlineX,
   youtube: FaYoutube,

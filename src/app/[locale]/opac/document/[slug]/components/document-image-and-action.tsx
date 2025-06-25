@@ -22,6 +22,7 @@ import { toast } from 'sonner';
 import { DocumentType, AuthorType } from '@/types/opac-document';
 import { useState, useRef } from 'react';
 import { DOMAIN_URL } from '@/config/env';
+import ImagePublic from '@/constants/image';
 
 type Props = {
   document: DocumentType;
@@ -103,20 +104,21 @@ export default function DocumentImageAndAction({ document, params }: Props) {
       <aside>
         <div className="">
           <OptimizedImage
-            src={document.coverImage || '/images/default-cover.png'}
+            src={document.coverImage || ImagePublic.notFound}
+            width={300}
+            height={300}
             alt={document.title}
-            className="h-full w-full rounded-lg object-cover"
+            className="h-full w-full rounded-lg object-contain"
           />
         </div>
 
         {/* Action Buttons */}
         <div className="mt-4 space-y-2">
           <Button
-            className={`flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl text-base font-medium transition-colors ${
-              document.availability === 'available'
-                ? 'bg-blue-500 text-white hover:bg-blue-600'
-                : 'cursor-not-allowed bg-gray-200 text-gray-500'
-            }`}
+            className={`flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl text-base font-medium transition-colors ${document.availability === 'available'
+              ? 'bg-blue-500 text-white hover:bg-blue-600'
+              : 'cursor-not-allowed bg-gray-200 text-gray-500'
+              }`}
             disabled={document.availability !== 'available'}
           >
             <Icons.bookOpen className="text-lg" />
