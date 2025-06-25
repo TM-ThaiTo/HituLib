@@ -182,5 +182,50 @@
         "camera_access_denied": "Không thể truy cập camera. Vui lòng kiểm tra quyền truy cập camera."
       }
     }
+  },
+  "opac": {
+    "title": "Thư viện trực tuyến",
+    "description": "Tìm kiếm, khám phá và truy cập hàng ngàn tài liệu học thuật, sách, tạp chí và tài nguyên giáo dục mở từ nhiều nguồn khác nhau.",
+    "search": {
+      "title": "Tìm kiếm tài liệu",
+      "scan_barcode": "Quét mã vạch",
+      "placeholder": "Nhập từ khóa tìm kiếm...",
+      "search_button": "Tìm kiếm",
+      "advanced_filters_button": "Bộ lọc nâng cao",
+      "info": "Bạn có thể tìm kiếm tài liệu trong Tài liệu nội sinh, từ các đơn vị liên kết, học liệu mở (OER), hoặc từ các nguồn bên ngoài. Nếu không tìm thấy tài liệu bạn cần, bạn có thể gửi đề xuất mua.",
+      "history": {
+        "title": "Lịch sử tìm kiếm",
+        "clear_all": "Xoá tất cả",
+        "loading": "Đang tải...",
+        "no_history": "Chưa có lịch sử tìm kiếm."
+      },
+      "filters": {
+        "title": "Bộ lọc",
+        "reset": "Đặt lại",
+        "apply": "Áp dụng bộ lọc",
+        "document_type": "Loại tài liệu",
+        "publication_year": "Năm xuất bản",
+        "from": "Từ",
+        "to": "đến",
+        "status": "Tình trạng",
+        "location": "Vị trí",
+        "language": "Ngôn ngữ"
+      },
+      "debug": {
+        "raw_filters": "Raw Filters JSON:",
+        "applied_filters": "Applied Filters:",
+        "category": "Category:",
+        "author": "Author:",
+        "year_range": "Year Range:",
+        "document_types": "Document Types:",
+        "access_type": "Access Type:",
+        "keyword_filters": "Keyword Filters:",
+        "field": "Field:",
+        "keyword": "Keyword:",
+        "logic": "Logic:",
+        "parse_error": "Could not parse filters.",
+        "load_error": "Error loading filters."
+      }
+    }
   }
 }

@@ -8,8 +8,11 @@ import { useSearchHistory } from '@/hooks/use-search-history';
 import { OpacSearchSuggestions } from './opac-search-suggestions';
 import { useRouter } from '@/hooks/use-router';
 import OpacAdvancedFilters from './opac-advanced-filters';
+import { useTranslations } from 'next-intl';
 
 export default function OpacSearchBar() {
+  const t = useTranslations('opac.search');
+
   const router = useRouter();
   const [search, setSearch] = useState('');
   const [showAdvanced, setShowAdvanced] = useState(false);
@@ -52,7 +55,8 @@ export default function OpacSearchBar() {
           <Input
             ref={inputRef}
             type="text"
-            placeholder="Nhập từ khóa tìm kiếm..."
+            placeholder={t('placeholder')}
+            autoFocus
             value={search}
             onFocus={() => setShowSuggestions(true)}
             onChange={(e) => setSearch(e.target.value)}
@@ -91,7 +95,7 @@ export default function OpacSearchBar() {
           className="bg-primary hover:bg-primary/90 flex w-full cursor-pointer items-center gap-1 text-white sm:w-auto"
         >
           <Icons.search className="h-4 w-4" />
-          Tìm kiếm
+          <span className="hidden sm:inline">{t('search_button')}</span>
         </Button>
 
         <Button
@@ -100,7 +104,7 @@ export default function OpacSearchBar() {
           className="flex w-full cursor-pointer items-center gap-1 sm:w-auto"
         >
           <Icons.slidersHorizontal className="h-4 w-4" />
-          Bộ lọc nâng cao
+          <span className="hidden sm:inline">{t('advanced_filters_button')}</span>
         </Button>
       </div>
 

@@ -3,11 +3,13 @@
 import { useSearchParams } from 'next/navigation';
 import OpacCardSearch from '@/components/opac/opac-card-search';
 import OpacSearchBarSelect from '@/components/opac/opac-search-document/opac-search-bar-select';
+import { useTranslations } from 'next-intl';
 
 export default function OpacSearchPage() {
   const searchParams = useSearchParams();
   const p = searchParams.get('p') || '';
   const filtersParam = searchParams.get('filters');
+  const t = useTranslations('opac.search');
 
   let filters = null;
   if (filtersParam) {
@@ -31,52 +33,52 @@ export default function OpacSearchPage() {
         <div className="flex-grow">
           {filtersParam && (
             <div>
-              <h3>Raw Filters JSON:</h3>
+              <h3>{t('debug.raw_filters')}</h3>
               {filters ? (
                 <pre className="overflow-x-auto rounded bg-gray-100 p-2 text-sm">
                   {JSON.stringify(filters, null, 2)}
                 </pre>
               ) : (
-                <p>Could not parse filters.</p>
+                <p>{t('debug.parse_error')}</p>
               )}
             </div>
           )}
           {filters && (
             <div>
-              <h3>Applied Filters:</h3>
+              <h3>{t('debug.applied_filters')}</h3>
               <p>
-                <strong>Category:</strong> {filters.category}
+                <strong>{t('debug.category')}</strong> {filters.category}
               </p>
               {filters.author && (
                 <p>
-                  <strong>Author:</strong> {filters.author}
+                  <strong>{t('debug.author')}</strong> {filters.author}
                 </p>
               )}
               {filters.yearRange && (
                 <p>
-                  <strong>Year Range:</strong> {filters.yearRange[0]} - {filters.yearRange[1]}
+                  <strong>{t('debug.year_range')}</strong> {filters.yearRange[0]} - {filters.yearRange[1]}
                 </p>
               )}
               {filters.documentTypes && filters.documentTypes.length > 0 && (
                 <p>
-                  <strong>Document Types:</strong> {filters.documentTypes.join(', ')}
+                  <strong>{t('debug.document_types')}</strong> {filters.documentTypes.join(', ')}
                 </p>
               )}
               {filters.accessType && (
                 <p>
-                  <strong>Access Type:</strong> {filters.accessType}
+                  <strong>{t('debug.access_type')}</strong> {filters.accessType}
                 </p>
               )}
               {filters.keywordFilters && filters.keywordFilters.length > 0 && (
                 <div>
                   <p>
-                    <strong>Keyword Filters:</strong>
+                    <strong>{t('debug.keyword_filters')}</strong>
                   </p>
                   <ul>
                     {filters.keywordFilters.map((kf: any, index: number) => (
                       <li key={index}>
-                        Field: {kf.field}, Keyword: {kf.keyword}
-                        {kf.logic && `, Logic: ${kf.logic}`}
+                        {t('debug.field')}: {kf.field}, {t('debug.keyword')}: {kf.keyword}
+                        {kf.logic && `, ${t('debug.logic')}: ${kf.logic}`}
                       </li>
                     ))}
                   </ul>
@@ -84,7 +86,7 @@ export default function OpacSearchPage() {
               )}
             </div>
           )}
-          {!filters && filtersParam && <p className="text-red-500">Error loading filters.</p>}
+          {!filters && filtersParam && <p className="text-red-500">{t('debug.load_error')}</p>}
         </div>
       </div>
     </div>

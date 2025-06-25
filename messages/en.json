@@ -182,5 +182,50 @@
         "camera_access_denied": "Cannot access camera. Please check camera permissions."
       }
     }
+  },
+  "opac": {
+    "title": "Online Library",
+    "description": "Search, explore and access thousands of academic documents, books, journals and open educational resources from various sources.",
+    "search": {
+      "title": "Search Documents",
+      "scan_barcode": "Scan Barcode",
+      "placeholder": "Enter search keywords...",
+      "search_button": "Search",
+      "advanced_filters_button": "Advanced Filters",
+      "info": "You can search documents in Internal Documents, from partner units, Open Educational Resources (OER), or from external sources. If you cannot find the document you need, you can submit a purchase request.",
+      "history": {
+        "title": "Search History",
+        "clear_all": "Clear All",
+        "loading": "Loading...",
+        "no_history": "No search history yet."
+      },
+      "filters": {
+        "title": "Filters",
+        "reset": "Reset",
+        "apply": "Apply Filters",
+        "document_type": "Document Type",
+        "publication_year": "Publication Year",
+        "from": "From",
+        "to": "to",
+        "status": "Status",
+        "location": "Location",
+        "language": "Language"
+      },
+      "debug": {
+        "raw_filters": "Raw Filters JSON:",
+        "applied_filters": "Applied Filters:",
+        "category": "Category:",
+        "author": "Author:",
+        "year_range": "Year Range:",
+        "document_types": "Document Types:",
+        "access_type": "Access Type:",
+        "keyword_filters": "Keyword Filters:",
+        "field": "Field:",
+        "keyword": "Keyword:",
+        "logic": "Logic:",
+        "parse_error": "Could not parse filters.",
+        "load_error": "Error loading filters."
+      }
+    }
   }
 }

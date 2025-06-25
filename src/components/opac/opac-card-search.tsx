@@ -3,17 +3,20 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import Icons from '@/components/shares/icons';
 import OpacSearchBar from '@/components/opac/opac-search/opac-search-bar';
+import { useTranslations } from 'next-intl';
 
 export default function OpacCardSearch() {
+  const t = useTranslations('opac.search');
+
   return (
     <Card className="mb-8 border-t-4 border-t-blue-600">
       {/* --- Header --- */}
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-blue-600">Tìm kiếm tài liệu</CardTitle>
+        <CardTitle className="text-blue-600">{t('title')}</CardTitle>
         <Link href="/opac/barcode">
           <Button variant="outline" size="sm" className="flex cursor-pointer items-center gap-1">
             <Icons.camera className="h-4 w-4" />
-            <span className="hidden sm:inline">Quét mã vạch</span>
+            <span className="hidden sm:inline">{t('scan_barcode')}</span>
           </Button>
         </Link>
       </CardHeader>
@@ -28,9 +31,7 @@ export default function OpacCardSearch() {
         <div className="flex items-start text-sm text-gray-600">
           <Icons.info className="mt-0.5 mr-2 h-full w-5 flex-shrink-0 text-blue-600" />
           <p>
-            Bạn có thể tìm kiếm tài liệu trong Tài liệu nội sinh, từ các đơn vị liên kết, học liệu
-            mở (OER), hoặc từ các nguồn bên ngoài. Nếu không tìm thấy tài liệu bạn cần, bạn có thể
-            gửi đề xuất mua.
+            {t('info')}
           </p>
         </div>
       </CardFooter>

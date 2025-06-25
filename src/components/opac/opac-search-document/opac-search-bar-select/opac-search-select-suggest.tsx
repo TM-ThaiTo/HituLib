@@ -5,11 +5,13 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useSearchHistory, SearchHistoryItem } from '@/hooks/use-search-history';
 import Icons from '@/components/shares/icons';
+import { useTranslations } from 'next-intl';
 
 export default function OpacSearchSelectSuggest() {
   const { getHistory, clearHistory } = useSearchHistory();
   const [recentSearches, setRecentSearches] = useState<SearchHistoryItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const t = useTranslations('opac.search');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,7 +26,7 @@ export default function OpacSearchSelectSuggest() {
       <div className="mb-2 flex items-center justify-between">
         <span className="flex items-center text-sm font-semibold text-gray-800">
           <Icons.clock className="mr-2 h-4 w-4 text-gray-500" />
-          Lịch sử tìm kiếm
+          {t('history.title')}
         </span>
         {!loading && recentSearches.length > 0 && (
           <Button
@@ -36,7 +38,7 @@ export default function OpacSearchSelectSuggest() {
               setRecentSearches([]);
             }}
           >
-            Xoá tất cả
+            {t('history.clear_all')}
           </Button>
         )}
       </div>
@@ -44,7 +46,7 @@ export default function OpacSearchSelectSuggest() {
       {loading ? (
         <div className="flex h-24 items-center justify-center">
           <Icons.loader className="h-5 w-5 animate-spin text-gray-500" />
-          <span className="ml-2 text-sm text-gray-500">Đang tải...</span>
+          <span className="ml-2 text-sm text-gray-500">{t('history.loading')}</span>
         </div>
       ) : recentSearches.length > 0 ? (
         <div className="max-h-60 space-y-2 overflow-y-auto pr-1">
@@ -67,7 +69,7 @@ export default function OpacSearchSelectSuggest() {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center">
-          <p className="text-sm text-gray-500">Chưa có lịch sử tìm kiếm.</p>
+          <p className="text-sm text-gray-500">{t('history.no_history')}</p>
         </div>
       )}
     </Card>
