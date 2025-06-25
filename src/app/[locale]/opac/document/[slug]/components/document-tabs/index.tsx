@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function DocumentTabs({ document }: Props) {
-  const [activeTab, setActiveTab] = useState('detail');
+  const [activeTab, setActiveTab] = useState<string>('detail');
 
   return (
     <>

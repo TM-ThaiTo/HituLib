@@ -1,36 +1,61 @@
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { DocumentType } from '@/types/opac-document';
-import { useState } from 'react';
 import { toast } from 'sonner';
+import Icons from '@/components/shares/icons';
 
 type Props = {
   document: DocumentType;
 };
 
 export default function DocumentTabCitation({ document }: Props) {
-  const [activeFormat, setActiveFormat] = useState<'APA' | 'MLA' | 'Chicago'>('APA');
+  const citationFormats = [
+    {
+      key: 'APA',
+      label: 'APA',
+      getText: () =>
+        `${document.authors.map((a) => a.name).join(', ')} (${document.publicationYear}). ${document.title}${document.publisher ? `. ${document.publisher}` : '.'}${document.doi ? ` https://doi.org/${document.doi}` : ''}`,
+      render: () => (
+        <>
+          {document.authors.map((a) => a.name).join(', ')} ({document.publicationYear}).
+          <em> {document.title}</em>
+          {document.publisher ? `. ${document.publisher}` : '.'}
+          {document.doi ? ` https://doi.org/${document.doi}` : ''}
+        </>
+      ),
+    },
+    {
+      key: 'MLA',
+      label: 'MLA',
+      getText: () =>
+        `${document.authors.map((a) => a.name).join(', ')}. ${document.title}${document.publisher ? `, ${document.publisher}` : '.'} ${document.publicationYear}.`,
+      render: () => (
+        <>
+          {document.authors.map((a) => a.name).join(', ')}.<em> {document.title}</em>
+          {document.publisher ? `, ${document.publisher}` : '.'}
+          {document.publicationYear}.
+        </>
+      ),
+    },
+    {
+      key: 'Chicago',
+      label: 'Chicago',
+      getText: () =>
+        `${document.authors.map((a) => a.name).join(', ')}. ${document.title}${document.publisher ? `. ${document.publisher}` : '.'} ${document.publicationYear}.${document.doi ? ` https://doi.org/${document.doi}` : ''}`,
+      render: () => (
+        <>
+          {document.authors.map((a) => a.name).join(', ')}.<em>{document.title}</em>
+          {document.publisher ? `. ${document.publisher}` : '.'}
+          {document.publicationYear}.{document.doi ? ` https://doi.org/${document.doi}` : ''}
+        </>
+      ),
+    },
+  ];
 
-  const getCitationText = (format: 'APA' | 'MLA' | 'Chicago') => {
-    switch (format) {
-      case 'APA':
-        return `${document.authors.map((a) => a.name).join(', ')} (${document.publicationYear}). ${document.title}${document.publisher ? `. ${document.publisher}` : '.'}${document.doi ? ` https://doi.org/${document.doi}` : ''}`;
-      case 'MLA':
-        return `${document.authors.map((a) => a.name).join(', ')}. ${document.title}${document.publisher ? `, ${document.publisher}` : '.'} ${document.publicationYear}.`;
-      case 'Chicago':
-        return `${document.authors.map((a) => a.name).join(', ')}. ${document.title}${document.publisher ? `. ${document.publisher}` : '.'} ${document.publicationYear}.${document.doi ? ` https://doi.org/${document.doi}` : ''}`;
-    }
-  };
-
-  const handleCopyCitation = () => {
-    const citationText = getCitationText(activeFormat);
+  const handleCopyCitation = (formatKey: string) => {
+    const format = citationFormats.find((f) => f.key === formatKey);
+    if (!format) return;
+    const citationText = format.getText();
     navigator.clipboard.writeText(citationText);
     toast.success('Đã sao chép trích dẫn vào clipboard');
   };
@@ -43,62 +68,24 @@ export default function DocumentTabCitation({ document }: Props) {
           <CardDescription>Các định dạng trích dẫn cho tài liệu này</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div>
-            <h3 className="mb-2 font-medium">APA</h3>
-            <div className="rounded-md bg-gray-50 p-3">
-              {document.authors.map((a) => a.name).join(', ')} ({document.publicationYear}).
-              <em> {document.title}</em>
-              {document.publisher ? `. ${document.publisher}` : '.'}
-              {document.doi ? ` https://doi.org/${document.doi}` : ''}
+          {citationFormats.map((format) => (
+            <div key={format.key}>
+              <h3 className="mb-2 font-medium">{format.label}</h3>
+              <div className="relative rounded-md bg-gray-50 p-3">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="absolute top-2 right-2 cursor-pointer"
+                  onClick={() => handleCopyCitation(format.key)}
+                  aria-label={`Sao chép trích dẫn ${format.label}`}
+                >
+                  <Icons.copy size={18} />
+                </Button>
+                {format.render()}
+              </div>
             </div>
-          </div>
-
-          <div>
-            <h3 className="mb-2 font-medium">MLA</h3>
-            <div className="rounded-md bg-gray-50 p-3">
-              {document.authors.map((a) => a.name).join(', ')}.<em> {document.title}</em>
-              {document.publisher ? `, ${document.publisher}` : '.'}
-              {document.publicationYear}.
-            </div>
-          </div>
-
-          <div>
-            <h3 className="mb-2 font-medium">Chicago</h3>
-            <div className="rounded-md bg-gray-50 p-3">
-              {document.authors.map((a) => a.name).join(', ')}.<em>{document.title}</em>
-              {document.publisher ? `. ${document.publisher}` : '.'}
-              {document.publicationYear}.{document.doi ? ` https://doi.org/${document.doi}` : ''}
-            </div>
-          </div>
+          ))}
         </CardContent>
-        <CardFooter className="flex flex-col gap-2">
-          <div className="flex w-full gap-2">
-            <Button
-              variant={activeFormat === 'APA' ? 'default' : 'outline'}
-              className="flex-1"
-              onClick={() => setActiveFormat('APA')}
-            >
-              APA
-            </Button>
-            <Button
-              variant={activeFormat === 'MLA' ? 'default' : 'outline'}
-              className="flex-1"
-              onClick={() => setActiveFormat('MLA')}
-            >
-              MLA
-            </Button>
-            <Button
-              variant={activeFormat === 'Chicago' ? 'default' : 'outline'}
-              className="flex-1"
-              onClick={() => setActiveFormat('Chicago')}
-            >
-              Chicago
-            </Button>
-          </div>
-          <Button variant="outline" className="w-full" onClick={handleCopyCitation}>
-            Sao chép trích dẫn
-          </Button>
-        </CardFooter>
       </Card>
     </>
   );

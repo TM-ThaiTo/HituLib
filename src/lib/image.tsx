@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { IMAGE_URL } from '@/config/env';
 import ImagePublic from '@/constants/image';
 
+const notFoundImage = ImagePublic.notFound
 interface OptimizedImageProps {
   src: string;
   alt: string;
@@ -22,7 +23,7 @@ interface OptimizedImageProps {
 }
 
 export default function OptimizedImage({
-  src,
+  src = notFoundImage,
   alt,
   width,
   height,
@@ -54,7 +55,7 @@ export default function OptimizedImage({
   }, [src]);
 
   const handleError = () => {
-    setImgSrc(ImagePublic.notFound || fallbackImage);
+    setImgSrc(notFoundImage || fallbackImage);
     setError(true);
     setIsLoading(false);
   };

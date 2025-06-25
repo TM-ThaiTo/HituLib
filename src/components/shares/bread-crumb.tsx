@@ -2,7 +2,7 @@
 
 import { useEffect, Fragment } from 'react';
 import CustomLink from '@/hooks/next-link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,6 +14,7 @@ import {
 import { DataBreadcrumb } from '@/constants/breadcrumb';
 import routes from '@/constants/routes';
 import { useTranslations } from 'next-intl';
+import Icons from './icons';
 
 type BreadcrumbProps = {
   customTitle?: string;
@@ -84,7 +85,10 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <CustomLink href="/">{t('breadcrumb.home')}</CustomLink>
+            <CustomLink href="/" className='flex'>
+              <Icons.home className='h-5 w-5 mr-1' />
+              {t('breadcrumb.home')}
+            </CustomLink>
           </BreadcrumbLink>
         </BreadcrumbItem>
 
