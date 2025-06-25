@@ -56,7 +56,6 @@ export default function OpacSearchBar() {
             ref={inputRef}
             type="text"
             placeholder={t('placeholder')}
-            autoFocus
             value={search}
             onFocus={() => setShowSuggestions(true)}
             onChange={(e) => setSearch(e.target.value)}
