@@ -30,6 +30,9 @@ interface OpacSearchBarSelectProps {
 const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
   const router = useRouter();
   const t = useTranslations('opac.search');
+  const accessLocale = useTranslations('opac.search.advanced_filters.access');
+  const categoryLocale = useTranslations('opac.search.advanced_filters.category');
+
   const [filter, setFilter] = useState<Omit<FilterType, 'keywordFilters'>>({
     yearRange: [2000, new Date().getFullYear()],
     documentTypes: [],
@@ -147,10 +150,10 @@ const OpacSearchBar: React.FC<OpacSearchBarSelectProps> = ({ filters, q }) => {
   const handleYearRangeChange = (year: number[]) => {
     onChange({ yearRange: [year[0], year[1]] });
   };
-  const documentOptions = DOCUMENT_TYPE_OPTIONS();
-  const languageOptions = LANGUAGE_OPTIONS();
-  const locationOptions = LOCATION_OPTIONS(filter, handleLocationChange);
-  const availabilityOptions = AVAILABILITY_OPTIONS(filter, handleAvailabilityChange);
+  const documentOptions = DOCUMENT_TYPE_OPTIONS(categoryLocale);
+  const languageOptions = LANGUAGE_OPTIONS(categoryLocale);
+  const locationOptions = LOCATION_OPTIONS(filter, accessLocale, handleLocationChange);
+  const availabilityOptions = AVAILABILITY_OPTIONS(filter, accessLocale, handleAvailabilityChange);
 
   return (
     <Card className="max-w-[400px] border border-gray-200">

@@ -225,6 +225,113 @@
         "logic": "Logic:",
         "parse_error": "Could not parse filters.",
         "load_error": "Error loading filters."
+      },
+      "suggestions": {
+        "recent_searches": "Tìm kiếm gần đây",
+        "trending_searches": "Xu hướng tìm kiếm",
+        "proposed_documents": "Tài liệu đề xuất",
+        "close_suggestions": "Đóng gợi ý",
+        "remove_history": "Xoá lịch sử"
+      },
+      "advanced_filters": {
+        "tabs": {
+          "material": "Loại tài liệu",
+          "access": "Truy cập",
+          "display": "Hiển thị"
+        },
+        "buttons": {
+          "reset": "Đặt lại",
+          "apply": "Áp dụng"
+        },
+        "category": {
+          "publication_year": "Năm xuất bản",
+          "from_year": "Từ năm:",
+          "to_year": "đến",
+          "document_type": "Loại tài liệu",
+          "language": "Ngôn ngữ",
+          "document_type_options": {
+            "book": "Sách in",
+            "journal": "Tạp chí/Báo",
+            "thesis": "Luận văn/Luận án",
+            "video": "Video/Đa phương tiện",
+            "database": "Cơ sở dữ liệu",
+            "ebook": "Sách điện tử",
+            "audio": "Âm thanh"
+          },
+          "language_options": {
+            "vietnamese": "Tiếng Việt",
+            "english": "Tiếng Anh",
+            "chinese": "Tiếng Trung",
+            "japanese": "Tiếng Nhật"
+          }
+        },
+        "access": {
+          "status": "Tình trạng",
+          "location": "Vị trí",
+          "access_type": "Loại truy cập",
+          "availability_options": {
+            "available": "Có sẵn",
+            "online_access": "Truy cập trực tuyến",
+            "fulltext": "Có toàn văn",
+            "open_access": "Truy cập mở"
+          },
+          "location_options": {
+            "main": "Thư viện trung tâm",
+            "it": "Thư viện khoa CNTT",
+            "engineering": "Thư viện khoa Kỹ thuật",
+            "economics": "Thư viện khoa Kinh tế"
+          },
+          "access_options": {
+            "all": "Tất cả",
+            "free": "Miễn phí",
+            "subscription": "Yêu cầu đăng ký",
+            "restricted": "Hạn chế truy cập"
+          }
+        },
+        "display": {
+          "sort_by": "Sắp xếp theo",
+          "sort_placeholder": "Chọn cách sắp xếp",
+          "results_per_page": "Kết quả mỗi trang",
+          "results_placeholder": "Chọn số kết quả",
+          "display_fields": "Hiển thị trường",
+          "sort_options": {
+            "relevance": "Độ liên quan",
+            "newest": "Mới nhất",
+            "oldest": "Cũ nhất",
+            "title_asc": "Tên sách (A-Z)",
+            "title_desc": "Tên sách (Z-A)",
+            "author_asc": "Tác giả (A-Z)",
+            "author_desc": "Tác giả (Z-A)"
+          },
+          "results_options": {
+            "10": "10 kết quả",
+            "20": "20 kết quả",
+            "50": "50 kết quả",
+            "100": "100 kết quả"
+          },
+          "field_options": {
+            "title": "Nhan đề",
+            "author": "Tác giả",
+            "publisher": "Nhà xuất bản",
+            "year": "Năm xuất bản",
+            "description": "Mô tả",
+            "subject": "Chủ đề"
+          }
+        },
+        "and_or": {
+          "field_placeholder": "Chọn trường",
+          "keyword_placeholder": "Nhập từ khóa tìm kiếm",
+          "logic_placeholder": "Logic",
+          "add_row": "Thêm dòng",
+          "search_fields": {
+            "all": "Tất cả trường",
+            "title": "Nhan đề",
+            "author": "Tác giả",
+            "subject": "Chủ đề",
+            "publisher": "Nhà xuất bản",
+            "isbn": "ISBN/ISSN"
+          }
+        }
       }
     }
   }

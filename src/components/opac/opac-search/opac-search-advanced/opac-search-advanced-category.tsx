@@ -5,6 +5,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Separator } from '@/components/ui/separator';
 import { CategoryFilterType } from '@/types/opac-search';
 import { DOCUMENT_TYPE_OPTIONS, LANGUAGE_OPTIONS } from '@/constants/opac-search';
+import { useTranslations } from 'next-intl';
 
 interface Props {
   filter: CategoryFilterType;
@@ -12,6 +13,8 @@ interface Props {
 }
 
 export default function OpacSearchAdvancedCategory({ filter, onChange }: Props) {
+  const t = useTranslations('opac.search.advanced_filters.category');
+
   const handleCheckbox = (id: string) => {
     const exists = filter.documentTypes.includes(id);
     const newTypes = exists
@@ -30,13 +33,13 @@ export default function OpacSearchAdvancedCategory({ filter, onChange }: Props) 
   const renderSlider = () => {
     return (
       <div className="flex flex-1 flex-col">
-        <Label htmlFor="year">Năm xuất bản</Label>
+        <Label htmlFor="year">{t('publication_year')}</Label>
         <div className="mt-1 mb-2 flex items-center">
           <Icons.calendar className="mr-1 h-4 w-4 text-gray-500" />
           <span className="text-muted-foreground text-sm">
-            Từ năm:{' '}
+            {t('from_year')}{' '}
             <b>
-              {filter.yearRange[0]} đến {filter.yearRange[1]}
+              {filter.yearRange[0]} {t('to_year')} {filter.yearRange[1]}
             </b>
           </span>
         </div>
@@ -59,10 +62,10 @@ export default function OpacSearchAdvancedCategory({ filter, onChange }: Props) 
   };
 
   const renderCheckboxDocumentType = () => {
-    const documentOptions = DOCUMENT_TYPE_OPTIONS();
+    const documentOptions = DOCUMENT_TYPE_OPTIONS(t);
     return (
       <div>
-        <Label className="mb-2 block">Loại tài liệu</Label>
+        <Label className="mb-2 block">{t('document_type')}</Label>
         <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-2">
           {documentOptions.map((type) => (
             <div key={type.id} className="flex items-center space-x-2">
@@ -87,10 +90,10 @@ export default function OpacSearchAdvancedCategory({ filter, onChange }: Props) 
   };
 
   const renderLanguges = () => {
-    const languageOptions = LANGUAGE_OPTIONS();
+    const languageOptions = LANGUAGE_OPTIONS(t);
     return (
       <div>
-        <Label className="mb-2 block">Ngôn ngữ</Label>
+        <Label className="mb-2 block">{t('language')}</Label>
         <div className="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-2">
           {languageOptions.map((lang) => (
             <div key={lang.id} className="flex items-center space-x-2">
