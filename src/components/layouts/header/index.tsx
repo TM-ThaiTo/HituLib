@@ -10,12 +10,14 @@ export default async function MainHeader() {
   // console.log('data', data);
   return (
     <header>
-      <div className="flex h-[35px] items-center justify-between bg-[#0a58ca] px-4">
+      <div className="flex h-[35px] items-center justify-between bg-[#0056a4] px-4">
         <div className="container flex justify-end">
-          <p className="text-[13px] font-normal text-white">Hội tụ và chia sẻ tri thức</p>
+          <p className="text-[13px] font-normal text-[var(--primary-foreground)]">
+            Hội tụ và chia sẻ tri thức
+          </p>
         </div>
       </div>
-      <div className="flex h-[81px] items-center justify-between bg-white px-4 shadow-sm">
+      <div className="flex h-[81px] items-center justify-between bg-[var(--card)] shadow-sm">
         <div className="container flex items-center justify-between">
           <CustomLink href="/" className="flex items-center">
             <OptimizedImage

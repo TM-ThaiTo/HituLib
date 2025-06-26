@@ -32,25 +32,27 @@ export default function OpacDocumentLatest() {
   }
 
   return (
-    <div className="mb-8 rounded-lg bg-white p-6 shadow-sm">
+    <div className="mb-8 rounded-lg bg-[var(--card)] p-6 shadow-sm">
       <TitleLayout title={t('title')} />
 
       <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
         {documents.map((doc) => (
           <CustomLink href={mapSlug(doc.title, doc.id)} key={doc.id} className="group block">
-            <div className="flex h-full flex-col rounded-md border p-4 transition-colors hover:border-blue-300 hover:bg-blue-50/30">
+            <div className="flex h-full flex-col rounded-md border border-[var(--border)] p-4 transition-colors hover:border-[var(--primary)] hover:bg-[var(--primary)]/10">
               <div className="mb-4 flex h-48 w-full justify-center">
                 <OptimizedImage
                   src={doc.coverImage}
                   alt={doc.title}
-                  className="h-full w-full rounded-md border border-gray-200 object-cover"
+                  className="h-full w-full rounded-md border border-[var(--border)] object-cover"
                 />
               </div>
               <div className="flex flex-grow flex-col justify-between">
-                <h3 className="mb-2 line-clamp-2 text-center font-medium text-blue-600 group-hover:underline">
+                <h3 className="mb-2 line-clamp-2 text-center font-medium text-[var(--primary)] group-hover:underline">
                   {doc.title}
                 </h3>
-                <p className="mb-4 text-center text-sm text-gray-500">{doc.authors.join(', ')}</p>
+                <p className="mb-4 text-center text-sm text-[var(--muted-foreground)]">
+                  {doc.authors.join(', ')}
+                </p>
               </div>
             </div>
           </CustomLink>

@@ -15,14 +15,14 @@ export default async function NewsEventsLayout() {
   const t = await getTranslations('home.news_events');
 
   return (
-    <div className="max-w-[1074px] rounded-lg bg-white p-4 shadow-sm sm:p-6 md:p-9">
+    <div className="max-w-[1074px] rounded-lg bg-[var(--card)] p-4 shadow-sm sm:p-6 md:p-9">
       <div className="flex items-center gap-4">
         <div className="flex-1">
           <TitleLayout title={t('title')} />
         </div>
         <Button
           variant="ghost"
-          className="group flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-blue-600"
+          className="group flex items-center gap-1 text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--primary)]"
           asChild
         >
           <CustomLink href="/category/tin-tuc">
@@ -36,7 +36,7 @@ export default async function NewsEventsLayout() {
         {data.map((item) => (
           <div
             key={item.id}
-            className="group flex gap-4 rounded-lg border border-gray-100 bg-white p-3 transition-all duration-300"
+            className="group flex gap-4 rounded-lg border border-[var(--border)] bg-[var(--card)] p-3 transition-all duration-300"
           >
             <div className="flex-shrink-0">
               <CustomLink href={`${mapSlugNews(item.tieuDe, item.id)}`}>
@@ -52,7 +52,7 @@ export default async function NewsEventsLayout() {
 
             <div className="flex-1">
               <CustomLink href={`${mapSlugNews(item.tieuDe, item.id)}`}>
-                <div className="cursor-pointer text-base font-medium transition-colors duration-300 group-hover:text-blue-600">
+                <div className="cursor-pointer text-base font-medium transition-colors duration-300 group-hover:text-[var(--primary)]">
                   {item.tieuDe}
                 </div>
               </CustomLink>

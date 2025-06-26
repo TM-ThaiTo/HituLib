@@ -97,7 +97,7 @@ export function BreadcrumbWithCustomSeparator({ customTitle }: BreadcrumbProps) 
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               {index === breadcrumbs.length - 1 ? (
-                <BreadcrumbPage className="text-primary max-w-[200px] truncate overflow-hidden font-semibold whitespace-nowrap sm:max-w-[300px] md:max-w-[400px] lg:max-w-[600px] xl:max-w-[800px]">
+                <BreadcrumbPage className="max-w-[200px] truncate overflow-hidden whitespace-nowrap sm:max-w-[300px] md:max-w-[400px] lg:max-w-[600px] xl:max-w-[800px]">
                   {customTitle || item.tieuDe}
                 </BreadcrumbPage>
               ) : (
