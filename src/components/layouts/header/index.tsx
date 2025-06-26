@@ -17,7 +17,7 @@ export default async function MainHeader() {
           </p>
         </div>
       </div>
-      <div className="flex h-[81px] items-center justify-between bg-[var(--card)] px-4 shadow-sm">
+      <div className="flex h-[81px] items-center justify-between bg-[var(--card)] shadow-sm">
         <div className="container flex items-center justify-between">
           <CustomLink href="/" className="flex items-center">
             <OptimizedImage
