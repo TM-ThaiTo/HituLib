@@ -43,7 +43,7 @@ export default function LanguageSwitcher() {
         <Button
           variant="outline"
           size="icon"
-          className="h-10 w-10 cursor-pointer rounded-full p-0 text-xl"
+          className="h-10 w-10 cursor-pointer rounded-full p-0 text-xl text-[var(--foreground)]"
           aria-label="Chuyển ngôn ngữ"
         >
           <span className="text-xl">{currentLang?.flag}</span>

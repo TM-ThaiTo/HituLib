@@ -26,12 +26,12 @@ export default function SearchButton() {
   return (
     <div className="relative flex items-center">
       <div
-        className="group relative flex h-9 w-9 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-gray-300 bg-[#0a58ca]"
+        className="group relative flex h-9 w-9 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-[var(--border)] bg-[var(--primary)]"
         onClick={handleSearchToggle}
       >
         <Icons.search
           size={17}
-          color="white"
+          color="var(--primary-foreground)"
           className="absolute transform transition-all duration-300"
         />
       </div>
@@ -39,7 +39,7 @@ export default function SearchButton() {
       {isSearchOpen && (
         <form
           onSubmit={handleSubmit}
-          className="absolute top-full right-0 z-10 mt-2 flex items-center border border-gray-300 bg-white p-2 shadow-md"
+          className="absolute top-full right-0 z-10 mt-2 flex items-center border border-[var(--border)] bg-[var(--card)] p-2 shadow-md"
         >
           <input
             type="text"
@@ -48,12 +48,12 @@ export default function SearchButton() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-52 rounded-sm px-2 py-1 outline-none"
           />
-          <button type="submit" className="ml-2 text-blue-500 hover:text-blue-700">
+          <button type="submit" className="ml-2 text-[var(--primary)] hover:text-[var(--primary)]">
             <IconButtonSearch />
           </button>
           <button
             type="button"
-            className="ml-2 text-gray-500 hover:text-gray-700"
+            className="ml-2 text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
             onClick={handleSearchToggle}
           >
             <IconButtonClose />
